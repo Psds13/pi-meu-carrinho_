@@ -1,0 +1,22 @@
+Front-end:
+- Matheus
+- Dayane
+- Edmilson
+- Sergio
+- Rayane
+- Ronaldo
+- Alexandre
+- Fellype
+- Hallan
+
+Back-end:
+- Pedro
+- Hallan
+- Jessica
+- Ronaldo
+
+Banco de dados:
+- Pablo
+- Istefanne
+- Lucas
+- Hallan
