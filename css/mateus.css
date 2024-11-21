@@ -80,7 +80,7 @@ header {
   }
   
   #promocoes {
-  padding: 20px; /* Adiciona um espaço interno*/
+  padding: 60px; /* Adiciona um espaço interno*/
   }
   
   
@@ -151,7 +151,7 @@ header {
     scroll-snap-type: x mandatory;  /* Ativa o efeito "snap" horizontal, garantindo que os itens se alinhem ao rolar */
     scroll-behavior: smooth;  /* Suaviza o efeito de rolagem */
     padding: 10px;  /* Adiciona um espaço de 10px ao redor da grade de promoções */
-    width: 97%;  /* Define que a largura da grade será de 97% do contêiner pai */
+    width: 97%;  /* Define a largura da grade do contêiner pai */
     max-width: 100%;  /* Garante que a largura da grade não ultrapasse 100% */
     overflow-x: hidden;  /* Impede o aparecimento de barras de rolagem horizontais */
   }
@@ -159,7 +159,7 @@ header {
   .promocao-item {
     flex: 0 0 auto;  /* Impede que o item se redimensione automaticamente, fazendo com que cada item tenha um tamanho fixo */
     text-align: center;  /* Centraliza o texto dentro do item */
-    border: 2px solid #ccc;  /* Adiciona uma borda de 2px ao redor de cada item */
+    border: 2px solid rgb(202, 202, 202);  /* Adiciona uma borda de 2px ao redor de cada item */
     padding: 9px;  /* Adiciona 9px de espaçamento interno ao redor de cada item */
     background-color: #f9f9f9;  /* Define a cor de fundo como um tom claro de cinza */
     border-radius: 8px;  /* Arredonda os cantos da borda */
