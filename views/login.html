@@ -12,26 +12,25 @@
 <body>
   <!-- Cabeçalho -->
   <header>
-     <!-- Menu inicio-->
-     <div class="conteiner_topo">
+    <div class="conteiner_topo">
       <div class="topo_objeto">
         <p>Logo App</p>
         <a href="/views/login.html">Login</a>
       </div>
     </div>
-    <div class="topnav" id="myTopnav">
-      <a href="/index.html" class="active">Home</a>
-      <a href="#news">Destaques</a>
-      <a href="views/mateus.html">promoções</a>
-      <a href="#about">contato</a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-    <!-- Menu fim -->
   </header>
 
-  <!-- Conteúdo Principal -->
+  <!-- Menu de navegação (card flutuante) -->
+  <div class="topnav-container">
+    <div class="topnav-card" id="myTopnav">
+      <a href="/index.html" class="nav-item">Home</a>
+      <a href="#news" class="nav-item">Destaques</a>
+      <a href="views/mateus.html" class="nav-item">Promoções</a>
+      <a href="#about" class="nav-item">Contato</a>
+    </div>
+    <button class="topnav-toggle" onclick="toggleNav()">&#9776;</button>
+  </div>
+
   <main>
     <section class="form-container">
       <h2>Login</h2> <br>
@@ -42,12 +41,12 @@
         <label for="password">Senha:</label>
         <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
         <br> <br>
-        <button type="submit">Entrar</button> 
+        <button type="submit">Entrar</button>
       </form>
       <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
     </section>
   </main>
-  <script src="/js/menu.js"></script>
 
+  <script src="/js/menu.js"></script>
 </body>
 </html>
