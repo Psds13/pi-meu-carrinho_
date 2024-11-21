@@ -24,4 +24,4 @@ document.addEventListener("click", function(event) {
   if (!nav.contains(event.target) && !toggleButton.contains(event.target)) {
     nav.style.display = "none"; // Fecha o menu
   }
-});
+ });
