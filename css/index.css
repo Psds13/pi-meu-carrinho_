@@ -13,33 +13,36 @@ body {
 
 /* cabeçalho */
 .conteiner_topo{
-  background-color: #333;;
+  background-color: #01afff;
+  height: 150px;
   justify-content: center;
+  text-align: center;
   display: flex;
-  height: 120px;
  
 }
 .topo_objeto {
-  width: 1200px;
+  width: 400px;
   height: 100px;
-  padding: 20px;
+  justify-content: center;
+  display: flex;
+  padding: 10px;
+ 
 }
 
 .topo_objeto p{
   color: #ffffff;
   font-size: 20px;
 }
+.topo_objeto img{
+  width: 280px;
+  height: 120px;
+}
+
 /* botão ligin*/
 .topo_objeto a{
   color: #15ff00;
-  font-size: 12px;
   text-decoration: none;
 
-}
-
-
-.topo_objeto img{
-  height: 60px;
 }
 
 
@@ -47,6 +50,7 @@ body {
 .topnav {
   overflow: hidden;
   background-color: #242424;
+  
 
 }
 
@@ -68,7 +72,7 @@ body {
 }
 
 .topnav a.active {
-  background-color: #0011ff;
+  background-color:  #0073a8;
   color: white;
 }
 
