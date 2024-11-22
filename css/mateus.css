@@ -1,5 +1,5 @@
 header {
-background-color: black; /*  cor de fundo do cabeçalho */
+background-color: rgb(53, 8, 8); /*  cor de fundo do cabeçalho */
 padding: 20px; /* adiciona um espaço interno */
 text-align: center; /* alinha o texto do cabeçalho no centro */ 
 }
@@ -189,7 +189,7 @@ z-index: 10;  /* Garante que as setas fiquem acima dos outros elementos */
   right: 10px; /* Posiciona a seta direita */
 }
     
-  /* Opcional: estilizacao das setas para ficarem visíveis em dispositivos móveis */
+  /* estilizacao das setas para ficarem visíveis em dispositivos móveis */
 .arrow {
 display: block;  /* Faz o elemento se comportar como um bloco, ocupando toda a largura disponível (pode ser alterado para 'inline-block' se necessário) */
 padding: 15px;  /* Adiciona um preenchimento interno de 15px ao redor do conteúdo do botão (a seta) */
@@ -246,7 +246,7 @@ body {
 font-family: Arial, sans-serif; /* Define a fonte do texto para a página, escolhendo Arial como padrão, e sans-serif como uma alternativa */
 margin: 0; /* Remove as margens padrões do navegador ao redor da página */
 padding: 0; /* Remove o padding (espaçamento interno) da página */
-background-color: rgb(66, 66, 66); /* cor de fundo da pagina */
+background-color:white; /* cor de fundo da pagina */
 }
     
     /* Estilo para o rodapé */
@@ -277,20 +277,20 @@ footer a:hover {
   /* Estilizando os botões de categorias */
 nav ul {
 display: flex;  /* Flexbox para garantir que os botões fiquem alinhados horizontalmente */
-flex-wrap: wrap;  /* Permite que os botões quebrem de linha se não houver espaço suficiente */
-gap: 8px; /* Diminui o espaçamento entre os botões (antes estava 5px) */
+flex-wrap:initial;  /* Permite que os botões quebrem de linha se não houver espaço suficiente */
+gap: 10px; /* Diminui o espaçamento entre os botões (antes estava 5px) */
 justify-content: center;  /* Centraliza os botões no contêiner */
-margin-top: 15px; /* Espaçamento entre a barra de pesquisa e os botões */
+margin-top: 10px; /* Espaçamento entre a barra de pesquisa e os botões */
 padding: 0; /* Remove qualquer padding adicional do ul */
 }
   
-nav ul li {
+nav ul {
 flex: 1 1 100px;  /* Flexível: cada botão terá ao menos 120px, mas pode crescer para ocupar o espaço disponível */
 text-align: center; /* Centraliza o texto dentro de cada botão */
 }
   
-nav ul li button {
-padding: 10px 20px; /* Reduz o preenchimento interno do botão */
+nav ul button {
+padding: 10px ; /* Reduz o preenchimento interno do botão */
 font-size: 15px;  /* Tamanho de fonte */
 background-color: rgb(51, 115, 126);  /* Cor de fundo dos botões */
 color: black; /* Cor do texto */
@@ -298,16 +298,16 @@ border: none; /* Remove a borda padrão */
 border-radius: 20px;  /* Cantos arredondados */
 cursor: pointer;  /* Adiciona o cursor de mão para indicar que é clicável */
 transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
-width: 90%; /* Diminui a largura dos botões */
+width: 20%; /* Diminui a largura dos botões */
 }
   
   /* Efeito de hover nos botões */
-nav ul li button:hover {
+nav ul button:hover {
 background-color: rgb(75, 168, 162); /* Cor de fundo quando o mouse passa sobre o botão */
 transform: scale(1.05);  /* Aumenta levemente o tamanho do botão */
 }
   
-nav ul li button:active {
+nav ul button:active {
 background-color: #00332e; /* Cor de fundo ao clicar */
 }
   

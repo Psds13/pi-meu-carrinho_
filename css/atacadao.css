@@ -1,6 +1,6 @@
 header {
-    background-color: black;
-    padding: 30px;
+    background-color: rgb(112, 82, 27);
+    padding: 20px;
     text-align: center;
     }
     
@@ -23,10 +23,10 @@ header {
     
     /* Estilizando a imagem para que fique como um ícone */
     .icon {
-    width: 100px; /* Ajuste o tamanho */
-    height: 70px; /* Ajuste o tamanho */
+    width: 145px; /* Ajuste o tamanho */
+    height: 80px; /* Ajuste o tamanho */
     object-fit: contain; /* Garante que a imagem não fique distorcida */     
-    border-radius: 50%; /* Deixa a imagem redonda (caso tenha um formato quadrado) */
+    border-radius: 0%; /* Deixa a imagem redonda (caso tenha um formato quadrado) */
     margin-right: 0px; /* Ajusta o espaçamento entre a imagem e o texto */
     vertical-align: middle; /* Alinha a imagem com o texto */
     }
@@ -38,13 +38,17 @@ header {
     margin-left: 50px; /* Espaçamento entre a barra de pesquisa e o conteúdo anterior */
     }
     
+.search-container {
+position: relative; /* Torna possível o posicionamento do botão dentro do campo */
+}
     .search-input {
-    padding: 8px 12px;
+    padding: 8px 12px 8px 30px;
     border: 1px solid #ccc; /* Borda ao redor do campo de pesquisa */
     border-radius: 30px; /* Arredonda os cantos */
-    width: 500px; /* Definindo o tamanho da barra de pesquisa */
+    width: 750px; /* Definindo o tamanho da barra de pesquisa */
     font-size: 16px;    
     outline: none;
+    box-sizing: border-box;
     }
     
     .search-input:focus {
@@ -52,7 +56,11 @@ header {
     }
     
     .search-button {
+    position:static;
     background-color: transparent;
+    right: 30%;
+    top: 50%;
+    transform: translateY(-50%);
     border: none;
     font-size: 18px;
     cursor: pointer;
@@ -186,20 +194,20 @@ header {
      /* Estilizando os botões de categorias */
     nav ul {
     display: flex;  /* Flexbox para garantir que os botões fiquem alinhados horizontalmente */
-    flex-wrap: wrap;  /* Permite que os botões quebrem de linha se não houver espaço suficiente */
-    gap: 8px; /* Diminui o espaçamento entre os botões (antes estava 5px) */
+    flex-wrap: initial;  /* Permite que os botões quebrem de linha se não houver espaço suficiente */
+    gap: 10px; /* Diminui o espaçamento entre os botões (antes estava 5px) */
     justify-content: center;  /* Centraliza os botões no contêiner */
-    margin-top: 15px; /* Espaçamento entre a barra de pesquisa e os botões */
+    margin-top: 10px; /* Espaçamento entre a barra de pesquisa e os botões */
     padding: 0; /* Remove qualquer padding adicional do ul */
     }
     
-    nav ul li {
+    nav ul {
     flex: 1 1 100px;  /* Flexível: cada botão terá ao menos 120px, mas pode crescer para ocupar o espaço disponível */
     text-align: center; /* Centraliza o texto dentro de cada botão */
     }
     
-    nav ul li button {
-    padding: 10px 20px; /* Reduz o preenchimento interno do botão */
+    nav ul button {
+    padding: 10px; /* Reduz o preenchimento interno do botão */
     font-size: 15px;  /* Tamanho de fonte */
     background-color: rgb(51, 115, 126);  /* Cor de fundo dos botões */
     color: black; /* Cor do texto */
@@ -207,21 +215,21 @@ header {
     border-radius: 20px;  /* Cantos arredondados */
     cursor: pointer;  /* Adiciona o cursor de mão para indicar que é clicável */
     transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
-    width: 90%; /* Diminui a largura dos botões */
+    width: 20%; /* Diminui a largura dos botões */
     }
     
     /* Efeito de hover nos botões */
-    nav ul li button:hover {
+    nav ul button:hover {
     background-color: rgb(75, 168, 162); /* Cor de fundo quando o mouse passa sobre o botão */
     transform: scale(1.05);  /* Aumenta levemente o tamanho do botão */
     }
     
-    nav ul li button:active {
+    nav ul button:active {
     background-color: #00332e; /* Cor de fundo ao clicar */
     }
     
     body {
-    background: rgb(66, 66, 66); /* Gradiente de cor cinza */
+    background: white; /* cor de fundo da pagina */
     font-family: Arial, sans-serif; /* Define a fonte do texto para a página, escolhendo Arial como padrão, e sans-serif como uma alternativa */
     margin: 0; /* Remove as margens padrões do navegador ao redor da página */
     padding: 0; /* Remove o padding (espaçamento interno) da página */
