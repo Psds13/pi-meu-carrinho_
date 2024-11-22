@@ -8,15 +8,15 @@ body {
 
 /* Cabeçalho */
 .conteiner_topo {
-  background-color: #01afff;
-  height: 150px;
+  background-color: #0077ff;
+  height: 120px;
   justify-content: center;
   text-align: center;
   display: flex;
 }
 
 .topo_objeto {
-  width: 400px;
+  width: 40px;
   height: 100px;
   justify-content: center;
   display: flex;
@@ -28,65 +28,11 @@ body {
   font-size: 20px;
 }
 
-.topo_objeto img {
-  width: 280px;
-  height: 120px;
-}
-
-/* Botão de login */
-.topo_objeto a {
-  color: #15ff00;
-  text-decoration: none;
-}
-
-/* Container do menu (flutuante) */
-.topnav-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 100;
-}
-
-.topnav-card {
-  display: none; /* Inicialmente escondido */
-  background-color: #242424;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 15px;
+.topo_objeto img{
   width: 200px;
-  transition: all 0.3s ease;
+  height: 80px;
 }
 
-.nav-item {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 20px;
-  font-size: 18px;
-  transition: background-color 0.3s;
-}
-
-.nav-item:hover {
-  background-color: #333;
-}
-
-.topnav-toggle {
-  background-color: #242424;
-  color: #fff;
-  border: none;
-  padding: 15px;
-  font-size: 30px;
-  cursor: pointer;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.topnav-toggle:hover {
-  background-color: #333;
-}
 
 /* Formulário de cadastro */
 .form-container {
