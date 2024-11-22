@@ -6,42 +6,50 @@
   <title>Cadastro - MeuCarrinho</title>
   <link rel="stylesheet" href="/css/login.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<<<<<<< HEAD
-=======
   <link rel="stylesheet" href="/css/pg_mercados.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
->>>>>>> 4af55528c334901f66df9fdd6ef7a7a17baa1de0
 </head>
 <body>
   <!-- Cabeçalho -->
   <header>
-    <nav>
-      <h1>MeuCarrinho</h1> <br> 
-    </nav>
+    <div class="conteiner_topo">
+      <div class="topo_objeto">
+        <p>Logo App</p>
+        <a href="/views/login.html">Login</a>
+      </div>
+    </div>
   </header>
 
-  <!-- Conteúdo Principal -->
+  <!-- Menu de navegação (card flutuante) -->
+  <div class="topnav-container">
+    <div class="topnav-card" id="myTopnav">
+      <a href="/index.html" class="nav-item">Home</a>
+      <a href="#news" class="nav-item">Destaques</a>
+      <a href="views/mateus.html" class="nav-item">Promoções</a>
+      <a href="#about" class="nav-item">Contato</a>
+    </div>
+    <button class="topnav-toggle" onclick="toggleNav()">&#9776;</button>
+  </div>
+
   <main>
     <section class="form-container">
-      <h2>Cadastro MeuCarrinho</h2> <br>
+      <h2>Cadastro</h2> <br>
       <form action="index.html" method="POST">
-        <label for="nome">Nome:</label>
-        <input type="nome" id="nome" name="nome" placeholder="Seu nome" required>
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
         <br> <br>
-        <labe for="data_nasc">Data de nascimento</label>
-        <input type="date" id="data_nasc" name="data_nasc" placeholder="Sua data de nascimento" required>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
         <br> <br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Seu email" required>
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
         <br> <br>
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha">
-        <br> <br>
-        <button type="submit">Confirmar</button> <br> <br>
-        <button type="submit">Cancelar</button> 
+        <button type="submit">Cadastrar</button>
       </form>
+      <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
     </section>
   </main>
 
+  <script src="/js/menu.js"></script>
 </body>
 </html>
