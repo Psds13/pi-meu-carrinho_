@@ -13,18 +13,18 @@ body {
 
 /* cabeçalho */
 .conteiner_topo{
-  background-color: #474747;
+  background-color: #0077ff;
   height: 120px;
   text-align: center;
   display: flex;
 }
 
 .topo_objeto {
-  width: 400px;
+  width: 1100px;
   height: 100px;
   justify-content: center;
   display: flex;
-  padding: 25px;
+  padding: 18px;
 }
 
 .topo_objeto img{
@@ -34,15 +34,16 @@ body {
 
  /* estilizando o botão 'login' */
  .login-btn {
-  font-size: 20px; /* tamanho da fonte do botão 'login'*/
+  font-size: 15px; /* tamanho da fonte do botão 'login'*/
   position: absolute; 
   top: 40px; /* Distância do topo */
-  right: 150px;  /* Distância da direita */
+  right: 170px;  /* Distância da direita */
   text-decoration: none; /* Remove o sublinhado do link */
   background-color: white; /* Cor de fundo */
   color: black;  /* Cor do texto */
   padding: 10px 30px; /* Preenchimento */
   border-radius: 20px; /* Cantos arredondados */
+  transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
   }
     
   .login-btn:hover {
@@ -465,7 +466,7 @@ footer{
 .search-form {
   display: inline-flex; /* Flexbox para alinhar o campo de pesquisa e o botão */
   align-items: center;
-  margin-left: 30px; /* Espaçamento entre a barra de pesquisa e o conteúdo anterior */
+  margin-left: -400px; /* Espaçamento entre a barra de pesquisa e o conteúdo anterior */
   }
     
   .search-container {
@@ -473,10 +474,10 @@ footer{
   }
     
   .search-input {
-  padding: 10px 15px 13px 20px; /* Espaço à esquerda para o ícone da lupa */
+  padding: 7px 15px 13px 20px; /* Espaço à esquerda para o ícone da lupa */
   border: 1px solid #ccc; /* Borda ao redor do campo de pesquisa */
   border-radius: 30px; /* Arredonda os cantos */
-  width:650px; /* Tamanho da barra de pesquisa */
+  width:600px; /* Tamanho da barra de pesquisa */
   font-size: 16px; /* Tamanho da fonte */
   outline: none; /* Remove o contorno padrão ao focar no campo */
   box-sizing: border-box; /* Garante que o padding não afete a largura total */
@@ -506,3 +507,24 @@ footer{
   outline: none; /* Remove o contorno do botão ao focar */
   }
  
+ /* estilizando o botão 'login' */
+ .cadastro-btn {
+  font-size: 15px; /* tamanho da fonte do botão 'login'*/
+  position: absolute; 
+  top: 40px; /* Distância do topo */
+  right: 20px;  /* Distância da direita */
+  text-decoration: none; /* Remove o sublinhado do link */
+  background-color: white; /* Cor de fundo */
+  color: black;  /* Cor do texto */
+  padding: 10px 30px; /* Preenchimento */
+  border-radius: 20px; /* Cantos arredondados */
+  transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
+  }
+    
+  .cadastro-btn:hover {
+  background-color: gray /* Muda a cor ao passar o mouse */
+  }
+  
+  .cadastro-btn:active{
+  background-color:rgb(55, 113, 160)  ;  /* Cor de fundo ao clicar */
+  }
