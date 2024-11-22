@@ -13,27 +13,22 @@ body {
 
 /* cabeçalho */
 .conteiner_topo{
-  background-color: #01afff;
-  height: 150px;
-  justify-content: center;
+  background-color: #474747;
+  height: 120px;
   text-align: center;
   display: flex;
- 
 }
+
 .topo_objeto {
   width: 400px;
   height: 100px;
   justify-content: center;
   display: flex;
-  padding: 10px;
- 
+  padding: 25px;
 }
 
-.topo_objeto p{
-  color: #ffffff;
-  font-size: 20px;
-}
 .topo_objeto img{
+<<<<<<< HEAD
   width: 210px;
   height: 90px;
 }
@@ -43,14 +38,37 @@ body {
   color: #15ff00;
   text-decoration: none;
 
+=======
+  width: 200px;
+  height: 80px;
+>>>>>>> 4af55528c334901f66df9fdd6ef7a7a17baa1de0
 }
 
+ /* estilizando o botão 'login' */
+ .login-btn {
+  font-size: 20px; /* tamanho da fonte do botão 'login'*/
+  position: absolute; 
+  top: 40px; /* Distância do topo */
+  right: 150px;  /* Distância da direita */
+  text-decoration: none; /* Remove o sublinhado do link */
+  background-color: white; /* Cor de fundo */
+  color: black;  /* Cor do texto */
+  padding: 10px 30px; /* Preenchimento */
+  border-radius: 20px; /* Cantos arredondados */
+  }
+    
+  .login-btn:hover {
+  background-color: gray /* Muda a cor ao passar o mouse */
+  }
+  
+  .login-btn:active{
+  background-color:rgb(55, 113, 160)  ;  /* Cor de fundo ao clicar */
+  }
 
  /* Menu de navegação */
 .topnav {
   overflow: hidden;
   background-color: #242424;
-  
 
 }
 
@@ -106,6 +124,105 @@ main {
   padding: 20px;
   text-align: center;
 }
+
+
+/* carrosel de destaque da semana INICIO*/
+#promocoes {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1300px; /* Largura máxima do carrossel */
+  margin: 0 auto; /* Centraliza o carrossel na página */
+  overflow: hidden;
+}
+
+.promocoes-grid {
+  display: flex;
+  gap: 22px;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+/* Estilo dos itens */
+.promocao-item {
+  flex: 0 0 calc(100% / 6 - 20px); /* Responsivo: 8 itens por linha */
+  max-width: calc(100% / 4- 20px);
+  text-align: center;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.promocao-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+#promocoes h2 {
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.preco-original {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.preco-promocional {
+  color: #e63946;
+  font-weight: bold;
+}
+
+/* Botões de navegação */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+.left-arrow {
+  left: 10px; /* Fixa à esquerda */
+}
+
+.right-arrow {
+  right: 10px; /* Fixa à direita */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .promocao-item {
+    flex: 0 0 calc(100% / 2 - 15px); /* 2 itens por linha em telas menores */
+    max-width: calc(100% / 2 - 15px);
+  }
+}
+
+@media (max-width: 480px) {
+  .promocao-item {
+    flex: 0 0 38%; /* 1 item por linha em telas muito pequenas */
+    max-width: 50%;
+  }
+}
+
+/* carrosel de destaque da semana* FIM/
 
 
  /* Conteiner de produtos - titulo*/
@@ -355,6 +472,7 @@ footer{
   from {opacity: .4}
   to {opacity: 1}
 }
+<<<<<<< HEAD
 /* Tornando os ícones e a caixa de pesquisa mais responsivos */
 .search-container {
   display: flex;
@@ -448,3 +566,51 @@ footer{
 }
 
 
+=======
+
+/* Estilizando a barra de pesquisa */
+.search-form {
+  display: inline-flex; /* Flexbox para alinhar o campo de pesquisa e o botão */
+  align-items: center;
+  margin-left: 30px; /* Espaçamento entre a barra de pesquisa e o conteúdo anterior */
+  }
+    
+  .search-container {
+  position: relative; /* Torna possível o posicionamento do botão dentro do campo */
+  }
+    
+  .search-input {
+  padding: 10px 15px 13px 20px; /* Espaço à esquerda para o ícone da lupa */
+  border: 1px solid #ccc; /* Borda ao redor do campo de pesquisa */
+  border-radius: 30px; /* Arredonda os cantos */
+  width:650px; /* Tamanho da barra de pesquisa */
+  font-size: 16px; /* Tamanho da fonte */
+  outline: none; /* Remove o contorno padrão ao focar no campo */
+  box-sizing: border-box; /* Garante que o padding não afete a largura total */
+  }
+    
+  .search-input:focus {
+  border-color: black; /* Cor da borda quando o campo é focado */
+  }
+    
+  .search-button {
+  position: absolute; /* Posiciona o botão dentro do campo de pesquisa */
+  right: 10px; /* Lupa alinhada à direita dentro da barra de pesquisa */
+  top: 50%; /* Alinha a lupa verticalmente no centro do campo de pesquisa */
+  transform: translateY(-50%); /* Ajuste para centralizar verticalmente */
+  background-color: transparent; /* Fundo transparente para o botão */
+  border: none; /* Remove a borda padrão do botão */
+  font-size: 18px; /* Tamanho do ícone da lupa */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  color: #333; /* Cor do ícone da lupa */
+  }
+    
+  .search-button:hover {
+  color: #007bff; /* Cor do ícone da lupa ao passar o mouse */
+  }
+    
+  .search-button:focus {
+  outline: none; /* Remove o contorno do botão ao focar */
+  }
+ 
+>>>>>>> 4af55528c334901f66df9fdd6ef7a7a17baa1de0

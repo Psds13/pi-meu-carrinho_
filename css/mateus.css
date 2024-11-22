@@ -1,88 +1,341 @@
- /* Estilo Geral */
- body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 header {
-  background-color: #333;
-  padding: 10px 0;
+background-color: black; /*  cor de fundo do cabeçalho */
+padding: 20px; /* adiciona um espaço interno */
+text-align: center; /* alinha o texto do cabeçalho no centro */ 
+}
+  
+  /* estilizando o botão 'login' */
+.login-btn {
+font-size: 19px; /* tamanho da fonte do botão 'login'*/
+position: absolute; 
+top: 40px;  /* Distância do topo */
+right: 90px;  /* Distância da direita */
+text-decoration: none; /* Remove o sublinhado do link */
+background-color: white; /* Cor de fundo */
+color: black;  /* Cor do texto */
+padding: 10px 20px; /* Preenchimento */
+border-radius: 20px; /* Cantos arredondados */
+}
+  
+.login-btn:hover {
+background-color: rgb(75, 168, 162); /* Muda a cor ao passar o mouse */
 }
 
-header .topnav a {
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  display: inline-block;
+.login-btn:active{
+background-color:#00332e;  /* Cor de fundo ao clicar */
 }
-
-header .topnav a.active {
-  background-color: #007BFF;
+  
+  /* Estilizando a imagem para que fique como um ícone */
+.icon {
+width: 150px; /* Ajuste o tamanho */
+height: 80px; /* Ajuste o tamanho */
+object-fit: contain; /* Garante que a imagem não fique distorcida */
+border-radius: 50%; /* Deixa a imagem redonda (caso tenha um formato quadrado) */
+margin-right: 0px; /* Ajusta o espaçamento entre a imagem e o texto */
+vertical-align: middle; /* Alinha a imagem com o texto */
 }
-
-
-/* Slider de produtos*/
-.slider {
-  display: flex;
-  background-color: #007BFF;
-  align-items: center;
-  position: relative;
-  justify-content: center;
-  width: auto;
+  
+/* Estilizando a barra de pesquisa */
+.search-form {
+display: inline-flex; /* Flexbox para alinhar o campo de pesquisa e o botão */
+align-items: center;
+margin-left: 50px; /* Espaçamento entre a barra de pesquisa e o conteúdo anterior */
 }
-
-.produtos-lista {
-  background-color: #000000;
-  width: auto;
-  display: flex;
-  padding: 10px;
-  gap: 20px;
-  overflow-x: auto;
-  overflow: hidden;
-  scroll-behavior: smooth;
-  padding: 10px;
+  
+.search-container {
+position: relative; /* Torna possível o posicionamento do botão dentro do campo */
 }
-
-.produto {
-  flex: 0 0 160px; /* Cada card ocupa 200px */
-  background: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  text-align: center;
+  
+.search-input {
+padding: 8px 12px 8px 30px; /* Espaço à esquerda para o ícone da lupa */
+border: 1px solid #ccc; /* Borda ao redor do campo de pesquisa */
+border-radius: 30px; /* Arredonda os cantos */
+width: 750px; /* Tamanho da barra de pesquisa */
+font-size: 16px; /* Tamanho da fonte */
+outline: none; /* Remove o contorno padrão ao focar no campo */
+box-sizing: border-box; /* Garante que o padding não afete a largura total */
 }
-
-.produto img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+  
+.search-input:focus {
+border-color: #007bff; /* Cor da borda quando o campo é focado */
 }
-
-.slider-btn {
-  background-color: #000000;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
+  
+.search-button {
+position: absolute; /* Posiciona o botão dentro do campo de pesquisa */
+right: 10px; /* Lupa alinhada à direita dentro da barra de pesquisa */
+top: 50%; /* Alinha a lupa verticalmente no centro do campo de pesquisa */
+transform: translateY(-50%); /* Ajuste para centralizar verticalmente */
+background-color: transparent; /* Fundo transparente para o botão */
+border: none; /* Remove a borda padrão do botão */
+font-size: 18px; /* Tamanho do ícone da lupa */
+cursor: pointer; /* Muda o cursor para indicar que é clicável */
+color: #333; /* Cor do ícone da lupa */
 }
-
-.slider-btn.left {
-  left: 10px;
+  
+.search-button:hover {
+color: #007bff; /* Cor do ícone da lupa ao passar o mouse */
 }
-
-.slider-btn.right {
-  right: 10px;
-} /* FIM slider de produtos */
-
-
+  
+.search-button:focus {
+outline: none; /* Remove o contorno do botão ao focar */
+}
+  
+#promocoes {
+  padding: 60px; /* Adiciona um espaço interno*/
+}
+  
+  
+  /* Estilos gerais para o título */
+h2 a {
+text-decoration: none; /* Remove o sublinhado padrão de links */
+color: white; /* Cor do texto do título */
+font-size: 24px;  /* Tamanho da fonte */
+font-weight:bolder; /* Deixa o título em negrito */
+padding: 10px;  /* Adiciona um espaço interno (um padding ao redor do título) */
+transition: color 0.3s, transform 0.3s; /* Suaviza a transição de cor e efeito de transformação */
+}
+    
+    /* Estilo quando o mouse passa sobre o título (efeito hover) */
+h2 a:hover {
+color: black; /* Altera a cor quando o mouse passa sobre o título */
+transform: scale(1.05); /* Leve aumento no tamanho do título */
+}
+    
+    /* Estilo quando o link é clicado */
+h2 a:active {
+color: #d35400; /* Muda a cor quando o título é clicado */
+}
+    
+    /* Adicionar um pequeno efeito de foco, para melhorar a acessibilidade */
+h2 a:focus {
+outline: 2px solid #f39c12; /* Adiciona um contorno amarelo quando o link está focado */
+}
+    
+  
+.promocoes-grid {
+display: flex; /* Ativa o flexbox */
+gap: 20px; /* Espaço entre os itens */
+}
+  
+.promocao-item {
+flex: 0; /* Faz com que os itens se expandam igualmente */
+max-width: 200px; /* Limita a largura máxima dos itens */
+text-align: center;
+}
+  
+.promocao-item img {
+width: 100%;  /* Faz com que a imagem ocupe toda a largura do item */
+height: auto;  /* Ajusta a altura automaticamente para manter a proporção da imagem */
+}
+  
+.preco-original {
+text-decoration: line-through;  /* Adiciona uma linha sobre o preço original */
+color: black;  /* Define a cor do preço original como preta */
+}
+  
+.preco-promocional {
+color: green;  /* Cor de destaque para o preço promocional (verde) */
+font-weight: bold;  /* Deixa o preço promocional em negrito */
+}
+  
+  /* estilizando a seta */
+.carousel-container {
+display: flex;  /* Ativa o flexbox para alinhar os itens de forma flexível */
+align-items: center;  /* Alinha verticalmente os itens ao centro */
+position: relative;  /* Torna o contêiner posicionado para permitir posicionamento absoluto dos elementos dentro dele */
+width: 100%;  /* Define que o contêiner ocupa toda a largura disponível */
+}
+  
+.promocoes-grid {
+display: flex;  /* Ativa o flexbox para exibir os itens em linha */
+gap: 10px;  /* Define um espaço de 10px entre os itens */
+scroll-snap-type: x mandatory;  /* Ativa o efeito "snap" horizontal, garantindo que os itens se alinhem ao rolar */
+scroll-behavior: smooth;  /* Suaviza o efeito de rolagem */
+padding: 10px;  /* Adiciona um espaço de 10px ao redor da grade de promoções */
+width: 97%;  /* Define a largura da grade do contêiner pai */
+max-width: 100%;  /* Garante que a largura da grade não ultrapasse 100% */
+overflow-x: hidden;  /* Impede o aparecimento de barras de rolagem horizontais */
+}
+  
+.promocao-item {
+flex: 0 0 auto;  /* Impede que o item se redimensione automaticamente, fazendo com que cada item tenha um tamanho fixo */
+text-align: center;  /* Centraliza o texto dentro do item */
+border: 2px solid rgb(202, 202, 202);  /* Adiciona uma borda de 2px ao redor de cada item */
+padding: 9px;  /* Adiciona 9px de espaçamento interno ao redor de cada item */
+background-color: #f9f9f9;  /* Define a cor de fundo como um tom claro de cinza */
+border-radius: 8px;  /* Arredonda os cantos da borda */
+scroll-snap-align: start;  /* Define que o item deve alinhar ao início quando houver rolagem (para o efeito de "snap") */
+}
+  
+    
+.arrow {
+background-color: rgb(136, 136, 136);  /* Cor de fundo das setas */
+color: white;  /* Cor do texto (seta) */
+border: none;  /* Remove a borda padrão */
+font-size: 24px;  /* Tamanho da fonte das setas */
+cursor: pointer;  /* Altera o cursor para indicar que é clicável */
+padding: 10px;  /* Preenchimento do botão de seta */
+position: absolute;
+top: 50%;  /* Posiciona a seta no meio da altura */
+transform: translateY(-50%);  /* Alinha verticalmente ao centro */
+z-index: 10;  /* Garante que as setas fiquem acima dos outros elementos */
+}
+    
+.left-arrow {
+  left: -30px; /* Posiciona a seta esquerda */
+}
+    
+.right-arrow {
+  right: 10px; /* Posiciona a seta direita */
+}
+    
+  /* Opcional: estilizacao das setas para ficarem visíveis em dispositivos móveis */
+.arrow {
+display: block;  /* Faz o elemento se comportar como um bloco, ocupando toda a largura disponível (pode ser alterado para 'inline-block' se necessário) */
+padding: 15px;  /* Adiciona um preenchimento interno de 15px ao redor do conteúdo do botão (a seta) */
+background-color: gray;  /* Define a cor de fundo da seta como cinza */
+color: white;  /* Define a cor do texto (ou ícone) como branca */
+font-size: 2em;  /* Define o tamanho da fonte como 2 vezes o tamanho normal, aumentando o ícone da seta */
+border-radius: 50%;  /* Torna a forma do botão circular, já que o padding é simétrico */
+cursor: pointer;  /* Muda o cursor para uma mãozinha, indicando que o botão é clicável */
+transition: all 0.3s;  /* Aplica uma transição suave de 0.3 segundos para qualquer mudança no estado do botão (como cor de fundo, escala, etc.) */
+z-index: 1;  /* Define a ordem do empilhamento do elemento, garantindo que a seta fique sobre outros elementos se houver sobreposição */
+}
+  
+    
+.arrow:hover {
+background-color: #0056b3; /* Altera a cor ao passar o mouse */
+}
+  
+  
+    /* estilizando 'produtos' */
+.produtos-grid {
+display: flex; /* Define o contêiner como um contêiner flexível */
+gap: 30px; /* Define o espaçamento entre os itens */
+flex-wrap: wrap; /* Permite que os itens quebrem para a linha seguinte se necessário */
+justify-content: flex-start; /* Alinha os itens no início da linha (a esquerda) */
+}
+  
+  /* Estilo para cada item dentro da grade de produtos */
+.produtos-item {
+flex: 30%; /* ocupação de cada item no espaço disponível do contêiner */
+max-width: 200px; /* Define uma largura para o item */
+text-align: center; /* Centraliza o texto dentro de cada item */
+border: 2px solid #ccc; /* Adiciona uma borda ao redor do item */
+padding: 9px; /* Adiciona espaçamento interno ao redor do conteúdo */
+background-color: #f9f9f9; /* cor de fundo do item  */
+border-radius: 8px; /* Arredonda os cantos do item */
+scroll-snap-align: start; /* Faz o item alinhar ao início quando houver rolagem */
+}
+  
+  /* Estilo para a classe que estiliza o preço normal do produto */
+.preco-normal {
+  color: black; /* Define a cor do preço */
+  font-weight: 700; /* Define o texto do preço em negrito */
+}
+  
+  /* Estilo para as imagens dentro de cada item de produto */
+.produtos-item img {
+width: 100%; /* A imagem ocupa 100% da largura do item */
+height: auto; /* A altura é ajustada automaticamente para manter a proporção */
+}
+  
+  
+  /* Estilos gerais para a página */
+body {
+font-family: Arial, sans-serif; /* Define a fonte do texto para a página, escolhendo Arial como padrão, e sans-serif como uma alternativa */
+margin: 0; /* Remove as margens padrões do navegador ao redor da página */
+padding: 0; /* Remove o padding (espaçamento interno) da página */
+background-color: rgb(66, 66, 66); /* cor de fundo da pagina */
+}
+    
+    /* Estilo para o rodapé */
 footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #333;
-  color: #fff;
+background-color: #333; /* Define a cor de fundo do rodapé como um tom escuro de cinza (quase preto) */
+color: white; /* Define a cor do texto dentro do rodapé como branco */
+text-align: center; /* Alinha o texto do rodapé no centro horizontalmente */
+padding: 20px 0; /* Define o espaçamento interno do rodapé (padding) como 20px acima e abaixo, e 0px nas laterais */
+position: relative; /* Faz com que o rodapé fique fixo na parte inferior da página, mesmo quando o usuário rolar a tela */
+bottom: 0; /* Garante que o rodapé fique na parte inferior da página, até mesmo quando o conteúdo da página for maior que a tela */
+width: 100%; /* Faz com que o rodapé ocupe toda a largura da tela */
 }
+    
+footer p {
+margin: 5px 0; /* Define um pequeno espaçamento entre os parágrafos dentro do rodapé. Isso cria um pequeno intervalo acima e abaixo do texto */
+  }
+    
+footer a {
+color: #fff; /* Define a cor dos links no rodapé como branca */
+text-decoration: none; /* Remove o sublinhado dos links por padrão */
+}
+    
+footer a:hover {
+  text-decoration: underline; /* Faz com que os links fiquem sublinhados quando o usuário passar o mouse por cima deles (efeito de "hover") */
+}
+  
+    
+  /* Estilizando os botões de categorias */
+nav ul {
+display: flex;  /* Flexbox para garantir que os botões fiquem alinhados horizontalmente */
+flex-wrap: wrap;  /* Permite que os botões quebrem de linha se não houver espaço suficiente */
+gap: 8px; /* Diminui o espaçamento entre os botões (antes estava 5px) */
+justify-content: center;  /* Centraliza os botões no contêiner */
+margin-top: 15px; /* Espaçamento entre a barra de pesquisa e os botões */
+padding: 0; /* Remove qualquer padding adicional do ul */
+}
+  
+nav ul li {
+flex: 1 1 100px;  /* Flexível: cada botão terá ao menos 120px, mas pode crescer para ocupar o espaço disponível */
+text-align: center; /* Centraliza o texto dentro de cada botão */
+}
+  
+nav ul li button {
+padding: 10px 20px; /* Reduz o preenchimento interno do botão */
+font-size: 15px;  /* Tamanho de fonte */
+background-color: rgb(51, 115, 126);  /* Cor de fundo dos botões */
+color: black; /* Cor do texto */
+border: none; /* Remove a borda padrão */
+border-radius: 20px;  /* Cantos arredondados */
+cursor: pointer;  /* Adiciona o cursor de mão para indicar que é clicável */
+transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
+width: 90%; /* Diminui a largura dos botões */
+}
+  
+  /* Efeito de hover nos botões */
+nav ul li button:hover {
+background-color: rgb(75, 168, 162); /* Cor de fundo quando o mouse passa sobre o botão */
+transform: scale(1.05);  /* Aumenta levemente o tamanho do botão */
+}
+  
+nav ul li button:active {
+background-color: #00332e; /* Cor de fundo ao clicar */
+}
+  
+  /* Estilo para o botão "Ver Mais" */
+.ver-mais-container {
+text-align:end; /* Centraliza o botão */
+margin-top: 300px;  /* Espaçamento superior */
+}
+  
+.ver-mais-btn {
+padding: 10px 20px; /* Tamanho do botão */
+font-size: 16px;  /* Tamanho da fonte */
+background-color: gray; /* Cor de fundo */
+color: white; /* Cor do texto */
+border: none; /* Remove a borda */
+border-radius: 20px;  /* Bordas arredondadas */
+text-decoration: none;  /* Remove o sublinhado */
+display: inline-block;  /* Faz o link ser tratado como um botão */
+transition: background-color 0.3s, transform 0.3s; /* Efeito de transição */
+}
+  
+.ver-mais-btn:hover {
+background-color: rgb(91, 99, 78);  /* Cor de fundo quando passa o mouse */
+transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+}
+  
+.ver-mais-btn:active {
+background-color: #00332e;  /* Cor de fundo ao clicar */
+}
+  
+  
