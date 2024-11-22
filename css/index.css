@@ -28,20 +28,8 @@ body {
 }
 
 .topo_objeto img{
-<<<<<<< HEAD
-  width: 210px;
-  height: 90px;
-}
-
-/* botão ligin*/
-.topo_objeto a{
-  color: #15ff00;
-  text-decoration: none;
-
-=======
   width: 200px;
   height: 80px;
->>>>>>> 4af55528c334901f66df9fdd6ef7a7a17baa1de0
 }
 
  /* estilizando o botão 'login' */
@@ -472,101 +460,6 @@ footer{
   from {opacity: .4}
   to {opacity: 1}
 }
-<<<<<<< HEAD
-/* Tornando os ícones e a caixa de pesquisa mais responsivos */
-.search-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.search-container input {
-  width: 100%;
-  max-width: 300px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.search-container select {
-  width: 100%;
-  max-width: 150px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.topo_objeto a i {
-  font-size: 24px;
-  transition: transform 0.3s ease;
-}
-
-.topo_objeto a i:hover {
-  transform: scale(1.2);
-}
-
-@media (max-width: 768px) {
-  .search-container input {
-    max-width: 200px;
-    font-size: 14px;
-  }
-
-  .search-container select {
-    max-width: 120px;
-    font-size: 14px;
-  }
-
-  .topo_objeto a i {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .search-container input {
-    max-width: 100%;
-    font-size: 12px;
-  }
-
-  .search-container select {
-    max-width: 100%;
-    font-size: 12px;
-  }
-
-  .topo_objeto a i {
-    font-size: 18px;
-  }
-}
-/* Tornando o ícone de pesquisa responsivo */
-.search-container i {
-  font-size: 24px;
-  color: #0073a8;
-  cursor: pointer;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.search-container i:hover {
-  color: white;
-  transform: scale(1.2);
-}
-
-@media (max-width: 768px) {
-  .search-container i {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .search-container i {
-    font-size: 18px;
-  }
-}
-
-
-=======
 
 /* Estilizando a barra de pesquisa */
 .search-form {
@@ -613,4 +506,3 @@ footer{
   outline: none; /* Remove o contorno do botão ao focar */
   }
  
->>>>>>> 4af55528c334901f66df9fdd6ef7a7a17baa1de0
