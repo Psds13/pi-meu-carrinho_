@@ -14,9 +14,14 @@
      <!-- Menu inicio-->
     <div class="conteiner_topo">
       <div class="topo_objeto"><p><img src="/image/14.png" alt=""></p></div>
-      <div class="topo_objeto"><p>Pesquisa</p></div>
-      <div class="topo_objeto"><a href="/views/login.html">Login</a></div>
-      <div class="topo_objeto"><p>Icone Carrinho</p></div>
+      <!-- colocando a barra de pesquisa -->
+      <form action="#" method="get" class="search-form">
+          <div class="search-container">
+              <input type="text" placeholder="Buscar por produto" name="search" class="search-input" id="seachInput">
+              <button type="submit" class="search-button">🔍</button>
+          </div>
+      </form>
+      <a href="/views/login.html" class="login-btn">Login</a>
       
     </div>
     <div class="topnav" id="myTopnav">
