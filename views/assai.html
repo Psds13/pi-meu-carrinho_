@@ -1,199 +1,259 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assaí</title>
-  <link rel="stylesheet" href="/css/assai.css">
-  
+  <title>Mateus - Meu Carrinho</title>
+  <link rel="stylesheet" href="/css/mateus.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
-
 <body>
+  <!-- Cabeçalho -->
   <header>
+    <!-- top inicio-->
+    <div class="conteiner_topo">
+      <div class="topo_objeto"><p><img src="/image/14.png" alt=""></p></div>
+      <!-- colocando a barra de pesquisa -->
+      <form action="#" method="get" class="search-form">
+          <div class="search-container">
+              <input type="text" placeholder="Buscar por produto" name="search" class="search-input" id="seachInput">
+              <button type="submit" class="search-button">🔍</button>
+          </div>
+      </form>
+      <a href="/views/login.html" class="login-btn">Login</a>
+      <a href="views/cadastro.html" class="cadastro-btn">Cadastre-se</a>
+       
+    </div>
+   <!-- categorias-->
     <nav>
-        <img src="/image/assaí-logo.png" alt="Icone assaí" class="icon"> 
-        <form action="#" method="get" class="search-form">
-            <input type="text" placeholder="Buscar por produto" name="search" class="search-input" id="seachInput">
-            <button type="submit" class="search-button">🔍</button>
-        </form>
-          <a href="login.html" class="login-btn">Login</a>
-
-          <ul>
-            <button>Alimentos</button>
-            <button>Bebidas</button>
-            <button>Higiene e Limpeza</button>
-            <button>Frios e Congelados</button>
-            <button>Frutas e Verduras</button>
-            <button>Ofertas Imperdíveis</button>
-          </ul>
-     
-    </nav>
-    
+   <ul>
+    <button>Alimentos</button>
+    <button>Bebidas</button>
+    <button>Higiene e Limpeza</button>
+    <button>Frios e Congelados</button>
+    <button>Frutas e Verduras</button>
+    <button>Ofertas Imperdíveis</button>
+  </ul>
+</nav>
+<!-- Carrossel de destaques da semana -->
+ 
   </header>
 
+
+
+  <!-- Conteúdo Principal -->
   <main>
-<!-- colocando os produtos -->
-<section id="promocoes">
-  <h2>Promoções</h2>
-  <div class="carousel-container">
-    <button class="arrow left-arrow">❮</button>
-    <div class="promocoes-grid">
-      <!-- Produtos -->
-      <div class="promocao-item">
-        <img src="/image/arroz.jfif" alt="Produto 1">
-        <h3>Arroz</h3>
-        <p class="preco-original">R$ 20,00</p>
-        <p class="preco-promocional">R$ 15,00</p>
-      </div>
 
-      <div class="promocao-item">
-        <img src="/image/feijão.jfif" alt="Produto 2">
-        <h3>Feijão carioca</h3>
-        <p class="preco-original">R$ 10,00</p>
-        <p class="preco-promocional">R$ 8,00</p>
+    <section id="promocoes">
+       <h2 href="/views/atacadao.html">Melhores ofertas da Semana</h2>
+      <div class="carousel-container">
+        <button class="arrow left-arrow">❮</button>
+        <div class="promocoes-grid">
+          <!-- Produtos -->
+          <div class="promocao-item">
+            <img src="/image/arroz.jfif" alt="Produto 1">
+            <h3>Arroz</h3>
+            <p class="preco-original">R$ 20,00</p>
+            <p class="preco-promocional">R$ 15,00</p>
+          </div>
+          <div class="promocao-item">
+            <img src="/image/feijão.jfif" alt="Produto 2">
+            <h3>Feijão carioca</h3>
+            <p class="preco-original">R$ 10,00</p>
+            <p class="preco-promocional">R$ 8,00</p>
+          </div>
+          <div class="promocao-item">
+            <img src="/image/feijão.jfif" alt="Produto 3">
+            <h3>Feijão preto</h3>
+            <p class="preco-original">R$ 8,00</p>
+            <p class="preco-promocional">R$ 5,00</p>
+          </div>
+          <div class="promocao-item">
+              <img src="/image/feijão.jfif" alt="Produto 3">
+              <h3>Feijão preto</h3>
+              <p class="preco-original">R$ 8,00</p>
+              <p class="preco-promocional">R$ 5,00</p>
+            </div>
+            <div class="promocao-item">
+              <img src="/image/feijão.jfif" alt="Produto 3">
+              <h3>Feijão preto</h3>
+              <p class="preco-original">R$ 8,00</p>
+              <p class="preco-promocional">R$ 5,00</p>
+            </div>
+            <div class="promocao-item">
+              <img src="/image/feijão.jfif" alt="Produto 3">
+              <h3>Feijão preto</h3>
+              <p class="preco-original">R$ 8,00</p>
+              <p class="preco-promocional">R$ 5,00</p>
+            </div>
+          <!-- Adicione mais itens conforme necessário -->
+        </div>
+        <button class="arrow right-arrow">❯</button>
       </div>
+    </section>
+ <!-- Carrossel de destaques da semana FIM -->
 
-      <div class="promocao-item">
-        <img src="/image/feijão.jfif" alt="Produto 3">
-        <h3>Feijão preto</h3>
-        <p class="preco-original">R$ 8,00</p>
-        <p class="preco-promocional">R$ 5,00</p>
+ <!-- promoções em destaque -->
+    <section id="produtos">
+      <a href="/views/mateus.html">Higiene e limpeza</a>
+      <div class="produtos-lista">
+        <!-- Produtos -->
+        <div class="produto">
+          <img src="/image/arroz.jfif" alt="Arroz" class="produto-img">
+          <div class="produto-info">
+            <h3>Arroz</h3>
+            <p>R$ 5,99</p>
+          </div>
+        </div>
+     <!-- Exemplo de produto 3 -->
+    <!-- Exemplo de produto 2 -->
+    <div class="produto">
+      <img src="/image/feijão.jfif" alt="Feijão" class="produto-img">
+      <div class="produto-info">
+        <h3>Feijão</h3>
+        <p>R$ 4,89</p>
       </div>
-
-      <!-- Repita os itens de promoção conforme necessário -->
-      <div class="promocao-item">
-        <img src="/image/arroz.jfif" alt="Produto 1">
-        <h3>Arroz</h3>
-        <p class="preco-original">R$ 20,00</p>
-        <p class="preco-promocional">R$ 15,00</p>
+    </div>
+    <!-- Exemplo de produto 3 -->
+    <div class="produto">
+      <img src="/image/leite.jfif" alt="Leite" class="produto-img">
+      <div class="produto-info">
+        <h3>Leite</h3>
+        <p>R$ 3,49</p>
       </div>
-      <div class="promocao-item">
-        <img src="/image/feijão.jfif" alt="Produto 3">
-        <h3>Feijão preto</h3>
-        <p class="preco-original">R$ 8,00</p>
-        <p class="preco-promocional">R$ 5,00</p>
+    </div>
+    <div class="produto">
+      <img src="/image/leite.jfif" alt="Leite" class="produto-img">
+      <div class="produto-info">
+        <h3>Leite</h3>
+        <p>R$ 3,49</p>
       </div>
-
-      <div class="promocao-item">
-        <img src="/image/arroz.jfif" alt="Produto 1">
-        <h3>Arroz</h3>
-        <p class="preco-original">R$ 20,00</p>
-        <p class="preco-promocional">R$ 15,00</p>
+    </div>
+    <div class="produto">
+      <img src="/image/leite.jfif" alt="Leite" class="produto-img">
+      <div class="produto-info">
+        <h3>Leite</h3>
+        <p>R$ 3,49</p>
       </div>
-      <div class="promocao-item">
-        <img src="/image/feijão.jfif" alt="Produto 3">
-        <h3>Feijão preto</h3>
-        <p class="preco-original">R$ 8,00</p>
-        <p class="preco-promocional">R$ 5,00</p>
+    </div>
+    <div class="produto">
+      <img src="/image/leite.jfif" alt="Leite" class="produto-img">
+      <div class="produto-info">
+        <h3>Leite</h3>
+        <p>R$ 3,49</p>
       </div>
-
-      <div class="promocao-item">
-        <img src="/image/arroz.jfif" alt="Produto 1">
-        <h3>Arroz</h3>
-        <p class="preco-original">R$ 20,00</p>
-        <p class="preco-promocional">R$ 15,00</p>
-      </div>
-      <div class="promocao-item">
-        <img src="/image/feijão.jfif" alt="Produto 3">
-        <h3>Feijão preto</h3>
-        <p class="preco-original">R$ 8,00</p>
-        <p class="preco-promocional">R$ 5,00</p>
-      </div>
-
-      <div class="promocao-item">
-        <img src="/image/arroz.jfif" alt="Produto 1">
-        <h3>Arroz</h3>
-        <p class="preco-original">R$ 20,00</p>
-        <p class="preco-promocional">R$ 15,00</p>
-      </div>
-    <button class="arrow right-arrow">❯</button>
+    </div>
   </div>
 </section>
 
-
-<!-- colocando produtos -->
-<section id="promocoes">
-  <h2>Produtos</h2>
-
-    <div class="produtos-grid">
-      <!-- Produtos -->
-      <div class="produtos-item">
-        <img src="/image/arroz.jfif" alt="Produto 1">
-        <h3>Arroz 5kg</h3>
-        <p class="preco-normal" >R$ 40,00</p>
+<section id="produtos">
+  <a href="/views/assai.html">Cereais</a>
+  <div class="produtos-lista">
+    <!-- Exemplo de produto 1 -->
+    <div class="produto">
+      <img src="/image/arroz.jfif" alt="Arroz" class="produto-img">
+      <div class="produto-info">
+        <h3>Arroz</h3>
+        <p>R$ 5,99</p>
       </div>
-
-      <div class="produtos-item">
-        <img src="/image/feijão.jfif" alt="Produto 2">
-        <h3>Feijão carioca</h3>
-        <p class="preco-normal">R$ 9,00</p>
+    </div>
+    <!-- Exemplo de produto 2 -->
+    <div class="produto">
+      <img src="/image/feijão.jfif" alt="Feijão" class="produto-img">
+      <div class="produto-info">
+        <h3>Feijão</h3>
+        <p>R$ 4,89</p>
       </div>
-
-      <div class="produtos-item">
-        <img src="/image/arroz.jfif" alt="Produto 1">
-        <h3>Arroz 5kg</h3>
-        <p class="preco-normal">R$ 40,00</p>
+    </div>
+    <!-- Exemplo de produto 3 -->
+    <div class="produto">
+      <img src="/image/leite.jfif" alt="Leite" class="produto-img">
+      <div class="produto-info">
+        <h3>Leite</h3>
+        <p>R$ 3,49</p>
       </div>
-
-      <div class="produtos-item">
-        <img src="/image/feijão.jfif" alt="Produto 2">
-        <h3>Feijão carioca</h3>
-        <p class="preco-normal">R$ 9,00</p>
-      </div> <div class="produtos-item">
-        <img src="/image/arroz.jfif" alt="Produto 1">
-        <h3>Arroz 5kg</h3>
-        <p class="preco-normal">R$ 40,00</p>
+    </div>
+    <div class="produto">
+      <img src="/image/leite.jfif" alt="Leite" class="produto-img">
+      <div class="produto-info">
+        <h3>Leite</h3>
+        <p>R$ 3,49</p>
       </div>
-
-      <div class="produtos-item">
-        <img src="/image/feijão.jfif" alt="Produto 2">
-        <h3>Feijão carioca</h3>
-        <p class="preco-normal">R$ 9,00</p>
-      </div> <div class="produtos-item">
-        <img src="/image/arroz.jfif" alt="Produto 1">
-        <h3>Arroz 5kg</h3>
-        <p class="preco-normal">R$ 40,00</p>
+    </div>
+    <div class="produto">
+      <img src="/image/leite.jfif" alt="Leite" class="produto-img">
+      <div class="produto-info">
+        <h3>Leite</h3>
+        <p>R$ 3,49</p>
       </div>
-
-      <div class="produtos-item">
-        <img src="/image/feijão.jfif" alt="Produto 2">
-        <h3>Feijão carioca</h3>
-        <p class="preco-normal">R$ 9,00</p>
-      </div> <div class="produtos-item">
-        <img src="/image/arroz.jfif" alt="Produto 1">
-        <h3>Arroz 5kg</h3>
-        <p class="preco-normal">R$ 40,00</p>
+    </div>
+    <div class="produto">
+      <img src="/image/leite.jfif" alt="Leite" class="produto-img">
+      <div class="produto-info">
+        <h3>Leite</h3>
+        <p>R$ 3,49</p>
       </div>
-
-      <div class="produtos-item">
-        <img src="/image/feijão.jfif" alt="Produto 2">
-        <h3>Feijão carioca</h3>
-        <p class="preco-normal">R$ 9,00</p>
-      </div> <div class="produtos-item">
-        <img src="/image/arroz.jfif" alt="Produto 1">
-        <h3>Arroz 5kg</h3>
-        <p class="preco-normal">R$ 40,00</p>
       </div>
-      
-      <div class="produtos-item">
-        <img src="/image/feijão.jfif" alt="Produto 2">
-        <h3>Feijão carioca</h3>
-        <p class="preco-normal">R$ 9,00</p>
-      </div> <div class="produtos-item">
-        <img src="/image/arroz.jfif" alt="Produto 1">
-        <h3>Arroz 5kg</h3>
-        <p class="preco-normal">R$ 40,00</p>
-      </div>
-
-      <div class="produtos-item">
-        <img src="/image/feijão.jfif" alt="Produto 2">
-        <h3>Feijão carioca</h3>
-        <p class="preco-normal">R$ 9,00</p>
-      </div>
-      <div class="ver-mais-container"><button class="ver-mais">Ver mais</button></div>
-      
-</section>
+      <section id="produtos">
+        <a href="/views/atacadao.html">Hortifruti e mercearia</a>
+        <div class="produtos-lista">
+          <!-- Exemplo de produto 1 -->
+          <div class="produto">
+            <img src="/image/arroz.jfif" alt="Arroz" class="produto-img">
+            <div class="produto-info">
+              <h3>Arroz</h3>
+              <p>R$ 5,99</p>
+            </div>
+          </div>
+          <!-- Exemplo de produto 2 -->
+          <div class="produto">
+            <img src="/image/feijão.jfif" alt="Feijão" class="produto-img">
+            <div class="produto-info">
+              <h3>Feijão</h3>
+              <p>R$ 4,89</p>
+            </div>
+          </div>
+          <!-- Exemplo de produto 3 -->
+          <div class="produto">
+            <img src="/image/leite.jfif" alt="Leite" class="produto-img">
+            <div class="produto-info">
+              <h3>Leite</h3>
+              <p>R$ 3,49</p>
+            </div>
+          </div>
+          <div class="produto">
+            <img src="/image/leite.jfif" alt="Leite" class="produto-img">
+            <div class="produto-info">
+              <h3>Leite</h3>
+              <p>R$ 3,49</p>
+            </div>
+          </div>
+          <div class="produto">
+            <img src="/image/leite.jfif" alt="Leite" class="produto-img">
+            <div class="produto-info">
+              <h3>Leite</h3>
+              <p>R$ 3,49</p>
+            </div>
+          </div>
+          <div class="produto">
+            <img src="/image/leite.jfif" alt="Leite" class="produto-img">
+            <div class="produto-info">
+              <h3>Leite</h3>
+              <p>R$ 3,49</p>
+            </div>
+    </section>
   </main>
-
+  <footer>
+    <p>&copy; 2024 MeuCarrinho. Todos os direitos reservados</p> <br>
+    <h4>Contatos</h4> <br>
+    <i class="bi bi-facebook"></i>
+    <i class="bi bi-instagram"></i>
+    <i class="bi bi-whatsapp"></i>
+  </footer>
+  <script src="js/menu.js"></script>
+  <script src="js/script.js"></script>
+  <script src="/js/carrossel.js"></script>
 </body>
 </html>
