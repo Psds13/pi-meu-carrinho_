@@ -539,9 +539,6 @@
         justify-content: center;  /* Centraliza os botões no contêiner */
         margin-top: 15px; /* Espaçamento entre a barra de pesquisa e os botões */
         padding: 0; /* Remove qualquer padding adicional do ul */
-        }
-        
-        nav ul {
         flex: 1 1 100px;  /* Flexível: cada botão terá ao menos 120px, mas pode crescer para ocupar o espaço disponível */
         text-align: center; /* Centraliza o texto dentro de cada botão */
         }
@@ -565,6 +562,6 @@
         }
         
         nav ul  button:active {
-        background-color: #00ffe5; /* Cor de fundo ao clicar */
+        background-color: rgb(22, 22, 207); /* Cor de fundo ao clicar */
         }
   

@@ -532,38 +532,35 @@ footer{
 
 
     /* Estilizando os botões de categorias */
-    nav ul {
-      display: flex;  /* Flexbox para garantir que os botões fiquem alinhados horizontalmente */
-      flex-wrap: wrap;  /* Permite que os botões quebrem de linha se não houver espaço suficiente */
-      gap: 8px; /* Diminui o espaçamento entre os botões (antes estava 5px) */
-      justify-content: center;  /* Centraliza os botões no contêiner */
-      margin-top: 15px; /* Espaçamento entre a barra de pesquisa e os botões */
-      padding: 0; /* Remove qualquer padding adicional do ul */
-      }
+nav ul {
+display: flex;  /* Flexbox para garantir que os botões fiquem alinhados horizontalmente */
+flex-wrap: wrap;  /* Permite que os botões quebrem de linha se não houver espaço suficiente */
+gap: 8px; /* Diminui o espaçamento entre os botões (antes estava 5px) */
+justify-content: center;  /* Centraliza os botões no contêiner */
+margin-top: 15px; /* Espaçamento entre a barra de pesquisa e os botões */
+padding: 0; /* Remove qualquer padding adicional do ul */
+flex: 1 1 100px;  /* Flexível: cada botão terá ao menos 120px, mas pode crescer para ocupar o espaço disponível */
+text-align: center; /* Centraliza o texto dentro de cada botão */
+}
       
-      nav ul {
-      flex: 1 1 100px;  /* Flexível: cada botão terá ao menos 120px, mas pode crescer para ocupar o espaço disponível */
-      text-align: center; /* Centraliza o texto dentro de cada botão */
-      }
+nav ul button {
+padding: 10px 20px; /* Reduz o preenchimento interno do botão */
+font-size: 15px;  /* Tamanho de fonte */
+background-color: rgb(0, 110, 255);  /* Cor de fundo dos botões */
+color: rgb(255, 255, 255); /* Cor do texto */
+border: none; /* Remove a borda padrão */
+border-radius: 20px;  /* Cantos arredondados */
+cursor: pointer;  /* Adiciona o cursor de mão para indicar que é clicável */
+transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
+width: 10%; /* Diminui a largura dos botões */
+}
       
-      nav ul button {
-      padding: 10px 20px; /* Reduz o preenchimento interno do botão */
-      font-size: 15px;  /* Tamanho de fonte */
-      background-color: rgb(0, 110, 255);  /* Cor de fundo dos botões */
-      color: rgb(255, 255, 255); /* Cor do texto */
-      border: none; /* Remove a borda padrão */
-      border-radius: 20px;  /* Cantos arredondados */
-      cursor: pointer;  /* Adiciona o cursor de mão para indicar que é clicável */
-      transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
-      width: 10%; /* Diminui a largura dos botões */
-      }
+/* Efeito de hover nos botões */
+nav ul  button:hover {
+background-color: rgb(0, 17, 255); /* Cor de fundo quando o mouse passa sobre o botão */
+transform: scale(1.05);  /* Aumenta levemente o tamanho do botão */
+}
       
-      /* Efeito de hover nos botões */
-      nav ul  button:hover {
-      background-color: rgb(0, 17, 255); /* Cor de fundo quando o mouse passa sobre o botão */
-      transform: scale(1.05);  /* Aumenta levemente o tamanho do botão */
-      }
-      
-      nav ul  button:active {
-      background-color: #00ffe5; /* Cor de fundo ao clicar */
-      }
+nav ul  button:active {
+background-color:rgb(22, 22, 207); /* Cor de fundo ao clicar */
+}

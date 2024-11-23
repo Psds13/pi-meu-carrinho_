@@ -539,9 +539,6 @@ footer{
       justify-content: center;  /* Centraliza os botões no contêiner */
       margin-top: 15px; /* Espaçamento entre a barra de pesquisa e os botões */
       padding: 0; /* Remove qualquer padding adicional do ul */
-      }
-      
-      nav ul {
       flex: 1 1 100px;  /* Flexível: cada botão terá ao menos 120px, mas pode crescer para ocupar o espaço disponível */
       text-align: center; /* Centraliza o texto dentro de cada botão */
       }
@@ -560,10 +557,26 @@ footer{
       
       /* Efeito de hover nos botões */
       nav ul  button:hover {
-      background-color: rgb(0, 17, 255); /* Cor de fundo quando o mouse passa sobre o botão */
+      background-color:blue; /* Cor de fundo quando o mouse passa sobre o botão */
       transform: scale(1.05);  /* Aumenta levemente o tamanho do botão */
       }
       
       nav ul  button:active {
-      background-color: #00ffe5; /* Cor de fundo ao clicar */
+      background-color: rgb(22, 22, 207); /* Cor de fundo ao clicar */
+      }
+
+      .identif-mateus{ /* por algum motivo que não sei, não está funcionando*/
+        width: 100px;  /* Define a largura da imagem para 100px */
+        height: auto;  /* Mantém a proporção da imagem */
+        border-radius: 8px;  /* Bordas arredondadas */
+        display: block;  /* Faz a imagem ocupar o espaço de forma correta */
+        margin: 0 auto;  /* Centraliza a imagem */
+      }
+      /* Estilizando o título (h2) */
+      h2 {
+        font-size: 24px;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+        margin-top: 10px;
       }
