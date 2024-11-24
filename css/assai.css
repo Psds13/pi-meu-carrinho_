@@ -13,7 +13,7 @@ body {
 
 /* cabeçalho */
 .conteiner_topo{
-  background-color: #0077ff;
+  background-color:#0077ff;
   height: 120px;
   text-align: center;
   display: flex;
@@ -546,7 +546,7 @@ text-align: center; /* Centraliza o texto dentro de cada botão */
 nav ul button {
 padding: 10px 20px; /* Reduz o preenchimento interno do botão */
 font-size: 15px;  /* Tamanho de fonte */
-background-color: rgb(0, 110, 255);  /* Cor de fundo dos botões */
+background-color: #0077ff;  /* Cor de fundo dos botões */
 color: rgb(255, 255, 255); /* Cor do texto */
 border: none; /* Remove a borda padrão */
 border-radius: 20px;  /* Cantos arredondados */

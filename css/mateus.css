@@ -113,6 +113,25 @@ main {
   padding: 20px;
   text-align: center;
 }
+/* seleção mercados barra*/
+.box_mercados {
+  background-color: #f0f0f0;
+}
+
+.box_mercados img{
+  height: 50px;
+  margin: 10px;
+}
+
+.box_mercados h3 {
+  font-size: 12px;
+}
+
+.box_mercados img:hover {
+  transform: scale(1.05);
+}
+
+/* seleção mercados barra* FIM /
 
 
 /* carrosel de destaque da semana INICIO*/

@@ -1,352 +1,530 @@
 /* Resetando alguns estilos padrões do navegador */
-/* css das paginas atacadão, mateus e Assái */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  color: #000000;
+}
+
+/* cabeçalho */
+.conteiner_topo{
+  background-color: #0077ff;
+  height: 120px;
+  text-align: center;
+  display: flex;
+}
+
+.topo_objeto {
+  width: 1100px;
+  height: 100px;
+  justify-content: center;
+  display: flex;
+  padding: 18px;
+}
+
+.topo_objeto img{
+  width: 200px;
+  height: 80px;
+}
+
+ /* estilizando o botão 'login' */
+ .login-btn {
+  font-size: 15px; /* tamanho da fonte do botão 'login'*/
+  position: absolute; 
+  top: 40px; /* Distância do topo */
+  right: 170px;  /* Distância da direita */
+  text-decoration: none; /* Remove o sublinhado do link */
+  background-color: white; /* Cor de fundo */
+  color: black;  /* Cor do texto */
+  padding: 10px 30px; /* Preenchimento */
+  border-radius: 20px; /* Cantos arredondados */
+  transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
+  }
+    
+  .login-btn:hover {
+  background-color: gray /* Muda a cor ao passar o mouse */
   }
   
-  body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    color: #000000;
-  }
-  
-  /* cabeçalho */
-  .conteiner_topo{
-    background-color: #333;;
-    justify-content: center;
-    display: flex;
-    height: 120px;
-   
-  }
-  .topo_objeto {
-    width: 1200px;
-    height: 100px;
-    padding: 20px;
-  }
-  
-  .topo_objeto p{
-    color: #ffffff;
-    font-size: 20px;
+  .login-btn:active{
+  background-color:rgb(55, 113, 160)  ;  /* Cor de fundo ao clicar */
   }
 
-  /* botão ligin*/
-.topo_objeto a{
-  color: #15ff00;
+
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+/* seleção mercados barra*/
+.box_mercados {
+  background-color: #eeeeee;
+}
+
+.box_mercados img{
+  height: 50px;
+  margin: 10px;
+}
+
+.box_mercados h3 {
   font-size: 12px;
+}
+
+.box_mercados img:hover {
+  transform: scale(1.05);
+}
+
+/* seleção mercados barra* FIM /
+
+
+/* carrosel de destaque da semana */
+#promocoes {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1300px; /* Largura máxima do carrossel */
+  margin: 0 auto; /* Centraliza o carrossel na página */
+  overflow: hidden;
+}
+
+.promocoes-grid {
+  display: flex;
+  gap: 22px;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+/* Estilo dos itens */
+.promocao-item {
+  flex: 0 0 calc(100% / 6 - 20px); /* Responsivo: 8 itens por linha */
+  max-width: calc(100% / 4- 20px);
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.promocao-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+#promocoes h2 {
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.preco-original {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.preco-promocional {
+  color: #006d12;
+  font-weight: bold;
+}
+
+/* Botões de navegação */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+.left-arrow {
+  left: 10px; /* Fixa à esquerda */
+}
+
+.right-arrow {
+  right: 10px; /* Fixa à direita */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .promocao-item {
+    flex: 0 0 calc(100% / 2 - 15px); /* 2 itens por linha em telas menores */
+    max-width: calc(100% / 2 - 15px);
+  }
+}
+
+@media (max-width: 480px) {
+  .promocao-item {
+    flex: 0 0 38%; /* 1 item por linha em telas muito pequenas */
+    max-width: 50%;
+  }
+}
+
+/* carrosel de destaque da semana* FIM/
+
+
+ /* Conteiner de produtos - titulo*/
+#produtos a {
+  font-size: 25px;
   text-decoration: none;
+}
+
+/* Conteiner de produtos - geral*/
+.produtos-lista {
+ 
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+/* Conteiner de produtos - itens*/
+.produto {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  width: 200px;
+  height: 250px;
+  margin: 10px;
+  border: 1px solid #ddd;
+}
+
+.produto:hover {
+  transform: scale(1.05);
+}
+
+.produto-img {
+  width: 100px;
+  height: auto;
+  margin: 10px;
+  
+}
+
+.produto-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.produto-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+footer{
+  background-color: #333;
+  height: 100px;
+  color: #ffffff;
+  text-align: center;
+  padding: 100px;
 
 }
-  
 
-  
-   /* Menu de navegação */
-  .topnav {
-    overflow: hidden;
-    background-color: #242424;
-  
+/* Responsividade */
+@media (max-width: 768px) {
+  nav h1 {
+    font-size: 1.5rem;
   }
-  
-  
-  .topnav a {
-    float: left;
+
+  nav ul li {
     display: block;
-    color: #ffffff;
-    text-align: center;
-    padding: 18px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    
+    margin-bottom: 10px;
   }
-  
-  .topnav a:hover {
-    background-color:  #333;
-    color: rgb(255, 255, 255);
-  }
-  
-  .topnav a.active {
-    background-color: #0011ff;
-    color: white;
-  }
-  
-  .topnav .icon {
-    display: none;
-  }
-  
-  @media screen and (max-width: 600px) {
-    .topnav a:not(:first-child) {display: none;}
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
-  }
-  
-  @media screen and (max-width: 600px) {
-    .topnav.responsive {position: relative;}
-    .topnav.responsive .icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .topnav.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-  } /* Menu FIM */
-  
-  main {
-    padding: 20px;
-    text-align: center;
-  }
-  
-   
-  
-  #produtos a {
-    font-size: 25px;
-    margin: 10px;
-    text-decoration: none;
-    padding: 10px;
-  }
-  #produtos h2 {
-    font-size: 25px;
-    margin: 10px;
-   
-  }
-  
+
   .produtos-lista {
-   
-    height: auto;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
-  
+
+  .slide_destaque{
+    background-color: #000000;
+    height: 200px;
+    text-align: center;
+
+  }
   .produto {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    width: 220px;
-    height: 100%;
+    width: 150px;
+    height: auto;
     margin: 5px;
   }
-  
-  .produto:hover {
-    transform: scale(1.05);
-  }
-  
   .produto-img {
-    width: 200px;
-    height: 250px;
+    width: 100%;
+    height: auto;
     
   }
-  
-  .produto-info {
-    padding: 15px;
-    text-align: center;
+
+  #produtos a {
+    font-size: 17px;
+    margin-bottom: 20px;
+    margin-top: 10px;
   }
-  
+
   .produto-info h3 {
-    font-size: 1.2rem;
+    font-size: 15px;
     margin-bottom: 10px;
   }
   
   .produto-info p {
-    font-size: 1rem;
+    font-size: 12px;
     color: #4CAF50;
   }
-  
-  footer{
-    background-color: #333;
-    height: 100px;
-    color: #ffffff;
-    text-align: center;
-    padding: 100px;
-  
-  }
-  
-  /* Responsividade */
-  @media (max-width: 768px) {
-    nav h1 {
-      font-size: 1.5rem;
-    }
-  
-    nav ul li {
-      display: block;
-      margin-bottom: 10px;
-    }
-  
-    .produtos-lista {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-  
-    
-    .produto {
-      background-color: rgb(255, 255, 255);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-      width: 150px;
-      height: auto;
-      margin: 5px;
-    }
-    .produto-img {
-      width: 100%;
-      height: auto;
-      
-    }
-  
-    #produtos h2 {
-      font-size: 18px;
-      margin-bottom: 20px;
-      margin-top: 10px;
-    }
-  
-    .produto-info h3 {
-      font-size: 15px;
-      margin-bottom: 10px;
-    }
-    
-    .produto-info p {
-      font-size: 12px;
-      color: #4CAF50;
-    }
-  
-    /* Slideshow container */
-  .slideshow-container {
-    background-color: #d40000;
-    width: auto;
-    height: 60px;
-    position: relative;
-  
-  }
-  
-  .slideshow-container img{
-    width: auto;
-    height: 40px;
-    margin-top: 10px;
-  }
-  
-  
-    footer p{
-      font-size: 12px;
-    }
-  
-  
-  }
-  
-  @media (max-width: 480px) {
-    nav h1 {
-      font-size: 1.2rem;
-    }
-  
-    .produto-info h3 {
-      font-size: 1rem;
-    }
-  
-    .produto-info p {
-      font-size: 0.9rem;
-    }
-  
-  
-  }
-  
-  * {box-sizing:border-box}
-  
-  /* Slideshow container */
-  .slideshow-container {
-    max-width: auto;
-    height: 460px;
-    position: relative;
-  
-  }
-  
-  .slideshow-container img{
-    width: 100%;
-    height: 450px;
-    margin-top: 10px;
-  }
-  
-  /* Hide the images by default */
-  .mySlides {
-    display: non;
-  }
-  
-  /* Next & previous buttons */
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-  }
-  
-  /* Position the "next button" to the right */
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-  
-  /* Caption text */
-  .text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-  }
-  
-  /* Number text (1/3 etc) */
-  .numbertext {
-    color: #f2f2f2;
+
+
+  footer p{
     font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
+  }
+
+}
+
+@media (max-width: 480px) {
+  nav h1 {
+    font-size: 1.2rem;
+  }
+
+  .produto-info h3 {
+    font-size: 1rem;
+  }
+
+  .produto-info p {
+    font-size: 0.9rem;
+  }
+
+
+}
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: auto;
+  height: 460px;
+  position: relative;
+
+}
+
+.slideshow-container img{
+  width: 100%;
+  height: 450px;
+  margin-top: 10px;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: non;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* Estilizando a barra de pesquisa */
+.search-form {
+  display: inline-flex; /* Flexbox para alinhar o campo de pesquisa e o botão */
+  align-items: center;
+  margin-left: -400px; /* Espaçamento entre a barra de pesquisa e o conteúdo anterior */
+  }
+    
+  .search-container {
+  position: relative; /* Torna possível o posicionamento do botão dentro do campo */
+  }
+    
+  .search-input {
+  padding: 7px 15px 13px 20px; /* Espaço à esquerda para o ícone da lupa */
+  border: 1px solid #ccc; /* Borda ao redor do campo de pesquisa */
+  border-radius: 30px; /* Arredonda os cantos */
+  width:600px; /* Tamanho da barra de pesquisa */
+  font-size: 16px; /* Tamanho da fonte */
+  outline: none; /* Remove o contorno padrão ao focar no campo */
+  box-sizing: border-box; /* Garante que o padding não afete a largura total */
+  }
+    
+  .search-input:focus {
+  border-color: black; /* Cor da borda quando o campo é focado */
+  }
+    
+  .search-button {
+  position: absolute; /* Posiciona o botão dentro do campo de pesquisa */
+  right: 10px; /* Lupa alinhada à direita dentro da barra de pesquisa */
+  top: 50%; /* Alinha a lupa verticalmente no centro do campo de pesquisa */
+  transform: translateY(-50%); /* Ajuste para centralizar verticalmente */
+  background-color: transparent; /* Fundo transparente para o botão */
+  border: none; /* Remove a borda padrão do botão */
+  font-size: 18px; /* Tamanho do ícone da lupa */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  color: #333; /* Cor do ícone da lupa */
+  }
+    
+  .search-button:hover {
+  color: #007bff; /* Cor do ícone da lupa ao passar o mouse */
+  }
+    
+  .search-button:focus {
+  outline: none; /* Remove o contorno do botão ao focar */
+  }
+ 
+ /* estilizando o botão 'login' */
+ .cadastro-btn {
+  font-size: 15px; /* tamanho da fonte do botão 'login'*/
+  position: absolute; 
+  top: 40px; /* Distância do topo */
+  right: 20px;  /* Distância da direita */
+  text-decoration: none; /* Remove o sublinhado do link */
+  background-color: white; /* Cor de fundo */
+  color: black;  /* Cor do texto */
+  padding: 10px 30px; /* Preenchimento */
+  border-radius: 20px; /* Cantos arredondados */
+  transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
+  }
+    
+  .cadastro-btn:hover {
+  background-color: gray /* Muda a cor ao passar o mouse */
   }
   
-  /* The dots/bullets/indicators */
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
+  .cadastro-btn:active{
+  background-color:rgb(55, 113, 160)  ;  /* Cor de fundo ao clicar */
   }
-  
-  .active, .dot:hover {
-    background-color: #717171;
-  }
-  
-  /* Fading animation */
-  .fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-  
-  @keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
-  
+
+
+
+    /* Estilizando os botões de categorias */
+    nav ul {
+      display: flex;  /* Flexbox para garantir que os botões fiquem alinhados horizontalmente */
+      flex-wrap: wrap;  /* Permite que os botões quebrem de linha se não houver espaço suficiente */
+      gap: 8px; /* Diminui o espaçamento entre os botões (antes estava 5px) */
+      justify-content: center;  /* Centraliza os botões no contêiner */
+      margin-top: 15px; /* Espaçamento entre a barra de pesquisa e os botões */
+      padding: 0; /* Remove qualquer padding adicional do ul */
+      flex: 1 1 100px;  /* Flexível: cada botão terá ao menos 120px, mas pode crescer para ocupar o espaço disponível */
+      text-align: center; /* Centraliza o texto dentro de cada botão */
+      }
+      
+      nav ul button {
+      padding: 10px 20px; /* Reduz o preenchimento interno do botão */
+      font-size: 15px;  /* Tamanho de fonte */
+      background-color: rgb(0, 110, 255);  /* Cor de fundo dos botões */
+      color: rgb(255, 255, 255); /* Cor do texto */
+      border: none; /* Remove a borda padrão */
+      border-radius: 20px;  /* Cantos arredondados */
+      cursor: pointer;  /* Adiciona o cursor de mão para indicar que é clicável */
+      transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
+      width: 10%; /* Diminui a largura dos botões */
+      }
+      
+      /* Efeito de hover nos botões */
+      nav ul  button:hover {
+      background-color:blue; /* Cor de fundo quando o mouse passa sobre o botão */
+      transform: scale(1.05);  /* Aumenta levemente o tamanho do botão */
+      }
+      
+      nav ul  button:active {
+      background-color: rgb(22, 22, 207); /* Cor de fundo ao clicar */
+      }
+
+      .identif-mateus{ /* por algum motivo que não sei, não está funcionando*/
+        width: 100px;  /* Define a largura da imagem para 100px */
+        height: auto;  /* Mantém a proporção da imagem */
+        border-radius: 8px;  /* Bordas arredondadas */
+        display: block;  /* Faz a imagem ocupar o espaço de forma correta */
+        margin: 0 auto;  /* Centraliza a imagem */
+      }
+      /* Estilizando o título (h2) */
+      h2 {
+        font-size: 24px;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+        margin-top: 10px;
+      }
