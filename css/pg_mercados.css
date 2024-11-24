@@ -135,6 +135,10 @@ main {
   font-weight: bold;
 }
 /* simbolo promoções mercados carrossel */
+.carousel-container a {
+  color: #ffffff;
+  text-decoration: none;
+}
 .mercado-mateus{
   background-color: #1100ff;
   color: #ffffff;
