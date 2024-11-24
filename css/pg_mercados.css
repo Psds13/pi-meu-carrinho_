@@ -54,6 +54,28 @@ body {
   background-color:rgb(55, 113, 160)  ;  /* Cor de fundo ao clicar */
   }
 
+   /* estilizando o botão 'login' */
+ .cadastro-btn {
+  font-size: 15px; /* tamanho da fonte do botão 'login'*/
+  position: absolute; 
+  top: 40px; /* Distância do topo */
+  right: 20px;  /* Distância da direita */
+  text-decoration: none; /* Remove o sublinhado do link */
+  background-color: white; /* Cor de fundo */
+  color: black;  /* Cor do texto */
+  padding: 10px 30px; /* Preenchimento */
+  border-radius: 20px; /* Cantos arredondados */
+  transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
+  }
+    
+  .cadastro-btn:hover {
+  background-color: gray /* Muda a cor ao passar o mouse */
+  }
+  
+  .cadastro-btn:active{
+  background-color:rgb(55, 113, 160)  ;  /* Cor de fundo ao clicar */
+  }
+
 
 main {
   padding: 20px;
@@ -187,19 +209,16 @@ main {
 @media (max-width: 768px) {
   .promocao-item {
     flex: 0 0 calc(100% / 2 - 15px); /* 2 itens por linha em telas menores */
-    max-width: calc(100% / 2 - 15px);
+    max-width: calc(100% / 2 - 15x);
   }
 }
 
 @media (max-width: 480px) {
   .promocao-item {
-    flex: 0 0 38%; /* 1 item por linha em telas muito pequenas */
-    max-width: 50%;
+    flex: 0 0 55%; /* 1 item por linha em telas muito pequenas */
+    max-width: 45%;
   }
 }
-
-/* carrosel de destaque da semana* FIM/
-
 
  /* Conteiner de produtos - titulo*/
 #produtos a {
@@ -275,12 +294,7 @@ footer{
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 
-  .slide_destaque{
-    background-color: #000000;
-    height: 200px;
-    text-align: center;
-
-  }
+  
   .produto {
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
@@ -318,6 +332,52 @@ footer{
     font-size: 12px;
   }
 
+/* Barra de pesquisa responsiva */
+  .search-form {
+    align-items: center;
+    margin-top: 100px;
+    }
+    .search-input {
+     max-width:340px; /* Tamanho da barra de pesquisa */
+    font-size: 12px; /* Tamanho da fonte */
+      }
+/* cabeçalho responsivo*/
+.conteiner_topo{
+  background-color: #0077ff;
+  height: 160px;
+  text-align: center;
+  display: flex;
+}
+
+.topo_objeto {
+  width: 450px;
+  height: 100px;
+  justify-content: center;
+  display: flex;
+  padding: 18px;
+}
+.topo_objeto img{
+  width: 170px;
+  height: 70px;
+  margin-left: -190px;
+}
+
+.cadastro-btn {
+  font-size: 12px; /* tamanho da fonte do botão 'cadastrar' responsivo*/
+  top: 50px; /* Distância do topo */
+  right: 65px;  /* Distância da direita */
+  padding: 10px 15px; /* Preenchimento */
+  }
+
+/* estilizando o botão 'login' responsivo */
+.login-btn {
+  font-size: 12px; /* tamanho da fonte do botão 'login'*/ 
+  top: 50px; /* Distância do topo */
+  right: 165px;  /* Distância da direita */
+  padding: 10px 15px; /* Preenchimento */
+
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -335,8 +395,6 @@ footer{
 
 
 }
-
-
 
 /* Estilizando a barra de pesquisa */
 .search-form {
@@ -383,29 +441,6 @@ footer{
   outline: none; /* Remove o contorno do botão ao focar */
   }
  
- /* estilizando o botão 'login' */
- .cadastro-btn {
-  font-size: 15px; /* tamanho da fonte do botão 'login'*/
-  position: absolute; 
-  top: 40px; /* Distância do topo */
-  right: 20px;  /* Distância da direita */
-  text-decoration: none; /* Remove o sublinhado do link */
-  background-color: white; /* Cor de fundo */
-  color: black;  /* Cor do texto */
-  padding: 10px 30px; /* Preenchimento */
-  border-radius: 20px; /* Cantos arredondados */
-  transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
-  }
-    
-  .cadastro-btn:hover {
-  background-color: gray /* Muda a cor ao passar o mouse */
-  }
-  
-  .cadastro-btn:active{
-  background-color:rgb(55, 113, 160)  ;  /* Cor de fundo ao clicar */
-  }
-
-
 
     /* Estilizando os botões de categorias */
     nav ul {
