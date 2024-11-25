@@ -99,7 +99,7 @@ main {
 
 /* seleção mercados barra*/
 .box_mercados {
-  background-color: #eeeeee;
+  background-color: #f4f4f4;
 }
 
 .box_mercados img{
@@ -108,7 +108,7 @@ main {
 }
 
 .box_mercados h3 {
-  font-size: 25px;
+  font-size: 20px;
   color: #0077ff
 }
 
@@ -482,7 +482,6 @@ footer{
       border-radius: 20px;  /* Cantos arredondados */
       cursor: pointer;  /* Adiciona o cursor de mão para indicar que é clicável */
       transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
-      width: 10%; /* Diminui a largura dos botões */
       }
       
       /* Efeito de hover nos botões */
@@ -516,14 +515,13 @@ footer{
 /* Slideshow container pagina INDEX */
 
 .box_slide{
-  background-color:  #ececec;
+  background-color:  #f4f4f4;
 }
 
 .slideshow-container {
   max-width: 1300px;
   position: relative;
   margin: auto;
-  margin-top: 10px;
   
 }
 
@@ -786,3 +784,4 @@ body {
     font-size: 0.9rem;
   }
 }
+
