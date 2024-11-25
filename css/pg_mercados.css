@@ -67,6 +67,21 @@ body {
   border-radius: 20px; /* Cantos arredondados */
   transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
   }
+  .sistema-btn {
+    font-size: 15px; /* tamanho da fonte do botão 'login'*/
+    position: absolute; 
+    top: 40px; /* Distância do topo */
+    right: 282px;  /* Distância da direita */
+    text-decoration: none; /* Remove o sublinhado do link */
+    background-color: white; /* Cor de fundo */
+    text-decoration: underline; /* Sublinhado */
+     pointer-events: none; /* Desativa interações de clique */
+     color: gray; /* Cor do texto */
+    padding: 10px 30px; /* Preenchimento */
+    border-radius: 20px; /* Cantos arredondados */
+    transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
+    }
+
     
   .cadastro-btn:hover {
   background-color: gray /* Muda a cor ao passar o mouse */
@@ -367,7 +382,11 @@ footer{
   font-size: 12px; /* tamanho da fonte do botão 'cadastrar' responsivo*/
   top: 50px; /* Distância do topo */
   right: 65px;  /* Distância da direita */
-  padding: 10px 15px; /* Preenchimento */
+  padding: 10px 15px; 
+  text-decoration: underline; /* Sublinhado */
+  pointer-events: none; /* Desativa interações de clique */
+  color: gray; /* Opcional: muda a cor para indicar que está desativado */
+}/* Preenchimento */
   }
 
 /* estilizando o botão 'login' responsivo */
@@ -379,7 +398,6 @@ footer{
 
   }
 
-}
 
 @media (max-width: 480px) {
   nav h1 {
