@@ -135,7 +135,7 @@ main {
 
 .promocoes-grid {
   display: flex;
-  gap: 22px;
+  gap: 20px;
   transition: transform 0.5s ease;
   will-change: transform;
 }
@@ -165,12 +165,15 @@ main {
 
 .preco-original {
   text-decoration: line-through;
-  color: #888;
+  color: #ff0000;
+  font-size: 15px;
 }
 
 .preco-promocional {
   color: #006d12;
   font-weight: bold;
+  padding: 4px;
+  font-size: 18px;
 }
 /* simbolo promoções mercados carrossel */
 .carousel-container a {
@@ -601,7 +604,6 @@ body {
 
 /* Estilizando o botão 'login' */
 .login-btn {
-  font-style:italic;
   font-size: 15px;
   position: absolute;
   top: 40px;
@@ -699,7 +701,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  width: 140px;
   height: 40px;
   background-color: #ffffff;
   border-radius: 20px;
@@ -711,9 +712,9 @@ body {
 .increment-btn {
   width: 35px;
   height: 35px;
-  background-color: #000000;
+  background-color: #0077ff;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   border: none;
   border-radius: 50%;
@@ -727,20 +728,20 @@ body {
 /* Efeito de hover para os botões */
 .decrement-btn:hover,
 .increment-btn:hover {
-  background-color: #f7f7f7;
+  background-color: rgb(22, 22, 207);
   transform: scale(1.1);  /* Animação de crescimento ao passar o mouse */
 }
 
 /* Efeito de active (pressionado) para os botões */
 .decrement-btn:active,
 .increment-btn:active {
-  background-color: #ffffff;
+  background-color: rgb(22, 22, 207);
   transform: scale(0.95);  /* Efeito de encolhimento ao clicar */
 }
 
 /* Display da quantidade */
 .quantity-display {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
   color: #333;
   width: 35px;
