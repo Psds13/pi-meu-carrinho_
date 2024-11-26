@@ -1,0 +1,93 @@
+/* Resetando margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #4c3c92, #6b5fa2);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+/* Estilo do botão de logout */
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logout-button a {
+    text-decoration: none;
+    background-color: #f44336;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-button a:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+/* Estilo do contêiner principal */
+.admin-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    width: 95%;
+    max-width: 550px; /* Aumentando o tamanho do cartão */
+}
+
+/* Estilo do título */
+.admin-container h1 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo dos links dentro do cartão */
+.buttons-container a {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #2196F3;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buttons-container a:hover {
+    color: #4c3c92;
+}
+
+/* Estilo do botão principal (Usuários) */
+.buttons-container a:last-child {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #2196F3;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buttons-container a:last-child:hover {
+    background-color: #1976D2;
+    transform: scale(1.05);
+}

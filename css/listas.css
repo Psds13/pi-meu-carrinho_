@@ -1,0 +1,97 @@
+/* Resetando margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo do corpo */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #4c3c92;  /* Cor de fundo roxa */
+    color: #fff;
+    padding: 20px;
+  }
+  
+  /* Estilo do título */
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  /* Estilo do botão voltar */
+  .back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  .back-button a {
+    text-decoration: none;
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .back-button a:hover {
+    background-color: #1976D2;
+  }
+  
+  /* Lista de itens */
+  .item-list {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+  
+  /* Estilo de cada item */
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+  
+  /* Estilo dos botões */
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Estilo do botão editar */
+  button.edit {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button.edit:hover {
+    background-color: #45a049;
+  }
+  
+  /* Estilo do botão excluir */
+  button.delete {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button.delete:hover {
+    background-color: #e53935;
+  }
+  

@@ -1,0 +1,101 @@
+/* Resetando margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #4c3c92, #6b5fa2);
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0c0c0c;
+}
+
+/* Contêiner principal */
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    width: 95%;
+    max-width: 600px; /* Tamanho maior do cartão */
+}
+
+/* Estilo do título */
+.container h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo dos grupos de formulário */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Estilo das labels */
+.form-group label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Campos de entrada (input e select) */
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Foco nos campos */
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: #2196F3;
+}
+
+/* Botão de Enviar */
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2196F3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover no botão */
+.form-group button:hover {
+    background-color: #1976D2;
+    transform: scale(1.05);
+}
+
+/* Estilo para campos obrigatórios */
+input:required, select:required {
+    border-left: 3px solid #22222246;
+}
+
+/* Mensagens de validação (nativo do navegador) */
+input:invalid {
+    border-color: #000000;
+}
