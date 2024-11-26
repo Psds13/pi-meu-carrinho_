@@ -99,3 +99,29 @@ input:required, select:required {
 input:invalid {
     border-color: #000000;
 }
+
+/* Estilização do campo de upload de arquivo */
+.custom-file-input {
+    /* Esconde o input original */
+    position: absolute;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    opacity: 0;
+}
+
+.custom-file-label {
+    /* Estilo para o label que simula o botão de seleção */
+    display: inline-block;
+    padding: .5rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+.button-container {
+    position: absolute;
+    top: 10px; /* Ajuste conforme necessário */
+    right: 10px; /* Ajuste conforme necessário */
+}
