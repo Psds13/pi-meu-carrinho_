@@ -14,21 +14,27 @@ body {
 /* cabeçalho */
 .conteiner_topo{
   background-color: #0077ff;
+  justify-content: center;
   height: 120px;
   text-align: center;
   display: flex;
 }
 
 .topo_objeto {
-  width: 1100px;
+  
   height: 100px;
-  justify-content: center;
+  width: 1100px;
   display: flex;
   padding: 18px;
+  
 }
 
+.logo{
+  margin-top: -6px; 
+ }
+
 .topo_objeto img{
-  width: 200px;
+  width: auto;
   height: 80px;
 }
 
@@ -67,21 +73,7 @@ body {
   border-radius: 20px; /* Cantos arredondados */
   transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
   }
-  .sistema-btn {
-    font-size: 15px; /* tamanho da fonte do botão 'login'*/
-    position: absolute; 
-    top: 40px; /* Distância do topo */
-    right: 282px;  /* Distância da direita */
-    text-decoration: none; /* Remove o sublinhado do link */
-    background-color: white; /* Cor de fundo */
-    text-decoration: underline; /* Sublinhado */
-     pointer-events: none; /* Desativa interações de clique */
-     color: gray; /* Cor do texto */
-    padding: 10px 30px; /* Preenchimento */
-    border-radius: 20px; /* Cantos arredondados */
-    transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
-    }
-
+  
     
   .cadastro-btn:hover {
   background-color: gray /* Muda a cor ao passar o mouse */
@@ -103,13 +95,12 @@ main {
 }
 
 .box_mercados img{
-  height: 60px;
+  height: 50px;
   margin: 10px;
 }
 
 .box_mercados h3 {
-  font-size: 20px;
-  color: #0077ff
+  font-size: 12px;
 }
 
 .box_mercados img:hover {
@@ -263,7 +254,7 @@ main {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   width: 200px;
-  height: 250px;
+  height: 290px;
   margin: 10px;
   border: 1px solid #ddd;
 }
@@ -276,7 +267,12 @@ main {
   width: 100px;
   height: auto;
   margin: 10px;
-  
+}
+
+.produto-img {
+  width: 100px;
+  height: auto;
+  margin: 10px;
 }
 
 .produto-info {
@@ -299,7 +295,66 @@ footer{
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
+@media (max-width: 1250px) {
+
+  /* Barra de pesquisa responsiva */
+  .search-form {
+    align-items: center;
+    margin-top: 15px;
+    }
+    .search-input {
+     max-width:550px; /* Tamanho da barra de pesquisa */
+    font-size: 12px; /* Tamanho da fonte */
+    margin-left: -50px;
+      }
+/* cabeçalho responsivo*/
+.conteiner_topo{
+  background-color: #0077ff;
+  height: 180px;
+  text-align: center;
+  display: flex; 
+  
+}
+
+.topo_objeto {
+  width: 450px;
+  height: 160px;
+  justify-content: center;
+  display: flex;
+  padding: 18px;
+  flex-wrap: wrap;
+}
+
+.logo{
+  width: 250px;
+
+}
+.topo_objeto img{
+  width: 180px;
+  height: auto;
+  margin-left: -170px;
+  
+}
+
+.cadastro-btn {
+  font-size: 14px; /* tamanho da fonte do botão 'cadastrar' responsivo*/
+  top: 50px; /* Distância do topo */
+  right: 120px;  /* Distância da direita */
+  padding: 10px 15px; /* Preenchimento */
+  }
+
+/* estilizando o botão 'login' responsivo */
+.login-btn {
+  font-size: 14px; /* tamanho da fonte do botão 'login'*/ 
+  top: 50px; /* Distância do topo */
+  right: 240px;  /* Distância da direita */
+  padding: 10px 15px; /* Preenchimento */
+
+  }
+
+}
+
+@media (max-width: 650px) {
   nav h1 {
     font-size: 1.5rem;
   }
@@ -341,11 +396,7 @@ footer{
     margin-bottom: 10px;
   }
   
-  .produto-info p {
-    font-size: 12px;
-    color: #4CAF50;
-  }
-
+  
 
   footer p{
     font-size: 12px;
@@ -354,107 +405,110 @@ footer{
 /* Barra de pesquisa responsiva */
   .search-form {
     align-items: center;
-    margin-top: 100px;
+    
     }
     .search-input {
-     max-width:340px; /* Tamanho da barra de pesquisa */
+     max-width:320px; /* Tamanho da barra de pesquisa */
     font-size: 12px; /* Tamanho da fonte */
+    margin-left: -50px;
       }
 /* cabeçalho responsivo*/
 .conteiner_topo{
   background-color: #0077ff;
-  height: 160px;
+  
   text-align: center;
-  display: flex;
+  display: flex;  
 }
 
 .topo_objeto {
   width: 450px;
-  height: 100px;
+  height: 150px;
   justify-content: center;
   display: flex;
   padding: 18px;
+  flex-wrap: wrap;
+}
+
+.logo{
+  width: 400px;
+ margin-top: 10px; 
+
 }
 .topo_objeto img{
-  width: 170px;
-  height: 70px;
-  margin-left: -190px;
+  width: 140px;
+  height: auto;
+  margin-left: -170px;
+  
 }
 
 .cadastro-btn {
   font-size: 12px; /* tamanho da fonte do botão 'cadastrar' responsivo*/
   top: 50px; /* Distância do topo */
-  right: 65px;  /* Distância da direita */
-  padding: 10px 15px; 
-  text-decoration: underline; /* Sublinhado */
-  pointer-events: none; /* Desativa interações de clique */
-  color: gray; /* Opcional: muda a cor para indicar que está desativado */
-}/* Preenchimento */
+  right: 40px;  /* Distância da direita */
+  padding: 10px 15px; /* Preenchimento */
   }
 
 /* estilizando o botão 'login' responsivo */
 .login-btn {
   font-size: 12px; /* tamanho da fonte do botão 'login'*/ 
   top: 50px; /* Distância do topo */
-  right: 165px;  /* Distância da direita */
+  right: 140px;  /* Distância da direita */
   padding: 10px 15px; /* Preenchimento */
 
   }
 
-
-@media (max-width: 480px) {
-  nav h1 {
-    font-size: 1.2rem;
+  .box_mercados img{
+    width: auto;
+    height: 40px;
   }
 
-  .produto-info h3 {
-    font-size: 1rem;
+  #promocoes h2{
+    font-size: 18px;
   }
-
-  .produto-info p {
-    font-size: 0.9rem;
-  }
-
 
 }
+
+
 
 /* Estilizando a barra de pesquisa */
 .search-form {
   display: inline-flex; /* Flexbox para alinhar o campo de pesquisa e o botão */
   align-items: center;
-  margin-left: -400px; /* Espaçamento entre a barra de pesquisa e o conteúdo anterior */
+  margin-left: 60px; /* Espaçamento entre a barra de pesquisa e o conteúdo anterior */
+  margin-top: 15px;
   }
+    
     
   .search-container {
   position: relative; /* Torna possível o posicionamento do botão dentro do campo */
   }
     
   .search-input {
-  padding: 7px 15px 13px 20px; /* Espaço à esquerda para o ícone da lupa */
-  border: 1px solid #ccc; /* Borda ao redor do campo de pesquisa */
-  border-radius: 30px; /* Arredonda os cantos */
-  width:600px; /* Tamanho da barra de pesquisa */
-  font-size: 16px; /* Tamanho da fonte */
-  outline: none; /* Remove o contorno padrão ao focar no campo */
-  box-sizing: border-box; /* Garante que o padding não afete a largura total */
-  }
+    padding: 10px 15px 13px 20px; /* Espaço à esquerda para o ícone da lupa */
+    border: 1px solid #ccc; /* Borda ao redor do campo de pesquisa */
+    border-radius: 30px; /* Arredonda os cantos */
+    width:600px; /* Tamanho da barra de pesquisa */
+    font-size: 14px; /* Tamanho da fonte */
+    outline: none; /* Remove o contorno padrão ao focar no campo */
+    box-sizing: border-box; /* Garante que o padding não afete a largura total */
+    }
     
   .search-input:focus {
   border-color: black; /* Cor da borda quando o campo é focado */
   }
     
   .search-button {
-  position: absolute; /* Posiciona o botão dentro do campo de pesquisa */
-  right: 10px; /* Lupa alinhada à direita dentro da barra de pesquisa */
-  top: 50%; /* Alinha a lupa verticalmente no centro do campo de pesquisa */
-  transform: translateY(-50%); /* Ajuste para centralizar verticalmente */
-  background-color: transparent; /* Fundo transparente para o botão */
-  border: none; /* Remove a borda padrão do botão */
-  font-size: 18px; /* Tamanho do ícone da lupa */
-  cursor: pointer; /* Muda o cursor para indicar que é clicável */
-  color: #333; /* Cor do ícone da lupa */
-  }
-    
+    position: absolute; /* Posiciona o botão dentro do campo de pesquisa */
+    right: 10px; /* Lupa alinhada à direita dentro da barra de pesquisa */
+    top: 50%; /* Alinha a lupa verticalmente no centro do campo de pesquisa */
+    transform: translateY(-50%); /* Ajuste para centralizar verticalmente */
+    background-color: transparent; /* Fundo transparente para o botão */
+    border: none; /* Remove a borda padrão do botão */
+    font-size: 18px; /* Tamanho do ícone da lupa */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    color: #333; /* Cor do ícone da lupa */
+    }
+      
   .search-button:hover {
   color: #007bff; /* Cor do ícone da lupa ao passar o mouse */
   }
@@ -472,21 +526,21 @@ footer{
       justify-content: center;  /* Centraliza os botões no contêiner */
       margin-top: 15px; /* Espaçamento entre a barra de pesquisa e os botões */
       padding: 0; /* Remove qualquer padding adicional do ul */
-      flex: 1 1 100px;  /* Flexível: cada botão terá ao menos 120px, mas pode crescer para ocupar o espaço disponível */
+      flex: 1 1 200px;  /* Flexível: cada botão terá ao menos 120px, mas pode crescer para ocupar o espaço disponível */
       text-align: center; /* Centraliza o texto dentro de cada botão */
       }
       
       nav ul button {
-      padding: 10px 20px; /* Reduz o preenchimento interno do botão */
-      font-size: 15px;  /* Tamanho de fonte */
-      background-color: rgb(0, 110, 255);  /* Cor de fundo dos botões */
-      color: rgb(255, 255, 255); /* Cor do texto */
-      border: none; /* Remove a borda padrão */
-      border-radius: 20px;  /* Cantos arredondados */
-      cursor: pointer;  /* Adiciona o cursor de mão para indicar que é clicável */
-      transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
-      }
-      
+        padding: 10px 20px; /* Reduz o preenchimento interno do botão */
+        font-size: 13px;  /* Tamanho de fonte */
+        background-color: rgb(0, 110, 255);  /* Cor de fundo dos botões */
+        color: rgb(255, 255, 255); /* Cor do texto */
+        border: none; /* Remove a borda padrão */
+        border-radius: 20px;  /* Cantos arredondados */
+        cursor: pointer;  /* Adiciona o cursor de mão para indicar que é clicável */
+        transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
+        
+        }
       /* Efeito de hover nos botões */
       nav ul  button:hover {
       background-color:blue; /* Cor de fundo quando o mouse passa sobre o botão */
@@ -519,7 +573,7 @@ footer{
 
 .box_slide{
   background-color:  #f4f4f4;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .slideshow-container {
@@ -568,129 +622,8 @@ footer{
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
-/* Resetando alguns estilos padrões do navegador */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f4;
-  color: #000000;
-}
-
-/* Cabeçalho */
-.conteiner_topo {
-  background-color: #0077ff;
-  height: 120px;
-  text-align: center;
-  display: flex;
-}
-
-.topo_objeto {
-  width: 1100px;
-  height: 100px;
-  justify-content: center;
-  display: flex;
-  padding: 18px;
-}
-
-.topo_objeto img {
-  width: 200px;
-  height: 80px;
-}
-
-/* Estilizando o botão 'login' */
-.login-btn {
-  font-size: 15px;
-  position: absolute;
-  top: 40px;
-  right: 170px;
-  text-decoration: none;
-  background-color: white;
-  color: black;
-  padding: 10px 30px;
-  border-radius: 20px;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.login-btn:hover {
-  background-color: gray;
-}
-
-.login-btn:active {
-  background-color: rgb(55, 113, 160);
-}
-
-/* Menu de navegação */
-.topnav {
-  overflow: hidden;
-  background-color: #242424;
-}
-
-.topnav a {
-  float: left;
-  display: block;
-  color: #ffffff;
-  text-align: center;
-  padding: 18px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #333;
-  color: rgb(255, 255, 255);
-}
-
-.topnav a.active {
-  background-color: #0073a8;
-  color: white;
-}
-
-/* Conteiner de produtos - geral */
-.produtos-lista {
-  height: auto;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 10px;
-}
-
-/* Conteiner de produtos - itens */
-.produto {
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  width: 220px;
-  height: 320px;
-  margin: 5px;
-}
-
-.produto:hover {
-  transform: scale(1.05);
-}
-
-.produto-img {
-  width: auto;
-  height: 165px;
-}
-
-.produto-info {
-  padding: 0px;
-  text-align: center;
-}
-
-.produto-info h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-/* Botões de incremento e decremento */
+/* Botões de incremento e decremento INICIO*/
 .quantidade-container {
   display: flex;
   align-items: center;
@@ -698,15 +631,15 @@ body {
   gap: 10px;
   height: 40px;
   background-color: #ffffff;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 5px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .decrement-btn,
 .increment-btn {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   background-color: #0077ff;
   color: white;
   font-size: 15px;
@@ -745,41 +678,4 @@ body {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .produto {
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    width: 150px;
-    height: auto;
-    margin: 5px;
-  }
-  .produto-img {
-    width: 100%;
-    height: auto;
-  }
-  .produto-info h3 {
-    font-size: 15px;
-    margin-bottom: 10px;
-  }
-
-  .produto-info p {
-    font-size: 12px;
-    color: #4CAF50;
-  }
-}
-
-@media (max-width: 480px) {
-  .produto-info h3 {
-    font-size: 1rem;
-  }
-
-  .produto-info p {
-    font-size: 0.9rem;
-  }
-}
-
+/* Botões de incremento e decremento FIM*/
