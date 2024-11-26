@@ -125,3 +125,53 @@ input:invalid {
     top: 10px; /* Ajuste conforme necessário */
     right: 10px; /* Ajuste conforme necessário */
 }
+.back-button {
+    display: inline-block;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff; /* Azul padrão */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #b30000; /* Azul escuro no hover */
+    transform: scale(1.05); /* Pequeno efeito de zoom */
+}
+
+.back-button:active {
+    background-color: #004080; /* Azul ainda mais escuro no clique */
+    transform: scale(0.95); /* Efeito de "pressionado" */
+}
+
+.back-button:focus {
+    outline: 2px solid #80bdff; /* Destaque ao focar no botão */
+    outline-offset: 2px;
+}
+
+
+.custom-file-input {
+    /* Esconde o input original */
+    position: absolute;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    opacity: 0;
+}
+
+.custom-file-label {
+    /* Estilo para o label que simula o botão de seleção */
+    display: inline-block;
+    padding: .5rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}

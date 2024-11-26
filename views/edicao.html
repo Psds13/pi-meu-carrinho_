@@ -3,34 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edição de Item de Supermercado</title>
+    <title>Edição de item de Supermercado</title>
     <link rel="stylesheet" href="/css/criar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <div class="container">
-        <h1>Edição de Item</h1>
-        <form action="/submit-item" method="POST">
-            <!-- Nome do Item -->
+        <h1>Edição de item</h1>
+        <form action="/submit-item" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nome">Nome do Item:</label>
                 <input type="text" id="nome" name="nome" placeholder="Ex: Arroz, Feijão..." required>
             </div>
             
-            <!-- Preço -->
             <div class="form-group">
                 <label for="preco">Preço:</label>
                 <input type="number" id="preco" name="preco" placeholder="Ex: 10.50" step="0.01" required>
             </div>
-            
-            <!-- Quantidade -->
-            <div class="form-group">
-                <label for="quantidade">Quantidade:</label>
-                <input type="number" id="quantidade" name="quantidade" placeholder="Ex: 5" min="1" required>
-            </div>
-            
-            <!-- Mercado -->
             <div class="form-group">
                 <label for="mercado">Mercado:</label>
                 <select id="mercado" name="mercado" required>
@@ -40,12 +31,32 @@
                     <option value="atacadao">Atacadão</option>
                 </select>
             </div>
+
+            <div class="form-group">
+                <label for="categorias">Categorias:</label>
+                <select id="categorias" name="categorias" required>
+                    <option value="" disabled selected>Selecione a categoria do produto</option>
+                    <option value="mateus">Alimentos</option>
+                    <option value="assai">Bebidas</option>
+                    <option value="atacadao">Higiene e limpeza</option>
+                    <option value="atacadao">Frios e congelados</option>
+                    <option value="atacadao">Frutas e verduras</option>
+                    <option value="atacadao">Ofertas imperdiveis</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="foto">Foto do Item:</label>
+                <input type="file" id="foto" name="foto" accept="image/*" class="custom-file-input">
+                <label class="custom-file-label" for="foto">Anexar arquivo de foto do produto   </label>
+            </div>
             
-            <!-- Botão de Enviar -->
             <div class="form-group">
                 <button type="submit">Editar Item</button>
-                <a href="/admin.html" class="back-button">Voltar</a>
-
+                    <div class="button-container">
+                        <a href="/admin.html" class="back-button">Voltar</a>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
