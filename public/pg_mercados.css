@@ -96,9 +96,22 @@ main {
 
 .box_mercados img{
   height: 60px;
-  margin: 10px;
+  margin: 5px;
 }
 
+#mateus-logo{
+  height: 80px;
+}
+
+#atacadao-logo{
+  height: 45px;
+  margin: 30px;
+}
+
+#assai-logo{
+  height: 70px;
+  margin: 20px;
+}
 .box_mercados h3 {
   font-size: 20px;
   color: #0077ff;
@@ -509,6 +522,7 @@ footer{
     cursor: pointer; /* Muda o cursor para indicar que é clicável */
     color: #333; /* Cor do ícone da lupa */
     }
+    
       
   .search-button:hover {
   color: #007bff; /* Cor do ícone da lupa ao passar o mouse */
