@@ -1,104 +1,130 @@
 /* Reset básico */
 body, h1, h2, p, ul, li, a {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  header {
-    background-color: #0077ff;
-    color: white;
-    padding: 10px 20px;
-  }
-  
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  header ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-  }
-  
-  header ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-  }
-  
-  main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #cadastro-produto {
-    background-color: white;
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  #cadastro-produto h2 {
-    margin-bottom: 20px;
-    color: #0077ff;
-    
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  form label {
-    font-weight: bold;
-    color: #555;
-  }
-  
-  form input, form button {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  form button {
-    background-color: #0077ff;
-    color: white;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s;
-  }
-  
-  form button:hover {
-    background-color: #0e00cc;
-  }
-  
-  #preview-container {
-    text-align: center;
-  }
-  
-  footer {
-    text-align: center;
-    background-color: #6200ea;
-    color: white;
-    padding: 10px 20px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Configuração do body */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  min-height: 100vh;
+
+  /* Ajustando a imagem de fundo */
+  background-image: url('/image/fundo_azul.jpeg'); /* Caminho da sua imagem */
+  background-size: cover; /* Faz a imagem cobrir a tela */
+  background-position: center top; /* Centraliza o topo */
+  background-attachment: fixed; /* Faz a imagem "grudar" no fundo */
+  background-repeat: no-repeat; /* Evita repetições da imagem */
+  display: flex; /* Define um flex container */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  overflow: hidden; /* Remove barra de rolagem */
+}
+
+/* Estilo do cabeçalho */
+header {
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+  color: white;
+  padding: 10px 20px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Limita a largura máxima */
+}
+
+header h1 {
+  margin: 0;
+  text-align: center;
+  flex: 1; /* Garante que o título ocupe o espaço necessário */
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+}
+
+header ul li {
+  text-align: center; /* Centraliza os itens dentro da lista */
+}
+
+header ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+/* Estilo do formulário */
+#cadastro-produto {
+  background-color: rgba(255, 255, 255, 0.95); /* Fundo branco com leve transparência */
+  padding: 25px 35px;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra elegante */
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Centralização do título */
+#cadastro-produto h2 {
+  margin-bottom: 20px;
+  color: #0077ff;
+  text-align: center;
+}
+
+/* Campos do formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form label {
+  font-weight: bold;
+  color: #555;
+}
+
+form input, form button {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Botão com hover */
+form button {
+  background-color: #0077ff;
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #0056cc;
+}
+
+/* Pré-visualização da imagem */
+#preview-container {
+  text-align: center;
+}
+
+#preview-container img {
+  max-width: 100%;
+  max-height: 150px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+ 
