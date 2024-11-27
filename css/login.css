@@ -47,6 +47,7 @@ body {
 .form-container h2 {
   font-size: 24px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
