@@ -95,12 +95,13 @@ main {
 }
 
 .box_mercados img{
-  height: 50px;
+  height: 60px;
   margin: 10px;
 }
 
 .box_mercados h3 {
-  font-size: 12px;
+  font-size: 20px;
+  color: #0077ff;
 }
 
 .box_mercados img:hover {
