@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - MeuCarrinho</title>
-  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/public/login.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -12,7 +12,7 @@
   <header>
     <div class="conteiner_topo">
       <div class="topo_objeto">
-        <a href="/index.html"><img src="/image/14.png" alt="Logo MeuCarrinho"></a>
+        <a href="/views/index.html"><img src="/public/image/logo.png" alt="Logo MeuCarrinho"></a>
       </div>
     </div>
   </header>
@@ -21,14 +21,7 @@
     <section class="form-container">
       <h2>Login</h2>
       <form action="index.html" method="POST">
-        <div class="radio-group">
-          <input type="radio" id="user" name="opcao" value="user">
-          <label for="user">Usuário</label>
-
-          <input type="radio" id="admin" name="opcao" value="admin">
-          <label for="admin">Administrador</label>
-        </div>
-<br>
+        
         <div class="input-group">
           <label for="email">E-mail:</label>
           <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
