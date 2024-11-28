@@ -163,6 +163,11 @@ main {
   font-family: Arial, sans-serif;
 }
 
+#promocoes h3 {
+  font-size: 15px;
+ 
+}
+
 .preco-original {
   text-decoration: line-through;
   color: #ff0000;
@@ -285,7 +290,7 @@ main {
 }
 
 .produto-info h3 {
-  font-size: 1.2rem;
+  font-size: 16px;
   margin-bottom: 10px;
 }
 
@@ -396,11 +401,17 @@ footer{
   }
 
   .produto-info h3 {
-    font-size: 15px;
+    font-size: 12px;
     margin-bottom: 10px;
   }
   
-  
+  .preco-original{
+    font-size: 12px;
+  }
+
+  .preco-promocional{
+    font-size: 13px;
+  }
 
   footer p{
     font-size: 12px;
@@ -469,6 +480,11 @@ footer{
   #promocoes h2{
     font-size: 18px;
   }
+
+  #promocoes h3{
+    font-size: 12px;
+  }
+
 
   /* Logos com responsividade */
   #mateus-logo{
