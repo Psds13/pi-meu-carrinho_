@@ -501,6 +501,13 @@ footer{
     margin: 5px;
     
   }
+
+  .promocao-item img {
+    width: auto;
+    height: 90px;
+    border-radius: 8px;
+  }
+  
  
 
 }
