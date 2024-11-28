@@ -94,22 +94,17 @@ main {
   background-color: #f4f4f4;
 }
 
-.box_mercados img{
-  height: 60px;
-  margin: 5px;
-}
-
 #mateus-logo{
-  height: 80px;
+  height: 90px;
 }
 
 #atacadao-logo{
   height: 45px;
-  margin: 30px;
+  margin: 20px;
 }
 
 #assai-logo{
-  height: 70px;
+  height: 65px;
   margin: 20px;
 }
 .box_mercados h3 {
@@ -283,11 +278,6 @@ main {
   margin: 10px;
 }
 
-.produto-img {
-  width: 100px;
-  height: auto;
-  margin: 10px;
-}
 
 .produto-info {
   padding: 15px;
@@ -479,6 +469,23 @@ footer{
   #promocoes h2{
     font-size: 18px;
   }
+
+  /* Logos com responsividade */
+  #mateus-logo{
+    height: 65px;
+  }
+  
+  #atacadao-logo{
+    height: 37px;
+    margin: 5px;
+  }
+  
+  #assai-logo{
+    height: 45px;
+    margin: 5px;
+    
+  }
+ 
 
 }
 
