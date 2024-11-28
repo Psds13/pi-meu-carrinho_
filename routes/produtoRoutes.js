@@ -1,6 +1,6 @@
 
 const express = require('express');
-const produtoController = require('../controllers/produtoController'); // Certifique-se de que o controlador está correto
+const produtoController = require('../controllers/produtoController'); 
 const router = express.Router();
 
 

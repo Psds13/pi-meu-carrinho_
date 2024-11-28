@@ -15,14 +15,14 @@ class AuthController {
         // Verifique se o e-mail e a senha são do admin
         if (email === 'admin@gmail.com' && senha === 'admin') {
             req.session.usuario = {
-                id: 1, // Defina um ID fictício ou verdadeiro para o admin
+                id: 1, 
                 nome: 'Administrador',
                 email: email
             };
             return res.redirect('/admin');  // Redireciona para a página admin.ejs
         }
 
-        // Caso contrário, procure no banco de dados
+        
         UsuarioModel.buscarPorEmail(email, (err, results) => {
             if (err || results.length === 0) {
                 return res.render('auth/login', { erro: 'Usuário não encontrado' });
@@ -30,7 +30,7 @@ class AuthController {
 
             const usuario = results[0];
 
-            // Corrigido para comparar a senha usando o método de verificação
+           
             UsuarioModel.verificarSenha(senha, usuario.senha, (err, match) => {
                 if (err || !match) {
                     return res.render('auth/login', { erro: 'Senha incorreta' });
