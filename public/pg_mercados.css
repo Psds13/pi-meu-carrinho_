@@ -94,11 +94,19 @@ main {
   background-color: #f4f4f4;
 }
 
-.box_mercados img{
-  height: 60px;
-  margin: 10px;
+#mateus-logo{
+  height: 90px;
 }
 
+#atacadao-logo{
+  height: 45px;
+  margin: 20px;
+}
+
+#assai-logo{
+  height: 65px;
+  margin: 20px;
+}
 .box_mercados h3 {
   font-size: 20px;
   color: #0077ff;
@@ -153,6 +161,11 @@ main {
 #promocoes h2 {
   padding: 10px;
   font-family: Arial, sans-serif;
+}
+
+#promocoes h3 {
+  font-size: 15px;
+ 
 }
 
 .preco-original {
@@ -254,8 +267,8 @@ main {
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  width: 200px;
-  height: 290px;
+  width: 220px;
+  height: 320px;
   margin: 10px;
   border: 1px solid #ddd;
 }
@@ -270,11 +283,6 @@ main {
   margin: 10px;
 }
 
-.produto-img {
-  width: 100px;
-  height: auto;
-  margin: 10px;
-}
 
 .produto-info {
   padding: 15px;
@@ -282,7 +290,7 @@ main {
 }
 
 .produto-info h3 {
-  font-size: 1.2rem;
+  font-size: 16px;
   margin-bottom: 10px;
 }
 
@@ -381,7 +389,7 @@ footer{
     margin: 5px;
   }
   .produto-img {
-    width: 100%;
+    width: 90px;
     height: auto;
     
   }
@@ -393,11 +401,17 @@ footer{
   }
 
   .produto-info h3 {
-    font-size: 15px;
+    font-size: 12px;
     margin-bottom: 10px;
   }
   
-  
+  .preco-original{
+    font-size: 12px;
+  }
+
+  .preco-promocional{
+    font-size: 13px;
+  }
 
   footer p{
     font-size: 12px;
@@ -467,6 +481,35 @@ footer{
     font-size: 18px;
   }
 
+  #promocoes h3{
+    font-size: 12px;
+  }
+
+
+  /* Logos com responsividade */
+  #mateus-logo{
+    height: 65px;
+  }
+  
+  #atacadao-logo{
+    height: 37px;
+    margin: 5px;
+  }
+  
+  #assai-logo{
+    height: 45px;
+    margin: 5px;
+    
+  }
+
+  .promocao-item img {
+    width: auto;
+    height: 90px;
+    border-radius: 8px;
+  }
+  
+ 
+
 }
 
 
@@ -509,6 +552,7 @@ footer{
     cursor: pointer; /* Muda o cursor para indicar que é clicável */
     color: #333; /* Cor do ícone da lupa */
     }
+    
       
   .search-button:hover {
   color: #007bff; /* Cor do ícone da lupa ao passar o mouse */
@@ -635,6 +679,7 @@ footer{
   border-radius: 10px;
   padding: 5px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  
 }
 
 .decrement-btn,
