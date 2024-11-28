@@ -1,0 +1,31 @@
+CREATE DATABASE meucarrinho;
+USE meucarrinho;
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL -- Recomendado usar hashing para armazenar senhas
+);
+INSERT INTO usuarios (nome, email, senha) VALUES ('Administrador', 'admin@gmail.com', 'admin');
+CREATE TABLE produtos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    preco DECIMAL(10,2) NOT NULL,
+    mercado ENUM('Mateus', 'Assaí', 'Atacadão') NOT NULL,
+    categoria VARCHAR(255)
+);
+
+INSERT INTO produtos (nome, preco, mercado, categoria)
+VALUES
+    ('Arroz Agulha 5kg', 25.99, 'Atacadão', 'alimento'),
+    ('Coca-Cola 2 litros', 6.99, 'Assaí', 'bebidas'),
+    ('Sabão em Pó Ypê', 12.99, 'Mateus', 'higiene e limpeza'),
+    ('Salsicha Viena', 9.99, 'Atacadão', 'frios e congelados'),
+    ('Banana Prata', 3.99, 'Mateus', 'frutas e verduras'),
+    ('Detergente líquido', 8.99, 'Assaí', 'higiene e limpeza'),
+    ('Leite Integral 1L', 4.99, 'Mateus', 'alimentos'),
+    ('Cerveja 600ml', 5.99, 'Atacadão', 'bebidas'),
+    ('Frango Congelado 1kg', 15.99, 'Assaí', 'frios e congelados'),
+    ('Shampoo 300ml', 14.99, 'Mateus', 'higiene e limpeza')
+;

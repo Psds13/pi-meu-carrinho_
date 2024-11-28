@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Itens do Mercado</title>
+  <link rel="stylesheet" href="/listas.css">
+</head>
+<body>
+
+    <div class="back-button">
+        <a href="/admin">Voltar</a>
+      </div>
+
+  <h1>Lista de Itens do Atacadão</h1>
+  
+  <ul class="item-list">
+    <% produtos.forEach(produto => { %>
+      <li class="item">
+        <span><%= produto.nome %> - R$ <%= produto.preco.toFixed(2) %></span>
+        <div class="buttons">
+          <button class="edit">Editar</button>
+          <button class="delete">Excluir</button>
+        </div>
+      </li>
+    <% }) %>
+  </ul>
+  
+
+</body>
+</html>

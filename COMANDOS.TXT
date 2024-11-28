@@ -1,0 +1,13 @@
+npm init -y
+npm install bcryptjs
+npm install mysql2 bcryptjs
+npm install express-session
+npm install express mysql2 ejs method-override nodemon
+npm install method-override
+npm install ejs
+
+
+PARA EXECUTAR O SERVIDOR USE: nodemon app.js  ou  node app.js
+
+
+PARA ACESSAR A PAGINA DO ADMINISTRADOR USE NO LOGIN: email: admin@gmail.com     senha:  admin
