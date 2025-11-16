@@ -1,0 +1,22 @@
+{
+  "name": "meu-carrinho",
+  "version": "1.0.0",
+  "description": "Aplicação de comparação de preços",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node app.js",
+    "build": "echo 'No build step required'",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.2",
+    "method-override": "^3.0.0",
+    "mysql2": "^3.15.3"
+  },
+  "engines": {
+    "node": ">=16.x"
+  }
+}

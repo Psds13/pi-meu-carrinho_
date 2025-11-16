@@ -6,7 +6,6 @@ const produtoRoutes = require('./routes/produtoRoutes');
 const session = require('express-session');
 const UsuarioModel = require('./models/UsuarioModel');
 
-
 const app = express();
 
 // Configurações
@@ -14,35 +13,37 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-app.use(express.static('public'));
+
+// Servir arquivos estáticos - IMPORTANTE para Vercel
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-// Configuração da sessão
+// Configuração da sessão (ajustar para produção)
 app.use(session({
-    secret: 'progSistemasSenac202468',
+    secret: process.env.SESSION_SECRET || 'progSistemasSenac202468',
     resave: false, 
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: { 
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 24 * 60 * 60 * 1000 // 24 horas
+    }
 }));
 
 // Rotas
 app.get('/', (req, res) => {
-    res.redirect('/inicio');  // Redireciona para a página 'index'
+    res.redirect('/inicio');
 });
 
 app.get('/inicio', (req, res) => {
-    res.render('index');  // Exibe a página 'index'
+    res.render('index');
 });
 
-// Rota para a página de criação de registros
 app.get('/cadastro', (req, res) => {
     if (req.session.usuario) {
-        return res.redirect('/inicio');  // Se o usuário já estiver logado, redireciona para a página inicial
+        return res.redirect('/inicio');
     }
-    res.render('auth/cadastro');  // Página de cadastro
+    res.render('auth/cadastro');
 });
 
-// Rota para o cadastro de um novo usuário
 app.post('/criar-usuario', (req, res) => {
     const { nome, email, senha, confirmPassword } = req.body;
 
@@ -63,42 +64,56 @@ app.post('/criar-usuario', (req, res) => {
             if (err) {
                 return res.render('auth/cadastro', { erro: 'Erro ao criar o usuário.' });
             }
-            res.redirect('/login');  // Redireciona para a página de login após o cadastro
+            res.redirect('/login');
         });
     });
 });
 
 app.get('/admin', (req, res) => {
     if (!req.session.usuario || req.session.usuario.email !== 'admin@gmail.com') {
-        return res.redirect('/login');  // Redireciona para login se o usuario não for administrador
+        return res.redirect('/login');
     }
-    res.render('admin');  // Renderiza a página 'admin.ejs'
+    res.render('admin');
 });
 
-
-// Rota para a página Mateus
 app.get('/mateus', (req, res) => {
-    res.render('mateus');  // Renderiza a página mateus.ejs
+    res.render('mateus');
 });
 
-
-// Rota para a página Atacadão
 app.get('/atacadao', (req, res) => {
-    res.render('atacadao');  // Exibe a página 'atacadao.ejs'
+    res.render('atacadao');
 });
 
-// Rota para a página Assaí
 app.get('/assai', (req, res) => {
-    res.render('assai');  // Exibe a página 'assai.ejs'
+    res.render('assai');
 });
 
-app.use('/', authRoutes); // Rota 
-app.use('/', produtoRoutes); 
+app.use('/', authRoutes);
+app.use('/', produtoRoutes);
 
-app.listen(3000, (err) => {
+// Rota para verificar se o servidor está rodando
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'OK', message: 'Servidor rodando' });
+});
+
+// Middleware de erro para Vercel
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).render('error', { 
+        message: 'Algo deu errado!',
+        error: process.env.NODE_ENV === 'production' ? {} : err 
+    });
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, (err) => {
     if (err) {
         console.error('Erro ao iniciar o servidor:', err);
     } else {
-        console.log('Servidor rodando na porta http://localhost:3000');
+        console.log(`Servidor rodando na porta ${PORT}`);
     }
 });
+
+// Export para Vercel
+module.exports = app;

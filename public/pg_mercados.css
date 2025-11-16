@@ -1,4 +1,19 @@
 /* Resetando alguns estilos padrões do navegador */
+:root {
+  --primary-color: #0077ff;
+  --primary-dark: #0066dd;
+  --secondary-color: #ff3c00;
+  --success-color: #0f8500;
+  --text-dark: #000000;
+  --text-light: #ffffff;
+  --bg-light: #f4f4f4;
+  --bg-white: #ffffff;
+  --border-color: #ddd;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,210 +22,386 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f4;
-  color: #000000;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
 }
 
-/* cabeçalho */
-.conteiner_topo{
-  background-color: #0077ff;
-  justify-content: center;
+/* ===== HEADER ===== */
+.header {
+  background-color: var(--primary-color);
+  padding: 0;
+}
+
+.conteiner_topo {
+  background-color: var(--primary-color);
   height: 120px;
-  text-align: center;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .topo_objeto {
-  
-  height: 100px;
-  width: 1100px;
   display: flex;
-  padding: 18px;
-  
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 10px 0;
 }
 
-.logo{
-  margin-top: -6px; 
- }
+.logo {
+  flex-shrink: 0;
+}
 
-.topo_objeto img{
+.topo_objeto img {
   width: auto;
   height: 80px;
+  transition: var(--transition);
 }
 
- /* estilizando o botão 'login' */
- .login-btn {
-  font-size: 15px; /* tamanho da fonte do botão 'login'*/
-  position: absolute; 
-  top: 40px; /* Distância do topo */
-  right: 170px;  /* Distância da direita */
-  text-decoration: none; /* Remove o sublinhado do link */
-  background-color: white; /* Cor de fundo */
-  color: black;  /* Cor do texto */
-  padding: 10px 30px; /* Preenchimento */
-  border-radius: 20px; /* Cantos arredondados */
-  transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
-  }
-    
-  .login-btn:hover {
-  background-color: gray /* Muda a cor ao passar o mouse */
-  }
-  
-  .login-btn:active{
-  background-color:rgb(55, 113, 160)  ;  /* Cor de fundo ao clicar */
-  }
-
-   /* estilizando o botão 'login' */
- .cadastro-btn {
-  font-size: 15px; /* tamanho da fonte do botão 'login'*/
-  position: absolute; 
-  top: 40px; /* Distância do topo */
-  right: 20px;  /* Distância da direita */
-  text-decoration: none; /* Remove o sublinhado do link */
-  background-color: white; /* Cor de fundo */
-  color: black;  /* Cor do texto */
-  padding: 10px 30px; /* Preenchimento */
-  border-radius: 20px; /* Cantos arredondados */
-  transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
-  }
-  
-    
-  .cadastro-btn:hover {
-  background-color: gray /* Muda a cor ao passar o mouse */
-  }
-  
-  .cadastro-btn:active{
-  background-color:rgb(55, 113, 160)  ;  /* Cor de fundo ao clicar */
-  }
-
-
-main {
-  padding: 20px;
-  text-align: center;
-}
-
-/* seleção mercados barra*/
-.box_mercados {
-  background-color: #f4f4f4;
-}
-
-#mateus-logo{
-  height: 90px;
-}
-
-#atacadao-logo{
-  height: 45px;
-  margin: 20px;
-}
-
-#assai-logo{
-  height: 65px;
-  margin: 20px;
-}
-.box_mercados h3 {
-  font-size: 20px;
-  color: #0077ff;
-}
-
-.box_mercados img:hover {
+.logo:hover img {
   transform: scale(1.05);
 }
 
-/* seleção mercados barra* FIM /
+/* Barra de Pesquisa */
+.search-form {
+  flex: 1;
+  max-width: 600px;
+  margin: 0 40px;
+}
 
+.search-container {
+  position: relative;
+  width: 100%;
+}
 
-/* carrosel de destaque da semana */
-#promocoes {
+.search-input {
+  width: 100%;
+  padding: 12px 50px 12px 20px;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  font-size: 14px;
+  outline: none;
+  background: var(--bg-white);
+  transition: var(--transition);
+}
+
+.search-input:focus {
+  border-color: var(--text-dark);
+  box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.1);
+}
+
+.search-button {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.search-button:hover {
+  color: var(--primary-color);
+}
+
+/* Botões de Ação */
+.user-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.login-btn, .cadastro-btn {
+  text-decoration: none;
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.login-btn:hover, .cadastro-btn:hover {
+  background-color: #e6e6e6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn:active, .cadastro-btn:active {
+  background-color: #3781a0;
+  color: var(--text-light);
+  transform: translateY(0);
+}
+
+/* ===== SLIDESHOW ===== */
+.box_slide {
+  background-color: var(--bg-light);
+  padding: 20px 0;
+}
+
+.slideshow-container {
+  max-width: 1300px;
+  position: relative;
+  margin: 0 auto;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Animação do Slideshow */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* Indicadores do Slide */
+.slide-indicators {
+  text-align: center;
+  padding: 15px 0;
+}
+
+.dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+.dot:hover, .dot.active {
+  background-color: var(--primary-color);
+  transform: scale(1.2);
+}
+
+/* ===== SEÇÃO DE MERCADOS ===== */
+.supermarkets-section {
+  padding: 40px 20px;
+  background-color: var(--bg-white);
+  margin: 20px auto;
+  max-width: 1300px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.supermarkets-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.supermarket-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: var(--transition);
   padding: 20px;
-  font-family: Arial, sans-serif;
+  border-radius: var(--border-radius);
+}
+
+.supermarket-card:hover {
+  transform: translateY(-5px);
+  background-color: var(--bg-light);
+}
+
+.supermarket-logo {
+  margin-bottom: 15px;
+  padding: 15px;
+  background: var(--bg-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+#mateus-logo {
+  height: 90px;
+  width: auto;
+}
+
+#atacadao-logo {
+  height: 45px;
+  width: auto;
+}
+
+#assai-logo {
+  height: 65px;
+  width: auto;
+}
+
+.supermarket-name {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+}
+
+/* ===== CARROSSEL DE DESTAQUES ===== */
+.highlights-section {
+  padding: 40px 20px;
+  background-color: var(--bg-light);
 }
 
 .carousel-container {
   position: relative;
-  width: 100%;
-  max-width: 1300px; /* Largura máxima do carrossel */
-  margin: 0 auto; /* Centraliza o carrossel na página */
+  max-width: 1300px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
-.promocoes-grid {
+.highlights-grid {
   display: flex;
   gap: 20px;
   transition: transform 0.5s ease;
-  will-change: transform;
+  padding: 10px 0;
 }
 
-/* Estilo dos itens */
-.promocao-item {
-  flex: 0 0 calc(100% / 6 - 20px); /* Responsivo: 8 itens por linha */
-  max-width: calc(100% / 4- 20px);
+.product-card {
+  flex: 0 0 calc(16.666% - 20px);
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
   text-align: center;
-  background: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.promocao-item img {
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.product-image img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
 }
 
-#promocoes h2 {
-  padding: 10px;
-  font-family: Arial, sans-serif;
-}
-
-#promocoes h3 {
-  font-size: 15px;
- 
-}
-
-.preco-original {
-  text-decoration: line-through;
-  color: #ff0000;
-  font-size: 15px;
-}
-
-.preco-promocional {
-  color: #006d12;
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff4444;
+  color: var(--text-light);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
   font-weight: bold;
-  padding: 4px;
-  font-size: 18px;
 }
-/* simbolo promoções mercados carrossel */
-.carousel-container a {
-  color: #ffffff;
+
+.product-info {
+  padding: 0 10px;
+}
+
+.product-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  height: 40px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.price-container {
+  margin-bottom: 10px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #ff4444;
+  font-size: 0.85rem;
+  display: block;
+}
+
+.current-price {
+  color: var(--success-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: block;
+}
+
+.supermarket-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.supermarket-tag a {
+  color: var(--text-light);
   text-decoration: none;
 }
-.mercado-mateus{
-  background-color: #1100ff;
-  color: #ffffff;
-  font-size: 12px;
-}
-.mercado-assai{
-  background-color: #ff3c00;
-  color: #ffffff;
-  font-size: 12px;
+
+.mercado-mateus, .supermarket-tag.mateus {
+  background-color: var(--primary-color);
 }
 
-.mercado-atacadao{
-  background-color: #0f8500;
-  color: #ffffff;
-  font-size: 12px;
+.mercado-assai, .supermarket-tag.assai {
+  background-color: var(--secondary-color);
 }
 
-/* Botões de navegação */
-.arrow {
+.mercado-atacadao, .supermarket-tag.atacadao {
+  background-color: var(--success-color);
+}
+
+/* Botões de Navegação do Carrossel */
+.carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--text-light);
   border: none;
-  font-size: 24px;
+  font-size: 1.5rem;
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -219,70 +410,150 @@ main {
   align-items: center;
   border-radius: 50%;
   z-index: 1000;
+  transition: var(--transition);
+}
+
+.carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .left-arrow {
-  left: 10px; /* Fixa à esquerda */
+  left: 10px;
 }
 
 .right-arrow {
-  right: 10px; /* Fixa à direita */
+  right: 10px;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .promocao-item {
-    flex: 0 0 calc(100% / 2 - 15px); /* 2 itens por linha em telas menores */
-    max-width: calc(100% / 2 - 15x);
-  }
+/* ===== OFERTAS POR MERCADO ===== */
+.offers-section {
+  padding: 40px 20px;
+  background-color: var(--bg-white);
 }
 
-@media (max-width: 480px) {
-  .promocao-item {
-    flex: 0 0 55%; /* 1 item por linha em telas muito pequenas */
-    max-width: 45%;
-  }
+.supermarket-offers {
+  margin-bottom: 50px;
 }
 
- /* Conteiner de produtos - titulo*/
-#produtos a {
-  font-size: 25px;
-  text-decoration: none;
-}
-
-/* Conteiner de produtos - geral*/
-.produtos-lista {
- 
-  height: auto;
+.offers-header {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--border-color);
 }
 
-/* Conteiner de produtos - itens*/
-.produto {
-  background-color: white;
-  border-radius: 8px;
+.offers-header h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.view-all-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.view-all-link:hover {
+  color: var(--primary-dark);
+  transform: translateX(5px);
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.offer-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.offer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.offer-image {
+  margin-bottom: 15px;
+}
+
+.offer-image img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+}
+
+.offer-info {
+  padding: 0 5px;
+}
+
+.offer-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  height: 40px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  width: 220px;
-  height: 320px;
-  margin: 10px;
-  border: 1px solid #ddd;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.offer-prices {
+  margin-bottom: 8px;
+}
+
+.economy-badge {
+  display: inline-block;
+  background: #e8f5e8;
+  color: var(--success-color);
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ===== PRODUTOS ===== */
+.produtos-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.produto {
+  background-color: var(--bg-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
 }
 
 .produto:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .produto-img {
-  width: 115px;
-  height: auto;
-  margin: 15px;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  padding: 15px;
 }
-
 
 .produto-info {
   padding: 15px;
@@ -290,405 +561,92 @@ main {
 }
 
 .produto-info h3 {
-  font-size: 16px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  height: 40px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.preco-original {
+  text-decoration: line-through;
+  color: #ff4444;
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+}
+
+.preco-promocional {
+  color: var(--success-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background-color: #333;
+  color: var(--text-light);
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  text-align: center;
+}
+
+.copyright {
+  font-size: 1rem;
   margin-bottom: 10px;
 }
 
-footer{
-  background-color: #333;
-  height: 100px;
-  color: #ffffff;
-  text-align: center;
-  padding: 100px;
-
-}
-
-/* Responsividade */
-@media (max-width: 1250px) {
-
-  /* Barra de pesquisa responsiva */
-  .search-form {
-    align-items: center;
-    margin-top: 15px;
-    }
-    .search-input {
-     max-width:550px; /* Tamanho da barra de pesquisa */
-    font-size: 12px; /* Tamanho da fonte */
-    margin-left: -50px;
-      }
-/* cabeçalho responsivo*/
-.conteiner_topo{
-  background-color: #0077ff;
-  height: 180px;
-  text-align: center;
-  display: flex; 
-  
-}
-
-.topo_objeto {
-  width: 450px;
-  height: 160px;
-  justify-content: center;
+.social-links {
   display: flex;
-  padding: 18px;
-  flex-wrap: wrap;
-}
-
-.logo{
-  width: 250px;
-
-}
-.topo_objeto img{
-  width: 180px;
-  height: auto;
-  margin-left: -170px;
-  
-}
-
-.cadastro-btn {
-  font-size: 14px; /* tamanho da fonte do botão 'cadastrar' responsivo*/
-  top: 50px; /* Distância do topo */
-  right: 120px;  /* Distância da direita */
-  padding: 10px 15px; /* Preenchimento */
-  }
-
-/* estilizando o botão 'login' responsivo */
-.login-btn {
-  font-size: 14px; /* tamanho da fonte do botão 'login'*/ 
-  top: 50px; /* Distância do topo */
-  right: 240px;  /* Distância da direita */
-  padding: 10px 15px; /* Preenchimento */
-
-  }
-
-}
-
-@media (max-width: 650px) {
-  nav h1 {
-    font-size: 1.5rem;
-  }
-
-  nav ul li {
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  .produtos-lista {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-
-  
-  .produto {
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    width: 150px;
-    height: auto;
-    margin: 5px;
-  }
-  .produto-img {
-    width: 90px;
-    height: auto;
-    
-  }
-
-  #produtos a {
-    font-size: 17px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-  }
-
-  .produto-info h3 {
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-  
-  .preco-original{
-    font-size: 12px;
-  }
-
-  .preco-promocional{
-    font-size: 13px;
-  }
-
-  footer p{
-    font-size: 12px;
-  }
-
-/* Barra de pesquisa responsiva */
-  .search-form {
-    align-items: center;
-    
-    }
-    .search-input {
-     max-width:320px; /* Tamanho da barra de pesquisa */
-    font-size: 12px; /* Tamanho da fonte */
-    margin-left: -50px;
-      }
-/* cabeçalho responsivo*/
-.conteiner_topo{
-  background-color: #0077ff;
-  
-  text-align: center;
-  display: flex;  
-}
-
-.topo_objeto {
-  width: 450px;
-  height: 150px;
+  gap: 15px;
   justify-content: center;
-  display: flex;
-  padding: 18px;
-  flex-wrap: wrap;
 }
 
-.logo{
-  width: 400px;
- margin-top: 10px; 
-
-}
-.topo_objeto img{
-  width: 140px;
-  height: auto;
-  margin-left: -170px;
-  
+.social-links a {
+  color: var(--text-light);
+  font-size: 1.5rem;
+  transition: var(--transition);
 }
 
-.cadastro-btn {
-  font-size: 12px; /* tamanho da fonte do botão 'cadastrar' responsivo*/
-  top: 50px; /* Distância do topo */
-  right: 40px;  /* Distância da direita */
-  padding: 10px 15px; /* Preenchimento */
-  }
-
-/* estilizando o botão 'login' responsivo */
-.login-btn {
-  font-size: 12px; /* tamanho da fonte do botão 'login'*/ 
-  top: 50px; /* Distância do topo */
-  right: 140px;  /* Distância da direita */
-  padding: 10px 15px; /* Preenchimento */
-
-  }
-
-  .box_mercados img{
-    width: auto;
-    height: 40px;
-  }
-
-  #promocoes h2{
-    font-size: 18px;
-  }
-
-  #promocoes h3{
-    font-size: 12px;
-  }
-
-
-  /* Logos com responsividade */
-  #mateus-logo{
-    height: 65px;
-  }
-  
-  #atacadao-logo{
-    height: 37px;
-    margin: 5px;
-  }
-  
-  #assai-logo{
-    height: 45px;
-    margin: 5px;
-    
-  }
-
-  .promocao-item img {
-    width: auto;
-    height: 90px;
-    border-radius: 8px;
-  }
-  
- 
-
+.social-links a:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
 }
 
-
-
-/* Estilizando a barra de pesquisa */
-.search-form {
-  display: inline-flex; /* Flexbox para alinhar o campo de pesquisa e o botão */
-  align-items: center;
-  margin-left: 60px; /* Espaçamento entre a barra de pesquisa e o conteúdo anterior */
-  margin-top: 15px;
-  }
-    
-    
-  .search-container {
-  position: relative; /* Torna possível o posicionamento do botão dentro do campo */
-  }
-    
-  .search-input {
-    padding: 10px 15px 13px 20px; /* Espaço à esquerda para o ícone da lupa */
-    border: 1px solid #ccc; /* Borda ao redor do campo de pesquisa */
-    border-radius: 30px; /* Arredonda os cantos */
-    width:600px; /* Tamanho da barra de pesquisa */
-    font-size: 14px; /* Tamanho da fonte */
-    outline: none; /* Remove o contorno padrão ao focar no campo */
-    box-sizing: border-box; /* Garante que o padding não afete a largura total */
-    }
-    
-  .search-input:focus {
-  border-color: black; /* Cor da borda quando o campo é focado */
-  }
-    
-  .search-button {
-    position: absolute; /* Posiciona o botão dentro do campo de pesquisa */
-    right: 10px; /* Lupa alinhada à direita dentro da barra de pesquisa */
-    top: 50%; /* Alinha a lupa verticalmente no centro do campo de pesquisa */
-    transform: translateY(-50%); /* Ajuste para centralizar verticalmente */
-    background-color: transparent; /* Fundo transparente para o botão */
-    border: none; /* Remove a borda padrão do botão */
-    font-size: 18px; /* Tamanho do ícone da lupa */
-    cursor: pointer; /* Muda o cursor para indicar que é clicável */
-    color: #333; /* Cor do ícone da lupa */
-    }
-    
-      
-  .search-button:hover {
-  color: #007bff; /* Cor do ícone da lupa ao passar o mouse */
-  }
-    
-  .search-button:focus {
-  outline: none; /* Remove o contorno do botão ao focar */
-  }
- 
-
-    /* Estilizando os botões de categorias */
-    nav ul {
-      display: flex;  /* Flexbox para garantir que os botões fiquem alinhados horizontalmente */
-      flex-wrap: wrap;  /* Permite que os botões quebrem de linha se não houver espaço suficiente */
-      gap: 8px; /* Diminui o espaçamento entre os botões (antes estava 5px) */
-      justify-content: center;  /* Centraliza os botões no contêiner */
-      margin-top: 15px; /* Espaçamento entre a barra de pesquisa e os botões */
-      padding: 0; /* Remove qualquer padding adicional do ul */
-      flex: 1 1 200px;  /* Flexível: cada botão terá ao menos 120px, mas pode crescer para ocupar o espaço disponível */
-      text-align: center; /* Centraliza o texto dentro de cada botão */
-      }
-      
-      nav ul button {
-        padding: 10px 20px; /* Reduz o preenchimento interno do botão */
-        font-size: 13px;  /* Tamanho de fonte */
-        background-color: rgb(0, 110, 255);  /* Cor de fundo dos botões */
-        color: rgb(255, 255, 255); /* Cor do texto */
-        border: none; /* Remove a borda padrão */
-        border-radius: 20px;  /* Cantos arredondados */
-        cursor: pointer;  /* Adiciona o cursor de mão para indicar que é clicável */
-        transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição ao passar o mouse */
-        
-        }
-      /* Efeito de hover nos botões */
-      nav ul  button:hover {
-      background-color:blue; /* Cor de fundo quando o mouse passa sobre o botão */
-      transform: scale(1.05);  /* Aumenta levemente o tamanho do botão */
-      }
-      
-      nav ul  button:active {
-      background-color: rgb(22, 22, 207); /* Cor de fundo ao clicar */
-      }
-
-      .identif-mateus{ /* por algum motivo que não sei, não está funcionando*/
-        width: 100px;  /* Define a largura da imagem para 100px */
-        height: auto;  /* Mantém a proporção da imagem */
-        border-radius: 8px;  /* Bordas arredondadas */
-        display: block;  /* Faz a imagem ocupar o espaço de forma correta */
-        margin: 0 auto;  /* Centraliza a imagem */
-      }
-      /* Estilizando o título (h2) */
-      h2 {
-        font-size: 24px;
-        color: #333;
-        font-family: 'Arial', sans-serif;
-        text-align: center;
-        margin-top: 10px;
-      }
-
-
-      
-/* Slideshow container pagina INDEX */
-
-.box_slide{
-  background-color:  #f4f4f4;
-  margin-top: 3px;
-}
-
-.slideshow-container {
-  max-width: 1300px;
-  position: relative;
-  margin: auto;
-  
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-.active {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
-}
-
-/* Botões de incremento e decremento INICIO*/
+/* ===== BOTÕES DE QUANTIDADE ===== */
 .quantidade-container {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  height: 40px;
-  background-color: #ffffff;
+  background-color: var(--bg-white);
   border-radius: 10px;
-  padding: 5px;
+  padding: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  
+  margin: 10px auto;
+  max-width: 150px;
 }
 
-.decrement-btn,
-.increment-btn {
-  width: 30px;
-  height: 30px;
-  background-color: #0077ff;
-  color: white;
-  font-size: 15px;
+.decrement-btn, .increment-btn {
+  width: 32px;
+  height: 32px;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  font-size: 16px;
   font-weight: bold;
   border: none;
   border-radius: 50%;
@@ -696,32 +654,143 @@ footer{
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: var(--transition);
 }
 
-/* Efeito de hover para os botões */
-.decrement-btn:hover,
-.increment-btn:hover {
-  background-color: rgb(22, 22, 207);
-  transform: scale(1.1);  /* Animação de crescimento ao passar o mouse */
+.decrement-btn:hover, .increment-btn:hover {
+  background-color: var(--primary-dark);
+  transform: scale(1.1);
 }
 
-/* Efeito de active (pressionado) para os botões */
-.decrement-btn:active,
-.increment-btn:active {
-  background-color: rgb(22, 22, 207);
-  transform: scale(0.95);  /* Efeito de encolhimento ao clicar */
+.decrement-btn:active, .increment-btn:active {
+  transform: scale(0.95);
 }
 
-/* Display da quantidade */
 .quantity-display {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
-  color: #333;
-  width: 35px;
+  color: var(--text-dark);
+  width: 40px;
   text-align: center;
-  background-color: white;
+  background-color: var(--bg-white);
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-/* Botões de incremento e decremento FIM*/
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 1250px) {
+  .topo_objeto {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .search-form {
+    order: 3;
+    margin: 0;
+    max-width: 100%;
+  }
+  
+  .user-actions {
+    margin-left: auto;
+  }
+  
+  .product-card {
+    flex: 0 0 calc(25% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .conteiner_topo {
+    height: auto;
+    padding: 15px;
+  }
+  
+  .topo_objeto {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .logo {
+    margin: 0 auto;
+  }
+  
+  .search-form {
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  .user-actions {
+    margin: 0 auto;
+  }
+  
+  .supermarkets-grid {
+    gap: 20px;
+  }
+  
+  .product-card {
+    flex: 0 0 calc(33.333% - 20px);
+  }
+  
+  .offers-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 650px) {
+  .product-card {
+    flex: 0 0 calc(50% - 15px);
+  }
+  
+  .produtos-lista {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  
+  .produto {
+    height: auto;
+  }
+  
+  .produto-img {
+    height: 120px;
+  }
+  
+  .produto-info h3 {
+    font-size: 0.8rem;
+  }
+  
+  .login-btn, .cadastro-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  #mateus-logo { height: 65px; }
+  #atacadao-logo { height: 37px; }
+  #assai-logo { height: 45px; }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    flex: 0 0 100%;
+  }
+  
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .offers-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+}

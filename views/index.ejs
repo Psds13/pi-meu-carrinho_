@@ -3,312 +3,570 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio - Meu Carrinho</title>
+  <title>Meu Carrinho - Compare Preços de Supermercados</title>
   <link rel="stylesheet" href="/pg_mercados.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 <body>
   <!-- Cabeçalho -->
-  <header>
-   <!-- top inicio-->
-   <div class="conteiner_topo">
-    <div class="topo_objeto"> 
-      <div class="logo"><a href="/index"><img src="/image/logo.png"/></a></div>
-    <!-- colocando a barra de pesquisa -->
-    <form action="#" method="get" class="search-form">
-        <div class="search-container">
-            <input type="text" placeholder="Buscar por produto" name="search" class="search-input" id="seachInput">
-            <button type="submit" class="search-button"></button>
+  <header class="header">
+    <div class="container-topo">
+      <div class="topo-content">
+        <!-- Logo -->
+        <div class="logo">
+          <a href="/index" class="logo-link">
+            <img src="/image/logo.png" alt="Meu Carrinho - Compare preços de supermercados"/>
+          </a>
         </div>
-    </form>
-    <a href="/login" class="login-btn">Login</a>
-    <a href="/cadastro" class="cadastro-btn">Cadastre-se</a>
-     
-  </div>
+        
+        <!-- Barra de pesquisa -->
+        <form action="#" method="get" class="search-form">
+          <div class="search-container">
+            <input type="text" placeholder="Buscar por produto, marca ou categoria..." name="search" class="search-input" id="searchInput">
+            <button type="submit" class="search-button">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </form>
+        
+        <!-- Área de usuário -->
+        <div class="user-actions">
+          <a href="/login" class="btn-login">
+            <i class="fa fa-user"></i>
+            <span>Login</span>
+          </a>
+          <a href="/cadastro" class="btn-cadastro">Cadastre-se</a>
+        </div>
+      </div>
     </div>
-    <!-- top inicio FIM-->
- 
   </header>
-  <div class="box_slide">
-<!-- Slide Inicio -->
-  <div class="slideshow-container">
-    <div class="mySlides fade">
-      <div class="numbertext"></div>
-      <img src="/image/slide01.png" style="width:100%">
-      <div class="text"></div>
+
+  <!-- Banner Principal -->
+  <section class="hero-banner">
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img src="/image/slide01.png" alt="Promoção 1" style="width:100%">
+      </div>
+      
+      <div class="mySlides fade">
+        <img src="/image/slide02.png" alt="Promoção 2" style="width:100%">
+      </div>
+      
+      <div class="mySlides fade">
+        <img src="/image/slide03.png" alt="Promoção 3" style="width:100%">
+      </div>
+      
+      <!-- Indicadores do slide -->
+      <div class="slide-indicators">
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+      </div>
     </div>
-    
-    <div class="mySlides fade">
-      <div class="numbertext"></div>
-      <img src="/image/slide02.png" style="width:100%">
-      <div class="text"></div>
-    </div>
-    
-    <div class="mySlides fade">
-      <div class="numbertext"></div>
-      <img src="/image/slide03.png" style="width:100%">
-      <div class="text"></div>
-    </div>
-    
-    </div>
-    
-    <div style="text-align:center">
-      <span class="dot"></span> 
-      <span class="dot"></span> 
-      <span class="dot"></span> 
-    </div>
-</div>
-    <!-- Slide FIM -->
+  </section>
 
   <!-- Conteúdo Principal -->
-  <main>
-    <!-- seleção mercado -->
- <div class="box_mercados">
-  
-  <a href="/atacadao"><img id="atacadao-logo" src="/image/atacadao-logo2.webp"/></a>
-    <a href="/assai"><img id="assai-logo" src="/image/assaí-logo.png"/></a>
-    <a href="/mateus"><img id="mateus-logo" src="/image/grupo-mateus-logo.png"/></a>
-    </div> <!-- seleção mercado FIM -->
-          
-    <!-- Carrossel de destaques da semana -->
-    <section id="promocoes">
-      <div class="carousel-container">
-        <button class="arrow left-arrow">❮</button>
-        <div class="promocoes-grid">
-          <!-- Produtos -->
-          <div class="promocao-item">
-            <img src="/produtos/coxadefrangoFriato.webp" alt="Produto 3">
-            <h3>Coxa de Frango Friato 1kg</h3>
-            <p class="preco-original">R$ 20,00</p>
-            <p class="preco-promocional">R$ 18,99</p>
-            <p class="mercado-mateus"><a href="/views/mateus.html">Mateus</a></p>
+  <main class="main-content">
+    
+    <!-- Seção de Supermercados -->
+    <section class="supermarkets-section">
+      <div class="section-header">
+        <h2>Escolha seu Supermercado</h2>
+        <p>Compare preços entre os melhores mercados da região</p>
+      </div>
+      
+      <div class="supermarkets-grid">
+        <a href="/atacadao" class="supermarket-card">
+          <div class="supermarket-logo">
+            <img src="/image/atacadao-logo2.webp" alt="Atacadão"/>
           </div>
-          <div class="promocao-item">
-            <img src="/produtos/cafe-uniao-tradicional-250g.jpg" alt="Produto 2">
-            <h3>Café União Tradicional 250g</h3>
-            <p class="preco-original">R$ 9,99</p>
-            <p class="preco-promocional">R$ 8,99</p>
-            <p class="mercado-assai"><a href="/views/assai.html">Assaí</a></p>
+          <span class="supermarket-name">Atacadão</span>
+        </a>
+        
+        <a href="/assai" class="supermarket-card">
+          <div class="supermarket-logo">
+            <img src="/image/assaí-logo.png" alt="Assaí Atacadista"/>
           </div>
-          <div class="promocao-item">
-            <img src="/produtos/feijão.jfif" alt="Produto 3">
-            <h3>Feijão preto</h3>
-            <p class="preco-original">R$ 8,00</p>
-            <p class="preco-promocional">R$ 5,00</p>
-            <p class="mercado-atacadao"><a href="/views/atacadao.html">Atacadão</a></p>
+          <span class="supermarket-name">Assaí</span>
+        </a>
+        
+        <a href="/mateus" class="supermarket-card">
+          <div class="supermarket-logo">
+            <img src="/image/grupo-mateus-logo.png" alt="Grupo Mateus"/>
           </div>
-          <div class="promocao-item">
-            <img src="/produtos/leite-int-betania-1L.webp" alt="Produto 3">
-            <h3>Leite Longa Vida Integral Betânia 1L</h3>
-            <p class="preco-original">R$ 6,39</p>
-            <p class="preco-promocional">R$ 4,95</p>
-              <p class="mercado-assai"><a href="/views/assai.html">Assaí</a></p>
-            </div>
-            <div class="promocao-item">
-              <img src="/produtos/sucosaborfrutascitricas.webp" alt="Produto 3">
-              <h3>Suco Sabor Frutas Cítricas 450ml</h3>
-              <p class="preco-original">R$ 3,55</p>
-              <p class="preco-promocional">R$ 2,79</p>
-              <p class="mercado-mateus"><a href="/views/mateus.html">Mateus</a></p>
-            </div>
-            <div class="promocao-item">
-              <img src="/produtos/BGuarana.png" alt="Produto 3">
-              <h3>Guaraná Antarctica Original Lata 350ML</h3>
-              <p class="preco-original">R$ 3,69</p>
-              <p class="preco-promocional">R$ 1,99</p>
-              <p class="mercado-assai"><a href="/views/assai.html">Assaí</a></p>
-            </div>
-          <!-- Adicione mais itens conforme necessário -->
-        </div>
-        <button class="arrow right-arrow">❯</button>
+          <span class="supermarket-name">Mateus</span>
+        </a>
       </div>
     </section>
- <!-- Carrossel de destaques da semana FIM -->
-
- <!-- promoções em destaque -->
-    <section id="produtos">
-      <a href="/views/mateus.html">Ofertas em destaque Mateus</a>
-      <div class="produtos-lista">
-        <!-- Produtos -->
-        <div class="produto">
-          <img src="/produtos/leite.jfif" alt="Arroz" class="produto-img">
-          <div class="produto-info">
-            <h3>Leite Integral Piracanjuba 1L</h3>
-            <p class="preco-original">R$ 6,00</p>
-            <p class="preco-promocional">R$ 4,99</p>
+    
+    <!-- Destaques da Semana -->
+    <section class="highlights-section">
+      <div class="section-header">
+        <h2>Destaques da Semana</h2>
+        <p>As melhores ofertas para você economizar</p>
+      </div>
+      
+      <div class="carousel-container">
+        <button class="carousel-arrow left-arrow" aria-label="Produtos anteriores">
+          <i class="fa fa-chevron-left"></i>
+        </button>
+        
+        <div class="highlights-grid">
+          <!-- Produto 1 -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/produtos/coxadefrangoFriato.webp" alt="Coxa de Frango Friato 1kg"/>
+              <span class="discount-badge">-5%</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Coxa de Frango Friato 1kg</h3>
+              <div class="price-container">
+                <span class="original-price">R$ 20,00</span>
+                <span class="current-price">R$ 18,99</span>
+              </div>
+              <div class="supermarket-tag mateus">
+                <a href="/views/mateus.html">Mateus</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Produto 2 -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/produtos/cafe-uniao-tradicional-250g.jpg" alt="Café União Tradicional 250g"/>
+              <span class="discount-badge">-10%</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Café União Tradicional 250g</h3>
+              <div class="price-container">
+                <span class="original-price">R$ 9,99</span>
+                <span class="current-price">R$ 8,99</span>
+              </div>
+              <div class="supermarket-tag assai">
+                <a href="/views/assai.html">Assaí</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Produto 3 -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/produtos/feijão.jfif" alt="Feijão preto"/>
+              <span class="discount-badge">-38%</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Feijão preto</h3>
+              <div class="price-container">
+                <span class="original-price">R$ 8,00</span>
+                <span class="current-price">R$ 5,00</span>
+              </div>
+              <div class="supermarket-tag atacadao">
+                <a href="/views/atacadao.html">Atacadão</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Produto 4 -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/produtos/leite-int-betania-1L.webp" alt="Leite Longa Vida Integral Betânia 1L"/>
+              <span class="discount-badge">-23%</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Leite Longa Vida Integral Betânia 1L</h3>
+              <div class="price-container">
+                <span class="original-price">R$ 6,39</span>
+                <span class="current-price">R$ 4,95</span>
+              </div>
+              <div class="supermarket-tag assai">
+                <a href="/views/assai.html">Assaí</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Produto 5 -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/produtos/sucosaborfrutascitricas.webp" alt="Suco Sabor Frutas Cítricas 450ml"/>
+              <span class="discount-badge">-21%</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Suco Sabor Frutas Cítricas 450ml</h3>
+              <div class="price-container">
+                <span class="original-price">R$ 3,55</span>
+                <span class="current-price">R$ 2,79</span>
+              </div>
+              <div class="supermarket-tag mateus">
+                <a href="/views/mateus.html">Mateus</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Produto 6 -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/produtos/BGuarana.png" alt="Guaraná Antarctica Original Lata 350ML"/>
+              <span class="discount-badge">-46%</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Guaraná Antarctica Original Lata 350ML</h3>
+              <div class="price-container">
+                <span class="original-price">R$ 3,69</span>
+                <span class="current-price">R$ 1,99</span>
+              </div>
+              <div class="supermarket-tag assai">
+                <a href="/views/assai.html">Assaí</a>
+              </div>
+            </div>
           </div>
         </div>
-     <!-- Exemplo de produto 3 -->
-    <!-- Exemplo de produto 2 -->
-    <div class="produto">
-      <img src="/produtos/ovo1.webp" alt="Ovo" class="produto-img">
-      <div class="produto-info">
-        <h3>Ovos Vermelhos Grande Tijuca 30x1</h3>
-        <p class="preco-original">R$ 21,10</p>
-        <p class="preco-promocional">R$ 18,89</p>
+        
+        <button class="carousel-arrow right-arrow" aria-label="Próximos produtos">
+          <i class="fa fa-chevron-right"></i>
+        </button>
       </div>
-    </div>
-    <!-- Exemplo de produto 3 -->
-    <div class="produto">
-      <img src="/produtos/pao-de-queijo.webp" alt="Pao-de-queijo" class="produto-img">
-      <div class="produto-info">
-        <h3>Pão de Queijo Tradicional 400g</h3>
-        <p class="preco-original">R$ 10,19</p>
-        <p class="preco-promocional">R$ 5,89</p>
-      </div>
-    </div>
-    <div class="produto">
-      <img src="/produtos/cenoura.webp" alt="Cenoura" class="produto-img">
-      <div class="produto-info">
-        <h3>Cenoura <br><br>Quilo </h3>
-        <p class="preco-original">R$ 2,75</p>
-        <p class="preco-promocional">R$ 1,99</p>
-      </div>
-    </div>
-    <div class="produto">
-      <img src="/produtos/oleo1.webp" alt="oleo-soja" class="produto-img">
-      <div class="produto-info">
-        <h3>Óleo de Soja Refinado Coamo 900ml</h3>
-        <p class="preco-original">R$ 8,99</p>
-        <p class="preco-promocional">R$ 6,99</p>
-      </div>
-    </div>
-    <div class="produto">
-      <img src="/produtos/papel_higienico2.jfif" alt="Leite" class="produto-img">
-      <div class="produto-info">
-        <h3>Papel Higiênico Neve</h3>
-        <p class="preco-original">R$ 9,99</p>
-        <p class="preco-promocional">R$ 8,45</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="produtos">
-  <a href="/views/assai.html">Ofertas em destaque Assaí</a>
-  <div class="produtos-lista">
-    <!-- Exemplo de produto 1 -->
-    <div class="produto">
-      <img src="/produtos/cebola-nacional.png" alt="cebola-nacional" class="produto-img">
-              <div class="produto-info">
-                <h3>Cebola Nacional</h3>
-                <p class="preco-original">R$ 6,79</p>
-                <p class="preco-promocional">R$ 5,99 <br>QUILO</p>
-                
-      </div>
-    </div>
-    <!-- Exemplo de produto 2 -->
-    <div class="produto">
-      <img src="/produtos/banana-prata.jpeg" alt="Banana-prata" class="produto-img">
-              <div class="produto-info">
-                <h3>Banana Prata</h3>
-                <p class="preco-original">R$ 3,50</p>
-                <p class="preco-promocional">R$ 2,99 <br>QUILO</p>
-                
-      </div>
-    </div>
-    <!-- Exemplo de produto 3 -->
-    <div class="produto">
-      <img src="/produtos/fileee-de-peito-frango1kg.webp" alt="Frango" class="produto-img">
-          <div class="produto-info">
-            <h3>Filé de Peito de Frango Aurora</h3>
-            <p class="preco-original">R$ 20,00</p>
-            <p class="preco-promocional">R$ 18,90</p>
-           
-      </div>
-    </div>
-    <div class="produto">
-      <img src="/produtos/achocolatado-caixinha-mococa200ml.webp" alt="Leite" class="produto-img">
-      <div class="produto-info">
-        <h3>Bebida Láctea Chocolate 200ML</h3>
-          <p class="preco-original">R$ 1,39</p>
-          <p class="preco-promocional">R$ 0,69</p>
-      </div>
-    </div>
-    <div class="produto">
-      <img src="/produtos/linguiça-defumada-perdigao215g.webp" alt="Leite" class="produto-img">
-      <div class="produto-info">
-              <h3>Linguiça Fininha Defumada Perdigão 215g</h3>
-              <p class="preco-original">R$ 6,99</p>
-              <p class="preco-promocional">R$ 14,89</p>
-      </div>
-    </div>
-    <div class="produto">
-      <img src="/produtos/monster-lata473ml.webp" alt="Feijão" class="produto-img">
-      <div class="produto-info">
-        <h3>Bebida Energética Monster 473ML</h3>
-        <p class="preco-original">R$ 9,79</p>
-        <p class="preco-promocional">R$ 8,49</p>
-      </div>
-</section>
-      <section id="produtos">
-        <a href="/views/atacadao.html">Ofertas em destaque Atacadão</a>
-        <div class="produtos-lista">
-          <!-- Exemplo de produto 1 -->
-          <div class="produto">
-            <img src="/produtos/arroz.jfif" alt="Arroz" class="produto-img">
-            <div class="produto-info">
-              <h3>Arroz</h3>
-              <p class="preco-original">R$ 20,00</p>
-              <p class="preco-promocional">R$ 15,00</p>
-              
+    <!-- Ofertas por Supermercado -->
+    <section class="offers-section">
+      <!-- Ofertas Mateus -->
+      <div class="supermarket-offers">
+        <div class="offers-header">
+          <h2>Ofertas em Destaque</h2>
+          <a href="/views/mateus.html" class="view-all-link">
+            <span>Mateus</span>
+            <i class="fa fa-arrow-right"></i>
+          </a>
+        </div>
+        
+        <div class="offers-grid">
+          <!-- Produto 1 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/leite.jfif" alt="Leite Integral Piracanjuba 1L"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Leite Integral Piracanjuba 1L</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 6,00</span>
+                <span class="current-price">R$ 4,99</span>
+              </div>
+              <span class="economy-badge">Economize R$ 1,01</span>
             </div>
           </div>
-          <!-- Exemplo de produto 2 -->
-          <div class="produto">
-            <img src="/produtos/feijão.jfif" alt="Feijão" class="produto-img">
-            <div class="produto-info">
-              <h3>Feijão</h3>
-              <p class="preco-original">R$ 20,00</p>
-              <p class="preco-promocional">R$ 15,00</p>
+          
+          <!-- Produto 2 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/ovo1.webp" alt="Ovos Vermelhos Grande Tijuca 30x1"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Ovos Vermelhos Grande Tijuca 30x1</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 21,10</span>
+                <span class="current-price">R$ 18,89</span>
+              </div>
+              <span class="economy-badge">Economize R$ 2,21</span>
             </div>
           </div>
-          <!-- Exemplo de produto 3 -->
-          <div class="produto">
-            <img src="/produtos/leite.jfif" alt="Leite" class="produto-img">
-            <div class="produto-info">
-              <h3>Leite</h3>
-              <p class="preco-original">R$ 20,00</p>
-              <p class="preco-promocional">R$ 15,00</p>
+          
+          <!-- Produto 3 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/pao-de-queijo.webp" alt="Pão de Queijo Tradicional 400g"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Pão de Queijo Tradicional 400g</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 10,19</span>
+                <span class="current-price">R$ 5,89</span>
+              </div>
+              <span class="economy-badge">Economize R$ 4,30</span>
             </div>
           </div>
-          <div class="produto">
-            <img src="/produtos/leite.jfif" alt="Leite" class="produto-img">
-            <div class="produto-info">
-              <h3>Leite</h3>
-              <p class="preco-original">R$ 20,00</p>
-              <p class="preco-promocional">R$ 15,00</p>
+          
+          <!-- Produto 4 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/cenoura.webp" alt="Cenoura"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Cenoura - Quilo</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 2,75</span>
+                <span class="current-price">R$ 1,99</span>
+              </div>
+              <span class="economy-badge">Economize R$ 0,76</span>
             </div>
           </div>
-          <div class="produto">
-            <img src="/produtos/leite.jfif" alt="Leite" class="produto-img">
-            <div class="produto-info">
-              <h3>Leite</h3>
-              <p class="preco-original">R$ 20,00</p>
-              <p class="preco-promocional">R$ 15,00</p>
+          
+          <!-- Produto 5 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/oleo1.webp" alt="Óleo de Soja Refinado Coamo 900ml"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Óleo de Soja Refinado Coamo 900ml</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 8,99</span>
+                <span class="current-price">R$ 6,99</span>
+              </div>
+              <span class="economy-badge">Economize R$ 2,00</span>
             </div>
           </div>
-          <div class="produto">
-            <img src="/produtos/leite.jfif" alt="Leite" class="produto-img">
-            <div class="produto-info">
-              <h3>Leite</h3>
-              <p class="preco-original">R$ 20,00</p>
-              <p class="preco-promocional">R$ 15,00</p>
+          
+          <!-- Produto 6 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/papel_higienico2.jfif" alt="Papel Higiênico Neve"/>
             </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Papel Higiênico Neve</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 9,99</span>
+                <span class="current-price">R$ 8,45</span>
+              </div>
+              <span class="economy-badge">Economize R$ 1,54</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ofertas Assaí -->
+      <div class="supermarket-offers">
+        <div class="offers-header">
+          <h2>Ofertas em Destaque</h2>
+          <a href="/views/assai.html" class="view-all-link">
+            <span>Assaí</span>
+            <i class="fa fa-arrow-right"></i>
+          </a>
+        </div>
+        
+        <div class="offers-grid">
+          <!-- Produto 1 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/cebola-nacional.png" alt="Cebola Nacional"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Cebola Nacional</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 6,79</span>
+                <span class="current-price">R$ 5,99/kg</span>
+              </div>
+              <span class="economy-badge">Por quilo</span>
+            </div>
+          </div>
+          
+          <!-- Produto 2 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/banana-prata.jpeg" alt="Banana Prata"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Banana Prata</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 3,50</span>
+                <span class="current-price">R$ 2,99/kg</span>
+              </div>
+              <span class="economy-badge">Por quilo</span>
+            </div>
+          </div>
+          
+          <!-- Produto 3 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/fileee-de-peito-frango1kg.webp" alt="Filé de Peito de Frango Aurora"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Filé de Peito de Frango Aurora</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 20,00</span>
+                <span class="current-price">R$ 18,90</span>
+              </div>
+              <span class="economy-badge">Economize R$ 1,10</span>
+            </div>
+          </div>
+          
+          <!-- Produto 4 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/achocolatado-caixinha-mococa200ml.webp" alt="Bebida Láctea Chocolate 200ML"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Bebida Láctea Chocolate 200ML</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 1,39</span>
+                <span class="current-price">R$ 0,69</span>
+              </div>
+              <span class="economy-badge">-50%</span>
+            </div>
+          </div>
+          
+          <!-- Produto 5 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/linguiça-defumada-perdigao215g.webp" alt="Linguiça Fininha Defumada Perdigão 215g"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Linguiça Fininha Defumada Perdigão 215g</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 6,99</span>
+                <span class="current-price">R$ 14,89</span>
+              </div>
+              <span class="economy-badge">+113%</span>
+            </div>
+          </div>
+          
+          <!-- Produto 6 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/monster-lata473ml.webp" alt="Bebida Energética Monster 473ML"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Bebida Energética Monster 473ML</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 9,79</span>
+                <span class="current-price">R$ 8,49</span>
+              </div>
+              <span class="economy-badge">Economize R$ 1,30</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ofertas Atacadão -->
+      <div class="supermarket-offers">
+        <div class="offers-header">
+          <h2>Ofertas em Destaque</h2>
+          <a href="/views/atacadao.html" class="view-all-link">
+            <span>Atacadão</span>
+            <i class="fa fa-arrow-right"></i>
+          </a>
+        </div>
+        
+        <div class="offers-grid">
+          <!-- Produto 1 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/arroz.jfif" alt="Arroz"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Arroz</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 20,00</span>
+                <span class="current-price">R$ 15,00</span>
+              </div>
+              <span class="economy-badge">-25%</span>
+            </div>
+          </div>
+          
+          <!-- Produto 2 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/feijão.jfif" alt="Feijão"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Feijão</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 20,00</span>
+                <span class="current-price">R$ 15,00</span>
+              </div>
+              <span class="economy-badge">-25%</span>
+            </div>
+          </div>
+          
+          <!-- Produto 3 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/leite.jfif" alt="Leite"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Leite</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 20,00</span>
+                <span class="current-price">R$ 15,00</span>
+              </div>
+              <span class="economy-badge">-25%</span>
+            </div>
+          </div>
+          
+          <!-- Produto 4 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/leite.jfif" alt="Leite"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Leite</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 20,00</span>
+                <span class="current-price">R$ 15,00</span>
+              </div>
+              <span class="economy-badge">-25%</span>
+            </div>
+          </div>
+          
+          <!-- Produto 5 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/leite.jfif" alt="Leite"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Leite</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 20,00</span>
+                <span class="current-price">R$ 15,00</span>
+              </div>
+              <span class="economy-badge">-25%</span>
+            </div>
+          </div>
+          
+          <!-- Produto 6 -->
+          <div class="offer-card">
+            <div class="offer-image">
+              <img src="/produtos/leite.jfif" alt="Leite"/>
+            </div>
+            <div class="offer-info">
+              <h3 class="offer-name">Leite</h3>
+              <div class="offer-prices">
+                <span class="original-price">R$ 20,00</span>
+                <span class="current-price">R$ 15,00</span>
+              </div>
+              <span class="economy-badge">-25%</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
-  <footer>
-    <p>&copy; 2024 MeuCarrinho. Todos os direitos reservados</p> <br>
-    <h4>Contatos</h4> <br>
-    <i class="bi bi-facebook"></i>
-    <i class="bi bi-instagram"></i>
-    <i class="bi bi-whatsapp"></i>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <p class="copyright">&copy; 2024 MeuCarrinho. Todos os direitos reservados</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contatos</h4>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
   </footer>
-  
+
   <script src="/js/script.js"></script>
   <script src="/js/carrossel.js"></script>
-  <script src="/js/botoes.js  "></script>
-
+  <script src="/js/botoes.js"></script>
 </body>
 </html>
