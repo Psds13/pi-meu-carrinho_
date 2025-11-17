@@ -1,0 +1,27 @@
+<header>
+    <nav>
+        <div class="logo">
+            <h1><a href="/">Meu Carrinho</a></h1>
+        </div>
+        <div class="nav-links">
+            <!-- Páginas principais -->
+            <a href="/">Home</a>
+            <a href="/mercados">Mercados</a>
+            <a href="/produtos">Todos Produtos</a>
+            
+            <!-- NOVA FUNCIONALIDADE -->
+            <a href="/listas/minhas-listas">Minhas Listas</a>
+            
+            <!-- Mercados específicos -->
+            <a href="/produtos/mercado/assai">Assaí</a>
+            <a href="/produtos/mercado/atacadao">Atacadão</a>
+            <a href="/produtos/mercado/mateus">Mateus</a>
+            
+            <% if (user) { %>
+                <a href="/auth/logout">Sair</a>
+            <% } else { %>
+                <a href="/auth/login">Login</a>
+            <% } %>
+        </div>
+    </nav>
+</header>

@@ -1,28 +1,51 @@
+const db = require('../config/database');
 const bcrypt = require('bcryptjs');
-const db = require('../config/database'); 
+
 class UsuarioModel {
-    // Método para buscar um usuário por email
-    static buscarPorEmail(email, callback) {
-        const sql = 'SELECT * FROM usuarios WHERE email = ?';
-        db.query(sql, [email], callback);  
-    }
+  static async criar(usuario) {
+    const hashedPassword = await bcrypt.hash(usuario.senha, 10);
+    
+    const result = await db.query(
+      'INSERT INTO carrinho.usuarios (nome, email, senha, tipo) VALUES ($1, $2, $3, $4) RETURNING *',
+      [usuario.nome, usuario.email, hashedPassword, usuario.tipo || 'usuario']
+    );
+    
+    return result.rows[0];
+  }
 
-    // Método para criar um novo usuário
-    static criar(usuario, callback) {
-        bcrypt.hash(usuario.senha, 10, (err, hash) => {
-            if (err) return callback(err);  
-            
-            const sql = 'INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)';
-            db.query(sql, [usuario.nome, usuario.email, hash], callback);  // Insere o usuário no banco de dados
-        });
-    }
+  static async buscarPorEmail(email) {
+    const result = await db.query(
+      'SELECT * FROM carrinho.usuarios WHERE email = $1',
+      [email]
+    );
+    
+    return result.rows[0];
+  }
 
-    // Método para verificar se a senha fornecida corresponde à senha armazenada
-    static verificarSenha(senha, senhaArmazenada, callback) {
-        bcrypt.compare(senha, senhaArmazenada, (err, res) => {
-            callback(err, res);  
-        });
-    }
+  static async buscarPorId(id) {
+    const result = await db.query(
+      'SELECT id, nome, email, tipo, created_at FROM carrinho.usuarios WHERE id = $1',
+      [id]
+    );
+    
+    return result.rows[0];
+  }
+
+  static async atualizar(id, usuario) {
+    const result = await db.query(
+      'UPDATE carrinho.usuarios SET nome = $1, email = $2 WHERE id = $3 RETURNING id, nome, email, tipo',
+      [usuario.nome, usuario.email, id]
+    );
+    
+    return result.rows[0];
+  }
+
+  static async listarTodos() {
+    const result = await db.query(
+      'SELECT id, nome, email, tipo, created_at FROM carrinho.usuarios ORDER BY nome'
+    );
+    return result.rows;
+  }
 }
 
-module.exports = UsuarioModel; 
+module.exports = UsuarioModel;
