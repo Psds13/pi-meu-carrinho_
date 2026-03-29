@@ -1,27 +1,49 @@
-<header>
-    <nav>
-        <div class="logo">
-            <h1><a href="/">Meu Carrinho</a></h1>
+<header id="main-header" class="header-premium">
+    <div class="header-container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <a href="/" class="logo-link">
+                <img src="/image/logo.png" alt="Meu Carrinho" class="logo-img">
+            </a>
         </div>
-        <div class="nav-links">
-            <!-- Páginas principais -->
-            <a href="/">Home</a>
-            <a href="/mercados">Mercados</a>
-            <a href="/produtos">Todos Produtos</a>
-            
-            <!-- NOVA FUNCIONALIDADE -->
-            <a href="/listas/minhas-listas">Minhas Listas</a>
-            
-            <!-- Mercados específicos -->
-            <a href="/produtos/mercado/assai">Assaí</a>
-            <a href="/produtos/mercado/atacadao">Atacadão</a>
-            <a href="/produtos/mercado/mateus">Mateus</a>
-            
-            <% if (user) { %>
-                <a href="/auth/logout">Sair</a>
-            <% } else { %>
-                <a href="/auth/login">Login</a>
-            <% } %>
+        
+        <!-- Search Section -->
+        <div class="search-section">
+            <form action="/produtos" method="get" class="search-bar-modern">
+                <div class="input-wrapper">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" name="search" placeholder="O que você procura hoje?" class="search-input">
+                    <button type="submit" class="btn-search-premium">Buscar</button>
+                </div>
+            </form>
         </div>
-    </nav>
+        
+        <!-- Actions Section -->
+        <div class="actions-section">
+            <nav class="main-nav">
+                <a href="/mercados" class="nav-item">Mercados</a>
+                <a href="/listas/minhas-listas" class="nav-item cart-btn">
+                    <i class="bi bi-basket-fill"></i>
+                    <span>Minhas Listas</span>
+                </a>
+            </nav>
+            
+            <div class="user-controls">
+                <% if (user) { %>
+                    <div class="user-greeting">
+                        <img src="https://ui-avatars.com/api/?name=<%= user.nome %>&background=0077ff&color=fff" alt="User" class="avatar">
+                        <div class="user-dropdown">
+                            <span class="user-info">Olá, <%= user.nome.split(' ')[0] %></span>
+                            <a href="/auth/logout" class="btn-logout-premium">Sair</a>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <div class="auth-flow">
+                        <a href="/login" class="btn-login-premium">Login</a>
+                        <a href="/cadastro" class="btn-join-premium">Criar Conta</a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
 </header>

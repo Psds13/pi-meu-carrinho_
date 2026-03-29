@@ -3,110 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Item - Supermercado</title>
-
+    <title>Cadastro de Item - Premium Dashboard</title>
     <link rel="stylesheet" href="/public/criar.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
+<body class="admin-body">
+    <div class="form-container-premium">
+        <header class="form-header-premium">
+            <h1 class="gradient-text">Novo Produto</h1>
+            <p>Complete as informações para cadastrar um novo item no sistema</p>
+        </header>
 
-<body>
-
-    <div class="container">
-
-        <div class="form-header">
-            <h1>Cadastro de Item</h1>
-            <p>Adicione um novo produto ao catálogo</p>
-        </div>
-        
-        <form action="/submit-item" method="POST" enctype="multipart/form-data" class="item-form">
-
-            <!-- BLOCO -->
-            <div class="form-section">
-                <h2 class="section-title">Informações Básicas</h2>
-                
-                <div class="form-group">
-                    <label for="nome" class="form-label">
-                        Nome do Item <span class="required">*</span>
-                    </label>
-                    <input type="text" id="nome" name="nome" class="form-input" placeholder="Ex: Arroz, Feijão..." required>
-                    <div class="input-hint">Digite o nome do produto</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="preco" class="form-label">
-                        Preço <span class="required">*</span>
-                    </label>
-
-                    <div class="price-input-container">
-                        <span class="currency-symbol">R$</span>
-                        <input type="number" id="preco" name="preco" class="form-input price-input" placeholder="0.00" step="0.01" min="0" required>
+        <form action="/submit-item" method="POST" enctype="multipart/form-data" class="modern-form">
+            <div class="input-card-premium">
+                <section class="form-section-modern">
+                    <h2 class="section-badge">Informações Gerais</h2>
+                    
+                    <div class="form-group-modern">
+                        <label for="nome"><i class="bi bi-tag-fill"></i> Nome do Item</label>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: Arroz Tio Urbano 5kg" required class="input-field">
+                    </div>
+                    
+                    <div class="form-row-modern">
+                        <div class="form-group-modern flex-1">
+                            <label for="preco"><i class="bi bi-currency-dollar"></i> Preço Atual</label>
+                            <input type="number" id="preco" name="preco" placeholder="0.00" step="0.01" min="0" required class="input-field">
+                        </div>
+                        <div class="form-group-modern flex-1">
+                            <label for="mercado"><i class="bi bi-shop"></i> Supermercado</label>
+                            <select id="mercado" name="mercado" required class="select-field">
+                                <option value="" disabled selected>Escolha um</option>
+                                <option value="mateus">Mateus</option>
+                                <option value="assai">Assaí</option>
+                                <option value="atacadao">Atacadão</option>
+                            </select>
+                        </div>
                     </div>
 
-                </div>
-            </div>
-
-            <!-- CLASSIFICAÇÃO -->
-            <div class="form-section">
-                <h2 class="section-title">Classificação</h2>
-                
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label for="mercado" class="form-label">
-                            Mercado <span class="required">*</span>
-                        </label>
-
-                        <select id="mercado" name="mercado" class="form-select" required>
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="mateus">Mateus</option>
-                            <option value="assai">Assaí</option>
-                            <option value="atacadao">Atacadão</option>
-                            <option value="carrefour">Carrefour</option>
-                            <option value="extra">Extra</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="categorias" class="form-label">
-                            Categoria <span class="required">*</span>
-                        </label>
-
-                        <select id="categorias" name="categorias" class="form-select" required>
-                            <option value="" disabled selected>Selecione</option>
+                    <div class="form-group-modern">
+                        <label for="categorias"><i class="bi bi-list-task"></i> Categoria do Produto</label>
+                        <select id="categorias" name="categorias" required class="select-field">
+                            <option value="" disabled selected>Selecione a categoria</option>
                             <option value="alimentos">Alimentos</option>
                             <option value="bebidas">Bebidas</option>
-                            <option value="higiene">Higiene</option>
-                            <option value="frios">Frios</option>
-                            <option value="frutas">Frutas</option>
-                            <option value="ofertas">Ofertas</option>
+                            <option value="higiene">Higiene e limpeza</option>
+                            <option value="frios">Frios e congelados</option>
+                            <option value="frutas">Frutas e verduras</option>
+                            <option value="ofertas">Ofertas imperdíveis</option>
                         </select>
                     </div>
 
-                </div>
+                    <div class="form-group-modern">
+                        <label><i class="bi bi-image-fill"></i> Imagem do Produto</label>
+                        <div class="upload-area-modern">
+                            <input type="file" id="foto" name="foto" accept="image/*" class="file-input-hidden">
+                            <label for="foto" class="upload-label">
+                                <i class="bi bi-cloud-arrow-up-fill"></i>
+                                <span>Arraste ou clique para selecionar</span>
+                                <small>Recomendado: 800x800px (Máx 5MB)</small>
+                            </label>
+                        </div>
+                    </div>
+                </section>
             </div>
-
-            <!-- IMAGEM -->
-            <div class="form-section">
-                <h2 class="section-title">Imagem do Produto</h2>
-
-                <div class="file-upload-area" id="upload-area">
-                    <input type="file" id="foto" name="foto" accept="image/*">
-                    <p>Clique ou arraste uma imagem</p>
-                    <span>PNG, JPG até 5MB</span>
-                </div>
-
-                <div id="file-preview"></div>
+            
+            <div class="admin-actions-premium">
+                <button type="submit" class="btn-save-modern">
+                    <i class="bi bi-plus-circle-fill"></i> Cadastrar Produto
+                </button>
+                <a href="/admin" class="btn-cancel-modern">Voltar ao Painel</a>
             </div>
-
-            <!-- AÇÕES -->
-            <div class="form-actions">
-                <button type="submit" class="btn-primary">Cadastrar</button>
-                <a href="/views/index.html" class="btn-secondary">Voltar</a>
-            </div>
-
         </form>
     </div>
-
 </body>
 </html>

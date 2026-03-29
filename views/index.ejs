@@ -9,59 +9,35 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 <body>
-  <!-- Cabeçalho -->
-  <header class="header">
-    <div class="container-topo">
-      <div class="topo-content">
-        <!-- Logo -->
-        <div class="logo">
-          <a href="/" class="logo-link">
-            <img src="/image/logo.png" alt="Meu Carrinho - Compare preços de supermercados"/>
-          </a>
-        </div>
-        
-        <!-- Barra de pesquisa -->
-        <form action="#" method="get" class="search-form">
-          <div class="search-container">
-            <input type="text" placeholder="Buscar por produto, marca ou categoria..." name="search" class="search-input" id="searchInput">
-            <button type="submit" class="search-button">
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
-        </form>
-        
-        <!-- Área de usuário -->
-        <div class="user-actions">
-          <a href="/login" class="btn-login">
-            <i class="fa fa-user"></i>
-            <span>Login</span>
-          </a>
-          <a href="/cadastro" class="btn-cadastro">Cadastre-se</a>
-        </div>
-      </div>
+  <%- include('partials/header') %>
+  <!-- Hero Intro -->
+  <section class="hero-intro">
+    <div class="container">
+      <h1>Economize de verdade</h1>
+      <p>O Meu Carrinho compara preços nos maiores supermercados da região para você encher o carrinho pagando muito menos.</p>
     </div>
-  </header>
+  </section>
 
   <!-- Banner Principal -->
   <section class="hero-banner">
     <div class="slideshow-container">
       <div class="mySlides fade">
-        <img src="/image/slide01.png" alt="Promoção 1" style="width:100%">
+        <img src="/image/slide01.png" alt="Promoção 1">
       </div>
       
       <div class="mySlides fade">
-        <img src="/image/slide02.png" alt="Promoção 2" style="width:100%">
+        <img src="/image/slide02.png" alt="Promoção 2">
       </div>
       
       <div class="mySlides fade">
-        <img src="/image/slide03.png" alt="Promoção 3" style="width:100%">
+        <img src="/image/slide03.png" alt="Promoção 3">
       </div>
       
       <!-- Indicadores do slide -->
       <div class="slide-indicators">
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-        <span class="dot"></span> 
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
       </div>
     </div>
   </section>

@@ -1,108 +1,163 @@
-/* Resetando margens e padding */
+/* ===== PREMIUM USER ADMIN STYLES ===== */
+:root {
+  --admin-primary: #0077ff;
+  --admin-secondary: #00d2ff;
+  --admin-bg-dark: #0f172a;
+  --admin-card-bg: rgba(255, 255, 255, 0.05);
+  --admin-border: rgba(255, 255, 255, 0.1);
+  --admin-text: #f8fafc;
+  --admin-text-muted: #94a3b8;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Estilo do corpo */
-body {
-    font-family: 'Poppins', Arial, sans-serif;
-    background: #4c3c92;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #333;
+.admin-body {
+  background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%);
+  color: var(--admin-text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
-/* Estilo do contêiner principal */
-.container {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-    text-align: center;
-    width: 95%;
-    max-width: 550px;
+.user-edit-container {
+  max-width: 500px;
+  width: 100%;
+  animation: slideUp 0.7s ease-out;
 }
 
-/* Estilo do título */
-.container h1 {
-    font-size: 26px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 20px;
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Estilo dos campos do formulário */
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
+.user-edit-header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.form-group label {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    display: block;
-    margin-bottom: 5px;
+.gradient-text {
+  background: linear-gradient(135deg, white 0%, var(--admin-secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  font-weight: 800;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s ease;
+.user-edit-header p {
+  color: var(--admin-text-muted);
+  font-size: 1rem;
 }
 
-.form-group input:focus {
-    border-color: #2196F3;
-    outline: none;
-    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+.user-profile-card {
+  background: var(--admin-card-bg);
+  backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 25px;
+  border: 1px solid var(--admin-border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  margin-bottom: 25px;
+  text-align: center;
 }
 
-/* Estilo dos botões */
-.button-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
+.user-avatar-placeholder {
+  font-size: 4rem;
+  color: var(--admin-primary);
+  margin-bottom: 20px;
+  opacity: 0.8;
 }
 
-.edit-button, .back-button {
-    text-decoration: none;
-    background-color: #2196F3;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center;
-    border: none;
-    cursor: pointer;
+.form-group-modern {
+  margin-bottom: 20px;
+  text-align: left;
 }
 
-.edit-button:hover {
-    background-color: #1976D2;
-    transform: scale(1.05);
+.form-group-modern label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--admin-text-muted);
+  margin-bottom: 8px;
+  display: block;
 }
 
-.back-button {
-    background-color: #f44336;
-    color: #fff;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center;
-    text-decoration: none;
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.back-button:hover {
-    background-color: #d32f2f;
-    transform: scale(1.05);
+.input-with-icon i {
+  position: absolute;
+  left: 15px;
+  color: var(--admin-primary);
+  font-size: 1.1rem;
+}
+
+.input-field {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid var(--admin-border);
+  border-radius: 12px;
+  padding: 12px 12px 12px 45px;
+  color: white;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 4px rgba(0, 119, 255, 0.1);
+}
+
+.admin-actions-premium {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-update-user {
+  flex: 2;
+  background: linear-gradient(135deg, var(--admin-primary) 0%, var(--admin-secondary) 100%);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-update-user:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 119, 255, 0.3);
+}
+
+.btn-cancel-user {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-weight: 600;
+  border: 1px solid var(--admin-border);
+  transition: all 0.3s ease;
+}
+
+.btn-cancel-user:hover {
+  background: rgba(255, 255, 255, 0.1);
 }

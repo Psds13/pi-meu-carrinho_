@@ -3,34 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Usuário</title>
+    <title>Editar Usuário - Admin Panel</title>
     <link rel="stylesheet" href="/public/editarUsuario.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
-<body>
-    <div class="container">
-        <h1>Editar Usuário</h1>
-        <form action="/edit-user" method="POST">
-            <!-- Campo Nome -->
-            <div class="form-group">
-                <label for="name">Nome</label>
-                <input type="text" id="name" name="name" required placeholder="Digite o nome do usuário">
+<body class="admin-body">
+    <div class="user-edit-container">
+        <header class="user-edit-header">
+            <h1 class="gradient-text">Editar Usuário</h1>
+            <p>Gerencie as permissões e dados cadastrais</p>
+        </header>
+
+        <form action="/edit-user" method="POST" class="modern-user-form">
+            <div class="user-profile-card">
+                <div class="user-avatar-placeholder">
+                    <i class="bi bi-person-circle"></i>
+                </div>
+                
+                <div class="form-group-modern">
+                    <label for="name">Nome Completo</label>
+                    <div class="input-with-icon">
+                        <i class="bi bi-person"></i>
+                        <input type="text" id="name" name="name" required placeholder="Digite o nome" class="input-field">
+                    </div>
+                </div>
+
+                <div class="form-group-modern">
+                    <label for="email">Endereço de E-mail</label>
+                    <div class="input-with-icon">
+                        <i class="bi bi-envelope"></i>
+                        <input type="email" id="email" name="email" required placeholder="Digite o e-mail" class="input-field">
+                    </div>
+                </div>
+
+                <div class="form-group-modern">
+                    <label for="password">Nova Senha</label>
+                    <div class="input-with-icon">
+                        <i class="bi bi-lock"></i>
+                        <input type="password" id="password" name="password" required placeholder="Digite a nova senha" class="input-field">
+                    </div>
+                </div>
             </div>
-            <!-- Campo E-mail -->
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" required placeholder="Digite o e-mail do usuário">
-            </div>
-            <!-- Campo Senha -->
-            <div class="form-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" name="password" required placeholder="Digite a nova senha">
-            </div>
-            <!-- Botões -->
-            <div class="button-group">
-                <button type="submit" class="edit-button">Editar</button>
-                <a href="/admin.html" class="back-button">Voltar</a>
+
+            <div class="admin-actions-premium">
+                <button type="submit" class="btn-update-user">
+                    <i class="bi bi-person-check"></i> Atualizar Usuário
+                </button>
+                <a href="/admin" class="btn-cancel-user">Voltar</a>
             </div>
         </form>
     </div>

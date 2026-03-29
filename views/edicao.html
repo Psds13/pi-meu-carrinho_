@@ -3,60 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edição de item de Supermercado</title>
+    <title>Edição de Item - Premium Dashboard</title>
     <link rel="stylesheet" href="/public/criar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
-<body>
-    <div class="container">
-        <h1>Edição de item</h1>
-        <form action="/submit-item" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="nome">Nome do Item:</label>
-                <input type="text" id="nome" name="nome" placeholder="Ex: Arroz, Feijão..." required>
-            </div>
-            
-            <div class="form-group">
-                <label for="preco">Preço:</label>
-                <input type="number" id="preco" name="preco" placeholder="Ex: 10.50" step="0.01" required>
-            </div>
-            <div class="form-group">
-                <label for="mercado">Mercado:</label>
-                <select id="mercado" name="mercado" required>
-                    <option value="" disabled selected>Selecione o mercado</option>
-                    <option value="mateus">Mateus</option>
-                    <option value="assai">Assaí</option>
-                    <option value="atacadao">Atacadão</option>
-                </select>
-            </div>
+<body class="admin-body">
+    <div class="form-container-premium">
+        <header class="form-header-premium">
+            <h1 class="gradient-text">Editar Item</h1>
+            <p>Atualize as informações do produto no sistema</p>
+        </header>
 
-            <div class="form-group">
-                <label for="categorias">Categorias:</label>
-                <select id="categorias" name="categorias" required>
-                    <option value="" disabled selected>Selecione a categoria do produto</option>
-                    <option value="mateus">Alimentos</option>
-                    <option value="assai">Bebidas</option>
-                    <option value="atacadao">Higiene e limpeza</option>
-                    <option value="atacadao">Frios e congelados</option>
-                    <option value="atacadao">Frutas e verduras</option>
-                    <option value="atacadao">Ofertas imperdiveis</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="foto">Foto do Item:</label>
-                <input type="file" id="foto" name="foto" accept="image/*" class="custom-file-input">
-                <label class="custom-file-label" for="foto">Anexar arquivo de foto do produto   </label>
-            </div>
-            
-            <div class="form-group">
-                <button type="submit">Editar Item</button>
-                    <div class="button-container">
-                        <a href="/admin.html" class="back-button">Voltar</a>
+        <form action="/submit-item" method="POST" enctype="multipart/form-data" class="modern-form">
+            <div class="input-card-premium">
+                <div class="form-group-modern">
+                    <label for="nome"><i class="bi bi-tag"></i> Nome do Item</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex: Arroz, Feijão..." required class="input-field">
+                </div>
+                
+                <div class="form-row-modern">
+                    <div class="form-group-modern flex-1">
+                        <label for="preco"><i class="bi bi-currency-dollar"></i> Preço</label>
+                        <input type="number" id="preco" name="preco" placeholder="10.50" step="0.01" required class="input-field">
+                    </div>
+                    <div class="form-group-modern flex-1">
+                        <label for="mercado"><i class="bi bi-shop"></i> Mercado</label>
+                        <select id="mercado" name="mercado" required class="select-field">
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="mateus">Mateus</option>
+                            <option value="assai">Assaí</option>
+                            <option value="atacadao">Atacadão</option>
+                        </select>
                     </div>
                 </div>
+
+                <div class="form-group-modern">
+                    <label for="categorias"><i class="bi bi-grid"></i> Categoria</label>
+                    <select id="categorias" name="categorias" required class="select-field">
+                        <option value="" disabled selected>Selecione a categoria</option>
+                        <option value="alimentos">Alimentos</option>
+                        <option value="bebidas">Bebidas</option>
+                        <option value="higiene">Higiene e limpeza</option>
+                        <option value="frios">Frios e congelados</option>
+                        <option value="frutas">Frutas e verduras</option>
+                        <option value="ofertas">Ofertas imperdíveis</option>
+                    </select>
+                </div>
+
+                <div class="form-group-modern">
+                    <label><i class="bi bi-image"></i> Foto do Produto</label>
+                    <div class="upload-area-modern">
+                        <input type="file" id="foto" name="foto" accept="image/*" class="file-input-hidden">
+                        <label for="foto" class="upload-label">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                            <span>Escolher nova imagem</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-actions-premium">
+                <button type="submit" class="btn-save-modern">
+                    <i class="bi bi-check2-circle"></i> Salvar Alterações
+                </button>
+                <a href="/admin" class="btn-cancel-modern">Cancelar</a>
             </div>
         </form>
     </div>

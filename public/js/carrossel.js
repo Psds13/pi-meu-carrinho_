@@ -1,59 +1,79 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".promocoes-grid");
-  const items = document.querySelectorAll(".promocao-item");
-  const leftArrow = document.querySelector(".left-arrow");
-  const rightArrow = document.querySelector(".right-arrow");
+    // Inicializa todos os carrosséis na página
+    const carousels = document.querySelectorAll(".carousel-container");
 
-  let index = 0; // Índice inicial
-  const itemWidth = items[0].offsetWidth + 20; // Largura do item + margem
-  const totalItems = items.length;
+    carousels.forEach(container => {
+        const track = container.querySelector(".highlights-grid, .promocoes-grid");
+        if (!track) return;
 
-  // Clone dos itens para criar o loop infinito
-  items.forEach((item) => {
-    const clone = item.cloneNode(true);
-    track.appendChild(clone);
-  });
+        const leftArrow = container.querySelector(".left-arrow");
+        const rightArrow = container.querySelector(".right-arrow");
+        const items = track.children;
+        
+        if (items.length === 0) return;
 
-  items.forEach((item) => {
-    const clone = item.cloneNode(true);
-    track.insertBefore(clone, track.firstChild);
-  });
+        let index = 0;
+        const totalItems = items.length;
+        
+        // Função para calcular a largura real de um item incluindo o gap
+        function getStepWidth() {
+            const firstItem = items[0];
+            const style = window.getComputedStyle(track);
+            const gap = parseInt(style.columnGap) || 0;
+            return firstItem.offsetWidth + gap;
+        }
 
-  // Ajustar a posição inicial para o meio dos itens clonados
-  track.style.transform = `translateX(${-totalItems * itemWidth}px)`;
-  index = totalItems;
+        // Clonagem para Loop Infinito
+        for (let i = 0; i < totalItems; i++) {
+            const cloneAfter = items[i].cloneNode(true);
+            track.appendChild(cloneAfter);
+        }
+        for (let i = totalItems - 1; i >= 0; i--) {
+            const cloneBefore = items[i].cloneNode(true);
+            track.insertBefore(cloneBefore, track.firstChild);
+        }
 
-  // Função para mover o carrossel
-  function moveCarousel(direction) {
-      if (direction === "next") {
-          index++;
-      } else if (direction === "prev") {
-          index--;
-      }
+        // Posição inicial (no meio)
+        index = totalItems;
+        track.style.transform = `translateX(${-index * getStepWidth()}px)`;
 
-      track.style.transition = "transform 0.5s ease";
-      track.style.transform = `translateX(${-index * itemWidth}px)`;
+        function move(direction) {
+            const stepWidth = getStepWidth();
+            
+            if (direction === "next") {
+                index++;
+            } else {
+                index--;
+            }
 
-      // Reseta para loop infinito ao avançar além do último item original
-      if (index >= totalItems * 2) {
-          setTimeout(() => {
-              track.style.transition = "none";
-              index = totalItems;
-              track.style.transform = `translateX(${-index * itemWidth}px)`;
-          }, 500); // Aguarda o término da animação
-      }
+            track.style.transition = "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
+            track.style.transform = `translateX(${-index * stepWidth}px)`;
 
-      // Reseta para loop infinito ao voltar antes do primeiro item original
-      if (index < totalItems) {
-          setTimeout(() => {
-              track.style.transition = "none";
-              index = totalItems * 2 - 1;
-              track.style.transform = `translateX(${-index * itemWidth}px)`;
-          }, 500); // Aguarda o término da animação
-      }
-  }
+            // Snap back for infinite loop
+            if (index >= totalItems * 2) {
+                setTimeout(() => {
+                    track.style.transition = "none";
+                    index = totalItems;
+                    track.style.transform = `translateX(${-index * stepWidth}px)`;
+                }, 600);
+            }
 
-  // Botões de navegação
-  rightArrow.addEventListener("click", () => moveCarousel("next"));
-  leftArrow.addEventListener("click", () => moveCarousel("prev"));
+            if (index < totalItems) {
+                setTimeout(() => {
+                    track.style.transition = "none";
+                    index = totalItems * 2 - 1;
+                    track.style.transform = `translateX(${-index * stepWidth}px)`;
+                }, 600);
+            }
+        }
+
+        if (rightArrow) rightArrow.addEventListener("click", () => move("next"));
+        if (leftArrow) leftArrow.addEventListener("click", () => move("prev"));
+
+        // Responsividade: reajustar posição no resize
+        window.addEventListener("resize", () => {
+            track.style.transition = "none";
+            track.style.transform = `translateX(${-index * getStepWidth()}px)`;
+        });
+    });
 });
