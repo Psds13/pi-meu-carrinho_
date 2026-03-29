@@ -139,6 +139,83 @@ body {
   margin: 0 auto;
 }
 
+/* Supermarkets Selection Section */
+.supermarkets-section {
+  padding: 60px 0;
+  background: white;
+  margin-top: -30px;
+  position: relative;
+  z-index: 10;
+  border-radius: 40px 40px 0 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.supermarkets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.supermarket-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 30px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.supermarket-card:hover {
+  transform: translateY(-10px);
+  background: white;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #0077ff;
+}
+
+.supermarket-logo {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.supermarket-logo img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.supermarket-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
 .box_mercados h3 {
   font-size: 1.5rem;
   margin-bottom: 20px;
@@ -279,6 +356,133 @@ footer {
   text-align: center;
   margin-top: 60px;
 }
+
+/* Highlights Section Rules */
+.highlights-section {
+  padding: 60px 0;
+  background: #f8fafc;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.product-card {
+  background: white;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  background: #f8fafc;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.product-image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 8px; right: 8px;
+  background: #ff3c00;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 50px;
+  z-index: 5;
+}
+
+.product-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+  height: 2.8em;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.current-price {
+  color: #0077ff;
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+
+.supermarket-tag {
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.supermarket-tag a { text-decoration: none; color: inherit; }
+
+.supermarket-tag.mateus { background: rgba(0, 119, 255, 0.1); color: #0077ff; }
+.supermarket-tag.assai { background: rgba(255, 60, 0, 0.1); color: #ff3c00; }
+.supermarket-tag.atacadao { background: rgba(15, 133, 0, 0.1); color: #0f8500; }
+
+.carousel-arrow {
+  background: white;
+  border: 1px solid #e2e8f0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e293b;
+  transition: all 0.3s;
+}
+
+.carousel-arrow:hover { background: #1e293b; color: white; }
 
 @media (max-width: 768px) {
   .promocoes-grid, .produtos-lista {
