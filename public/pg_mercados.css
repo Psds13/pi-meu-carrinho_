@@ -18,16 +18,15 @@ body {
   color: var(--text-dark);
 }
 
-/* Header (Solid Blue from User Request) */
 .header-premium {
   background: #0077ff;
-  position: sticky; top: 0; width: 100%; height: 75px;
+  position: sticky; top: 0; width: 100%; height: 85px;
   z-index: 1000; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   display: flex; align-items: center;
 }
 
 .logo-img {
-  height: 45px;
+  height: 60px;
   width: auto;
   transition: transform 0.3s ease;
 }
@@ -43,21 +42,22 @@ body {
   color: white !important;
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.9rem;
-  padding: 8px 16px;
-  transition: opacity 0.3s;
+  font-size: 0.95rem;
+  padding: 10px 15px;
+  white-space: nowrap;
 }
 
 .btn-join-premium {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   color: white !important;
-  padding: 8px 20px;
+  padding: 10px 24px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 0.95rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .btn-join-premium:hover {
@@ -66,13 +66,71 @@ body {
 }
 
 .header-container {
-  max-width: 1400px; width: 100%; margin: 0 auto; padding: 0 40px;
+  max-width: 1500px; width: 100%; margin: 0 auto; padding: 0 25px;
   display: flex; justify-content: space-between; align-items: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+}
+
+/* Search Modern Styling */
+.search-section {
+  flex: 1;
+  max-width: 500px;
+}
+
+.search-bar-modern {
+  width: 100%;
+}
+
+.input-wrapper {
+  display: flex;
+  background: white;
+  border-radius: 50px;
+  padding: 4px 4px 4px 20px;
+  align-items: center;
+}
+
+.search-icon {
+  color: #64748b;
+  margin-right: 10px;
+}
+
+.search-input {
+  border: none !important;
+  background: transparent !important;
+  padding: 8px 0 !important;
+  width: 100% !important;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-search-premium {
+  background: #1e293b;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.btn-search-premium:hover { background: black; }
+
+/* Global Actions Alignment */
+.actions-section {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
   gap: 20px;
 }
 
-.nav-item { color: white; text-decoration: none; font-weight: 700; margin: 0 10px; font-size: 0.95rem; }
-.search-input { padding: 10px 20px; border-radius: 50px; border: none; width: 100%; max-width: 400px; font-size: 0.9rem; }
+.nav-item { color: white; text-decoration: none; font-weight: 700; font-size: 0.95rem; white-space: nowrap; }
 
 /* Market Layout Box */
 .box_mercados {
