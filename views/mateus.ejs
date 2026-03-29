@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mateus - Meu Carrinho</title>
-  <link rel="stylesheet" href="/pg_mercados.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mateus - Meu Carrinho</title>
+    <link rel="icon" type="image/png" href="/image/logo.png">
+    <link rel="stylesheet" href="/pg_mercados.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 <body>
   <!-- Cabeçalho -->
@@ -16,11 +18,32 @@
 
   <!-- Conteúdo Principal -->
   <main>
+    <!-- Top Market Hero -->
+    <header class="market-hero theme-mateus">
+        <div class="market-hero-content">
+            <img src="/image/grupo-mateus-logo.png" alt="Mateus" class="market-page-logo">
+            <h1>Ofertas Mateus</h1>
+            <p>O coração da gente batendo junto com a economia</p>
+        </div>
+    </header>
+
+    <!-- Category Sticky Nav -->
+    <nav class="category-nav-wrapper">
+        <div class="category-nav">
+            <a href="#promocoes" class="cat-link"><i class="bi bi-star-fill"></i> Promoções</a>
+            <a href="#alimentos" class="cat-link"><i class="bi bi-egg-fill"></i> Alimentos</a>
+            <a href="#bebidas" class="cat-link"><i class="bi bi-cup-straw"></i> Bebidas</a>
+            <a href="#higiene" class="cat-link"><i class="bi bi-sparkles"></i> Higiene</a>
+            <a href="#frios" class="cat-link"><i class="bi bi-snow"></i> Frios</a>
+            <a href="#frutas" class="cat-link"><i class="bi bi-apple"></i> Hortifruti</a>
+        </div>
+    </nav>
+
     <div class="box_mercados">
       <!-- seleção mercado -->
-      <h3>Selecione um mercado:</h3>
+      <h3 style="margin-top: 40px;">Outros supermercados:</h3>
         <a href="/assai"><img id="assai-logo" src="/image/assaí-logo.png"/></a>
-                <a href="/atacadao"><img id="atacadao-logo" src="/image/atacadao-logo2.webp"/></a>
+        <a href="/atacadao"><img id="atacadao-logo" src="/image/atacadao-logo2.webp"/></a>
              <!-- seleçãpo mercado FIM-->
         </div> 
     <section id="promocoes">

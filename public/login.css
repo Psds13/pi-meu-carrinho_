@@ -26,11 +26,13 @@ body {
 
 /* Cabeçalho */
 .conteiner_topo {
-  padding: 40px 0;
+  background-color: #0077ff;
+  padding: 20px 0;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .topo_objeto img {
