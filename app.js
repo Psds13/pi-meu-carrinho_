@@ -31,7 +31,7 @@ const authRoutes = require('./routes/authRoutes');
 const produtoRoutes = require('./routes/produtoRoutes');
 const listaRoutes = require('./routes/listaRoutes');
 
-app.use('/auth', authRoutes);
+app.use('/', authRoutes);
 app.use('/produtos', produtoRoutes);
 app.use('/listas', listaRoutes);
 
@@ -42,6 +42,18 @@ app.get('/', (req, res) => {
 
 app.get('/mercados', (req, res) => {
   res.render('pg_mercados', { user: req.session.user });
+});
+
+app.get('/assai', (req, res) => {
+  res.render('assai', { user: req.session.user });
+});
+
+app.get('/atacadao', (req, res) => {
+  res.render('atacadao', { user: req.session.user });
+});
+
+app.get('/mateus', (req, res) => {
+  res.render('mateus', { user: req.session.user });
 });
 
 // Middleware de erro
