@@ -27,7 +27,7 @@ body {
 /* Cabeçalho */
 .conteiner_topo {
   background-color: #0077ff;
-  padding: 20px 0;
+  padding: 12px 0;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -36,7 +36,7 @@ body {
 }
 
 .topo_objeto img {
-  width: 280px;
+  width: 200px;
   height: auto;
   filter: drop-shadow(0 0 15px rgba(0, 119, 255, 0.3));
 }
