@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Carrinho - Compare Preços de Supermercados</title>
   <link rel="icon" type="image/png" href="/image/logo.png">
-  <link rel="stylesheet" href="/pg_mercados.css">
+  <link rel="stylesheet" href="/main-responsive.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <%- include('partials/header') %>
+
   <!-- Hero Intro -->
   <section class="hero-intro">
     <div class="container">
@@ -47,35 +49,38 @@
   <main class="main-content">
     
     <!-- Seção de Supermercados -->
-    <section id="supermarkets-section" class="supermarkets-section">
-      <div class="section-header">
-        <h2>Escolha seu Supermercado</h2>
-        <p>Compare preços entre os melhores mercados da região</p>
-      </div>
-      
-      <div class="supermarkets-grid">
-        <a href="/atacadao" class="supermarket-card">
-          <div class="supermarket-logo">
-            <img src="/image/atacadao-logo2.webp" alt="Atacadão"/>
-          </div>
-          <span class="supermarket-name">Atacadão</span>
-        </a>
+    <section id="supermarkets-section" class="supermarkets-section fade-in">
+      <div class="container">
+        <div class="section-header">
+          <h2>Escolha seu Supermercado</h2>
+          <p>Compare preços entre os melhores mercados da região</p>
+        </div>
         
-        <a href="/assai" class="supermarket-card">
-          <div class="supermarket-logo">
-            <img src="/image/assaí-logo.png" alt="Assaí Atacadista"/>
-          </div>
-          <span class="supermarket-name">Assaí</span>
-        </a>
-        
-        <a href="/mateus" class="supermarket-card">
-          <div class="supermarket-logo">
-            <img src="/image/grupo-mateus-logo.png" alt="Grupo Mateus"/>
-          </div>
-          <span class="supermarket-name">Mateus</span>
-        </a>
+        <div class="responsive-grid grid-standard">
+          <a href="/atacadao" class="supermarket-card card-premium">
+            <div class="supermarket-logo">
+              <img src="/image/atacadao-logo2.webp" alt="Atacadão"/>
+            </div>
+            <span class="supermarket-name">Atacadão</span>
+          </a>
+          
+          <a href="/assai" class="supermarket-card card-premium">
+            <div class="supermarket-logo">
+              <img src="/image/assaí-logo.png" alt="Assaí Atacadista"/>
+            </div>
+            <span class="supermarket-name">Assaí</span>
+          </a>
+          
+          <a href="/mateus" class="supermarket-card card-premium">
+            <div class="supermarket-logo">
+              <img src="/image/grupo-mateus-logo.png" alt="Grupo Mateus"/>
+            </div>
+            <span class="supermarket-name">Mateus</span>
+          </a>
+        </div>
       </div>
     </section>
+
     
     <!-- Destaques da Semana -->
     <section class="highlights-section">
@@ -84,17 +89,17 @@
         <p>As melhores ofertas para você economizar</p>
       </div>
       
-      <div class="carousel-container">
+      <div class="container carousel-container">
         <button class="carousel-arrow left-arrow" aria-label="Produtos anteriores">
           <i class="fa fa-chevron-left"></i>
         </button>
         
         <div class="highlights-grid">
           <!-- Produto 1 -->
-          <div class="product-card">
-            <div class="product-image">
+          <div class="product-card card-premium">
+            <div class="discount-tag">-5%</div>
+            <div class="product-image-container">
               <img src="/produtos/coxadefrangoFriato.webp" alt="Coxa de Frango Friato 1kg"/>
-              <span class="discount-badge">-5%</span>
             </div>
             <div class="product-info">
               <h3 class="product-name">Coxa de Frango Friato 1kg</h3>
@@ -109,10 +114,10 @@
           </div>
           
           <!-- Produto 2 -->
-          <div class="product-card">
-            <div class="product-image">
+          <div class="product-card card-premium">
+            <div class="discount-tag">-10%</div>
+            <div class="product-image-container">
               <img src="/produtos/cafe-uniao-tradicional-250g.jpg" alt="Café União Tradicional 250g"/>
-              <span class="discount-badge">-10%</span>
             </div>
             <div class="product-info">
               <h3 class="product-name">Café União Tradicional 250g</h3>
@@ -127,10 +132,10 @@
           </div>
           
           <!-- Produto 3 -->
-          <div class="product-card">
-            <div class="product-image">
+          <div class="product-card card-premium">
+            <div class="discount-tag">-38%</div>
+            <div class="product-image-container">
               <img src="/produtos/feijão.jfif" alt="Feijão preto"/>
-              <span class="discount-badge">-38%</span>
             </div>
             <div class="product-info">
               <h3 class="product-name">Feijão preto</h3>
@@ -145,10 +150,10 @@
           </div>
           
           <!-- Produto 4 -->
-          <div class="product-card">
-            <div class="product-image">
+          <div class="product-card card-premium">
+            <div class="discount-tag">-23%</div>
+            <div class="product-image-container">
               <img src="/produtos/leite-int-betania-1L.webp" alt="Leite Longa Vida Integral Betânia 1L"/>
-              <span class="discount-badge">-23%</span>
             </div>
             <div class="product-info">
               <h3 class="product-name">Leite Longa Vida Integral Betânia 1L</h3>
@@ -163,10 +168,10 @@
           </div>
           
           <!-- Produto 5 -->
-          <div class="product-card">
-            <div class="product-image">
+          <div class="product-card card-premium">
+            <div class="discount-tag">-21%</div>
+            <div class="product-image-container">
               <img src="/produtos/sucosaborfrutascitricas.webp" alt="Suco Sabor Frutas Cítricas 450ml"/>
-              <span class="discount-badge">-21%</span>
             </div>
             <div class="product-info">
               <h3 class="product-name">Suco Sabor Frutas Cítricas 450ml</h3>
@@ -181,10 +186,10 @@
           </div>
           
           <!-- Produto 6 -->
-          <div class="product-card">
-            <div class="product-image">
+          <div class="product-card card-premium">
+            <div class="discount-tag">-46%</div>
+            <div class="product-image-container">
               <img src="/produtos/BGuarana.png" alt="Guaraná Antarctica Original Lata 350ML"/>
-              <span class="discount-badge">-46%</span>
             </div>
             <div class="product-info">
               <h3 class="product-name">Guaraná Antarctica Original Lata 350ML</h3>
@@ -203,23 +208,24 @@
           <i class="fa fa-chevron-right"></i>
         </button>
       </div>
+
     </section>
 
     <!-- Ofertas por Supermercado -->
     <section class="offers-section">
       <!-- Ofertas Mateus -->
-      <div class="supermarket-offers">
+      <div class="container supermarket-offers">
         <div class="offers-header">
-          <h2>Ofertas em Destaque</h2>
+          <h2>Ofertas em Destaque - Mateus</h2>
           <a href="/mateus" class="view-all-link">
-            <span>Mateus</span>
+            <span>Ver tudo</span>
             <i class="fa fa-arrow-right"></i>
           </a>
         </div>
         
-        <div class="offers-grid">
+        <div class="responsive-grid grid-standard">
           <!-- Produto 1 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/leite.jfif" alt="Leite Integral Piracanjuba 1L"/>
             </div>
@@ -234,7 +240,7 @@
           </div>
           
           <!-- Produto 2 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/ovo1.webp" alt="Ovos Vermelhos Grande Tijuca 30x1"/>
             </div>
@@ -249,7 +255,7 @@
           </div>
           
           <!-- Produto 3 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/pao-de-queijo.webp" alt="Pão de Queijo Tradicional 400g"/>
             </div>
@@ -264,7 +270,7 @@
           </div>
           
           <!-- Produto 4 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/cenoura.webp" alt="Cenoura"/>
             </div>
@@ -279,7 +285,7 @@
           </div>
           
           <!-- Produto 5 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/oleo1.webp" alt="Óleo de Soja Refinado Coamo 900ml"/>
             </div>
@@ -294,7 +300,7 @@
           </div>
           
           <!-- Produto 6 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/papel_higienico2.jfif" alt="Papel Higiênico Neve"/>
             </div>
@@ -309,20 +315,20 @@
           </div>
         </div>
       </div>
+
       
-      <!-- Ofertas Assaí -->
-      <div class="supermarket-offers">
+      <div class="container supermarket-offers">
         <div class="offers-header">
-          <h2>Ofertas em Destaque</h2>
+          <h2>Ofertas em Destaque - Assaí</h2>
           <a href="/assai" class="view-all-link">
-            <span>Assaí</span>
+            <span>Ver tudo</span>
             <i class="fa fa-arrow-right"></i>
           </a>
         </div>
         
-        <div class="offers-grid">
+        <div class="responsive-grid grid-standard">
           <!-- Produto 1 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/cebola-nacional.png" alt="Cebola Nacional"/>
             </div>
@@ -337,7 +343,7 @@
           </div>
           
           <!-- Produto 2 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/banana-prata.jpeg" alt="Banana Prata"/>
             </div>
@@ -352,7 +358,7 @@
           </div>
           
           <!-- Produto 3 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/fileee-de-peito-frango1kg.webp" alt="Filé de Peito de Frango Aurora"/>
             </div>
@@ -367,7 +373,7 @@
           </div>
           
           <!-- Produto 4 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/achocolatado-caixinha-mococa200ml.webp" alt="Bebida Láctea Chocolate 200ML"/>
             </div>
@@ -382,7 +388,7 @@
           </div>
           
           <!-- Produto 5 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/linguiça-defumada-perdigao215g.webp" alt="Linguiça Fininha Defumada Perdigão 215g"/>
             </div>
@@ -397,7 +403,7 @@
           </div>
           
           <!-- Produto 6 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/monster-lata473ml.webp" alt="Bebida Energética Monster 473ML"/>
             </div>
@@ -413,19 +419,18 @@
         </div>
       </div>
       
-      <!-- Ofertas Atacadão -->
-      <div class="supermarket-offers">
+      <div class="container supermarket-offers">
         <div class="offers-header">
-          <h2>Ofertas em Destaque</h2>
+          <h2>Ofertas em Destaque - Atacadão</h2>
           <a href="/atacadao" class="view-all-link">
-            <span>Atacadão</span>
+            <span>Ver tudo</span>
             <i class="fa fa-arrow-right"></i>
           </a>
         </div>
         
-        <div class="offers-grid">
+        <div class="responsive-grid grid-standard">
           <!-- Produto 1 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/arroz.jfif" alt="Arroz"/>
             </div>
@@ -440,7 +445,7 @@
           </div>
           
           <!-- Produto 2 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/feijão.jfif" alt="Feijão"/>
             </div>
@@ -455,7 +460,7 @@
           </div>
           
           <!-- Produto 3 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/leite.jfif" alt="Leite"/>
             </div>
@@ -470,7 +475,7 @@
           </div>
           
           <!-- Produto 4 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/leite.jfif" alt="Leite"/>
             </div>
@@ -485,7 +490,7 @@
           </div>
           
           <!-- Produto 5 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/leite.jfif" alt="Leite"/>
             </div>
@@ -500,7 +505,7 @@
           </div>
           
           <!-- Produto 6 -->
-          <div class="offer-card">
+          <div class="offer-card card-premium">
             <div class="offer-image">
               <img src="/produtos/leite.jfif" alt="Leite"/>
             </div>
@@ -519,15 +524,25 @@
   </main>
 
   <!-- Rodapé -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section">
+  <footer class="footer-premium">
+    <div class="container footer-grid">
+      <div class="footer-section footer-logo">
+        <img src="/image/logo.png" alt="Logo Meu Carrinho">
         <p class="copyright">&copy; 2024 MeuCarrinho. Todos os direitos reservados</p>
       </div>
       
+      <div class="footer-section footer-links">
+        <h4>Navegação</h4>
+        <ul>
+            <li><a href="/">Início</a></li>
+            <li><a href="/#supermarkets-section">Mercados</a></li>
+            <li><a href="/listas/minhasListas">Minhas Listas</a></li>
+        </ul>
+      </div>
+
       <div class="footer-section">
         <h4>Contatos</h4>
-        <div class="social-links">
+        <div class="social-links social-icons">
           <a href="#" aria-label="Facebook">
             <i class="bi bi-facebook"></i>
           </a>
@@ -545,5 +560,6 @@
   <script src="/js/script.js"></script>
   <script src="/js/carrossel.js"></script>
   <script src="/js/botoes.js"></script>
+  <script src="/js/mobile-menu.js"></script>
 </body>
-</html>
+</html>

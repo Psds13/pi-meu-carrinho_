@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atacadão - Meu Carrinho</title>
     <link rel="icon" type="image/png" href="/image/logo.png">
-    <link rel="stylesheet" href="/pg_mercados.css">
+    <link rel="stylesheet" href="/main-responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <!-- Cabeçalho -->
@@ -18,9 +20,9 @@
   <!-- Conteúdo Principal -->
   <main>
     <!-- Top Market Hero -->
-    <header class="market-hero theme-atacadao">
-        <div class="market-hero-content">
-            <img src="/image/atacadão-logo.png" alt="Atacadão" class="market-page-logo">
+    <header class="hero-intro theme-atacadao">
+        <div class="container market-hero-content">
+            <img src="/image/atacadão-logo.png" alt="Atacadão" class="market-page-logo" style="margin: 0 auto 1.5rem; height: 80px;">
             <h1>Ofertas Atacadão</h1>
             <p>Os melhores preços para o seu negócio e para sua casa</p>
         </div>
@@ -28,15 +30,16 @@
 
     <!-- Category Sticky Nav -->
     <nav class="category-nav-wrapper">
-        <div class="category-nav">
-            <a href="#promocoes" class="cat-link"><i class="bi bi-star-fill"></i> Promoções</a>
-            <a href="#alimentos" class="cat-link"><i class="bi bi-egg-fill"></i> Alimentos</a>
-            <a href="#bebidas" class="cat-link"><i class="bi bi-cup-straw"></i> Bebidas</a>
-            <a href="#higiene" class="cat-link"><i class="bi bi-sparkles"></i> Higiene</a>
-            <a href="#frios" class="cat-link"><i class="bi bi-snow"></i> Frios</a>
-            <a href="#frutas" class="cat-link"><i class="bi bi-apple"></i> Hortifruti</a>
+        <div class="container category-nav" style="display: flex; gap: 1rem; overflow-x: auto; padding: 1rem 0; white-space: nowrap;">
+            <a href="#promocoes" class="cat-link btn btn-primary"><i class="bi bi-star-fill"></i> Promoções</a>
+            <a href="#alimentos" class="cat-link btn btn-primary"><i class="bi bi-egg-fill"></i> Alimentos</a>
+            <a href="#bebidas" class="cat-link btn btn-primary"><i class="bi bi-cup-straw"></i> Bebidas</a>
+            <a href="#higiene" class="cat-link btn btn-primary"><i class="bi bi-sparkles"></i> Higiene</a>
+            <a href="#frios" class="cat-link btn btn-primary"><i class="bi bi-snow"></i> Frios</a>
+            <a href="#frutas" class="cat-link btn btn-primary"><i class="bi bi-apple"></i> Hortifruti</a>
         </div>
     </nav>
+
 
     <div class="box_mercados">
       <!-- seleção mercado -->
@@ -44,528 +47,732 @@
         <a href="/assai"><img id="assai-logo" src="/image/assaí-logo.png"/></a>
         <a href="/mateus"><img id="mateus-logo" src="/image/grupo-mateus-logo.png"/></a>
              <!-- seleçãpo mercado FIM-->
-    <section id="promocoes">
-      <h2 >Melhores ofertas da Semana Atacadão </h2> 
+    <section id="promocoes" class="container">
+      <h2 class="mb-4">Melhores ofertas da Semana Atacadão</h2> 
       <div class="carousel-container">
-        <button class="arrow left-arrow">❮</button>
-        <div class="promocoes-grid">
-          <!-- Produtos -->
-          <div class="promocao-item">
-            <img src="/produtos/Wafer Amori.jfif" alt="Produto 1">
-            <h3>Wafer Amori</h3>
-            <p class="preco-original">R$ 5,90</p>
-            <p class="preco-promocional">R$ 3,75</p>
-            <div class="quantidade-container">
-              <button class="decrement-btn">-</button>
-              <span class="quantity-display">1</span>
-              <button class="increment-btn">+</button>
+        <div class="responsive-grid grid-standard">
+          <!-- Produto 1 -->
+          <div class="product-card card-premium">
+            <div class="product-image-container">
+              <img src="/produtos/Wafer Amori.jfif" alt="Wafer Amori">
             </div>
-          </div>
-          <div class="promocao-item">
-            <img src="/produtos/Cha.jfif" alt="Produto 2">
-            <h3>Chá Matte Leão Guaraná</h3>
-            <p class="preco-original">R$ 25,90</p>
-            <p class="preco-promocional">R$ 17,90</p>
-            <div class="quantidade-container">
-              <button class="decrement-btn">-</button>
-              <span class="quantity-display">1</span>
-              <button class="increment-btn">+</button>
-            </div>
-          </div>
-          <div class="promocao-item">
-            <img src="/produtos/achocolatado.jfif" alt="Produto 3">
-            <h3>Achocolatado Ovomaltine</h3>
-            <p class="preco-original">R$ 17,90</p>
-            <p class="preco-promocional">R$ 12,90</p>
-            <div class="quantidade-container">
-              <button class="decrement-btn">-</button>
-              <span class="quantity-display">1</span>
-              <button class="increment-btn">+</button>
-            </div>
-          </div>
-          <div class="promocao-item">
-              <img src="/produtos/caixa de bombom.jfif" alt="Produto 3">
-              <h3>Caixa de Bombom Garoto</h3>
-              <p class="preco-original">R$ 8,00</p>
-              <p class="preco-promocional">R$ 4,00</p>
+            <div class="product-info">
+              <h3 class="product-name">Wafer Amori</h3>
+              <div class="price-container">
+                <span class="original-price">R$ 5,90</span>
+                <span class="current-price">R$ 3,75</span>
+              </div>
               <div class="quantidade-container">
-                <button class="decrement-btn">-</button>
+                <button class="btn btn-primary decrement-btn">-</button>
                 <span class="quantity-display">1</span>
-                <button class="increment-btn">+</button>
+                <button class="btn btn-primary increment-btn">+</button>
               </div>
             </div>
-            <div class="promocao-item">
-              <img src="/produtos/leite fase.jfif" alt="Produto 3">
-              <h3>Leite Ninho</h3>
-              <p class="preco-original">R$ 15,00</p>
-              <p class="preco-promocional">R$ 10,00</p>
+          </div>
+          <div class="product-card card-premium">
+            <div class="product-image-container">
+              <img src="/produtos/Cha.jfif" alt="Chá Matte Leão">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Chá Matte Leão Guaraná</h3>
+              <div class="price-container">
+                <span class="original-price">R$ 25,90</span>
+                <span class="current-price">R$ 17,90</span>
+              </div>
               <div class="quantidade-container">
-                <button class="decrement-btn">-</button>
+                <button class="btn btn-primary decrement-btn">-</button>
                 <span class="quantity-display">1</span>
-                <button class="increment-btn">+</button>
+                <button class="btn btn-primary increment-btn">+</button>
               </div>
             </div>
-            <div class="promocao-item">
-              <img src="/produtos/creme_de_leite.jfif" alt="Produto 3">
-              <h3>Creme de Leite Nestle</h3>
-              <p class="preco-original">R$ 11,90</p>
-              <p class="preco-promocional">R$ 7,75</p>
+          </div>
+          <div class="product-card card-premium">
+            <div class="product-image-container">
+              <img src="/produtos/achocolatado.jfif" alt="Achocolatado Ovomaltine">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Achocolatado Ovomaltine</h3>
+              <div class="price-container">
+                  <span class="original-price">R$ 17,90</span>
+                  <span class="current-price">R$ 12,90</span>
+              </div>
               <div class="quantidade-container">
-                <button class="decrement-btn">-</button>
+                <button class="btn btn-primary decrement-btn">-</button>
                 <span class="quantity-display">1</span>
-                <button class="increment-btn">+</button>
+                <button class="btn btn-primary increment-btn">+</button>
               </div>
             </div>
-          <!-- Adicione mais itens conforme necessário -->
+          </div>
+          <div class="product-card card-premium">
+            <div class="product-image-container">
+                <img src="/produtos/caixa de bombom.jfif" alt="Bombom Garoto">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Caixa de Bombom Garoto</h3>
+                <div class="price-container">
+                  <span class="original-price">R$ 8,00</span>
+                  <span class="current-price">R$ 4,00</span>
+                </div>
+                <div class="quantidade-container">
+                  <button class="btn btn-primary decrement-btn">-</button>
+                  <span class="quantity-display">1</span>
+                  <button class="btn btn-primary increment-btn">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="product-card card-premium">
+              <div class="product-image-container">
+                <img src="/produtos/leite fase.jfif" alt="Leite Ninho">
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">Leite Ninho</h3>
+                <div class="price-container">
+                  <span class="original-price">R$ 15,00</span>
+                  <span class="current-price">R$ 10,00</span>
+                </div>
+                <div class="quantidade-container">
+                  <button class="btn btn-primary decrement-btn">-</button>
+                  <span class="quantity-display">1</span>
+                  <button class="btn btn-primary increment-btn">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="product-card card-premium">
+              <div class="product-image-container">
+                <img src="/produtos/creme_de_leite.jfif" alt="Creme de Leite Nestle">
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">Creme de Leite Nestle</h3>
+                <div class="price-container">
+                  <span class="original-price">R$ 11,90</span>
+                  <span class="current-price">R$ 7,75</span>
+                </div>
+                <div class="quantidade-container">
+                  <button class="btn btn-primary decrement-btn">-</button>
+                  <span class="quantity-display">1</span>
+                  <button class="btn btn-primary increment-btn">+</button>
+                </div>
+              </div>
+            </div>
         </div>
-        <button class="arrow right-arrow">❯</button>
       </div>
     </section>
 
-    <section id="alimentos">
-      <a>Alimentos</a>
-      <section class="produtos-lista">
-        <!-- Exemplo de produto 1 -->
-        <div class="produto">
-          <img src="/produtos/arroz.jfif" alt="Arroz" class="produto-img">
-          <div class="produto-info">
-            <h3>Arroz</h3>
-            <p class="preco-original">R$ 11,90</p>
-            <p class="preco-promocional">R$ 8,75</p>
-            <div class="quantidade-container">
-              <button class="decrement-btn">-</button>
-              <span class="quantity-display">1</span>
-              <button class="increment-btn">+</button>
-            </div>
-          </div>
-        </div>
-        <!-- Exemplo de produto 2 -->
-        <div class="produto">
-          <img src="/produtos/feijão.jfif" alt="Feijão" class="produto-img">
-          <div class="produto-info">
-            <h3>Feijão</h3>
-            <p class="preco-original">R$ 9,90</p>
-            <p class="preco-promocional">R$ 7,75</p>
-            <div class="quantidade-container">
-              <button class="decrement-btn">-</button>
-              <span class="quantity-display">1</span>
-              <button class="increment-btn">+</button>
-            </div>
-          </div>
-        </div>
-        <!-- Exemplo de produto 3 -->
-        <div class="produto">
-          <img src="/produtos/aveia.jfif" alt="Aveia" class="produto-img">
-          <div class="produto-info">
-            <h3>Aveia em pó</h3>
-            <p class="preco-original">R$ 20,00</p>
-            <p class="preco-promocional">R$ 15,00</p>
-            <div class="quantidade-container">
-              <button class="decrement-btn">-</button>
-              <span class="quantity-display">1</span>
-              <button class="increment-btn">+</button>
-            </div>
-          </div>
-        </div>
-        <div class="produto">
-          <img src="/produtos/iogurte.jfif" alt="Iogurte" class="produto-img">
-          <div class="produto-info">
-            <h3>Iogurte Chamyto Morango</h3>
-            <p class="preco-original">R$ 5,80</p>
-            <p class="preco-promocional">R$ 3,90</p>
-            <div class="quantidade-container">
-              <button class="decrement-btn">-</button>
-              <span class="quantity-display">1</span>
-              <button class="increment-btn">+</button>
-            </div>
-          </div>
-        </div>
-        <div class="produto">
-          <img src="/produtos/Wafer Bauducco.jfif" alt="Wafer" class="produto-img">
-          <div class="produto-info">
-            <h3>Wafer Bauducco</h3>
-            <p class="preco-original">R$ 4,90</p>
-            <p class="preco-promocional">R$ 3,75</p>
-            <div class="quantidade-container">
-              <button class="decrement-btn">-</button>
-              <span class="quantity-display">1</span>
-              <button class="increment-btn">+</button>
-            </div>
-          </div>
-        </div>
-        <div class="produto">
-          <img src="/produtos/leite2.jfif" alt="Leite" class="produto-img">
-          <div class="produto-info">
-            <h3>Leite Italac</h3>
-            <p class="preco-original">R$ 18,00</p>
-            <p class="preco-promocional">R$ 14,00</p>
-            <div class="quantidade-container">
-              <button class="decrement-btn">-</button>
-              <span class="quantity-display">1</span>
-              <button class="increment-btn">+</button>
-            </div>
-            
-          </div>
-          </div>
-        </section>
 
-        <section id="produtos">
-          <a>Bebidas</a>
-          <div class="produtos-lista">
-            <!-- Exemplo de produto 1 -->
-            <div class="produto">
-              <img src="/produtos/Cerveja.jpeg" alt="Cerveja" class="produto-img">
-              <div class="produto-info">
-                <h3>Cerveja Antártica</h3>
-                <p class="preco-original">R$ 3,90</p>
-                <p class="preco-promocional">R$ 1,60</p>
-                <div class="quantidade-container">
-                  <button class="decrement-btn">-</button>
-                  <span class="quantity-display">0</span>
-                  <button class="increment-btn">+</button>
-                </div>
-              </div>
+    <section id="alimentos" class="container mt-5">
+      <h2 class="mb-4">Alimentos</h2>
+      <div class="responsive-grid grid-standard">
+        <!-- Produto 1 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/arroz.jfif" alt="Arroz" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Arroz</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 11,90</span>
+              <span class="current-price">R$ 8,75</span>
             </div>
-            <!-- Exemplo de produto 2 -->
-            <div class="produto">
-              <img src="/produtos/Energetico.jfif" alt="Energetico" class="produto-img">
-              <div class="produto-info">
-                <h3>Energético Vrauu</h3>
-                <p class="preco-original">R$ 7,60</p>
-                <p class="preco-promocional">R$ 5,39</p>
-                <div class="quantidade-container">
-                  <button class="decrement-btn">-</button>
-                  <span class="quantity-display">0</span>
-                  <button class="increment-btn">+</button>
-                </div>
-              </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
             </div>
-            <!-- Exemplo de produto 3 -->
-            <div class="produto">
-              <img src="/produtos/Espumante.jfif" alt="Espumante" class="produto-img">
-              <div class="produto-info">
-                <h3>Espumante La Roche</h3>
-                <p class="preco-original">R$ 17,99</p>
-                <p class="preco-promocional">R$ 14,99</p>
-                <div class="quantidade-container">
-                  <button class="decrement-btn">-</button>
-                  <span class="quantity-display">0</span>
-                  <button class="increment-btn">+</button>
-                </div>
-              </div>
+          </div>
+        </div>
+        <!-- Produto 2 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/feijão.jfif" alt="Feijão" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Feijão</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 9,90</span>
+              <span class="current-price">R$ 7,75</span>
             </div>
-            <div class="produto">
-              <img src="/produtos/agua.jfif" alt="agua" class="produto-img">
-              <div class="produto-info">
-                <h3>Água Mineral Ster Bom </h3>
-                <p class="preco-original">R$ 1,70</p>
-                <p class="preco-promocional">R$  0,75</p>
-                <div class="quantidade-container">
-                  <button class="decrement-btn">-</button>
-                  <span class="quantity-display">0</span>
-                  <button class="increment-btn">+</button>
-                </div>
-              </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
             </div>
-            <div class="produto">
-              <img src="/produtos/Refrigerante.jfif" alt="Refrigerante" class="produto-img">
-              <div class="produto-info">
-                <h3>Refrigerante Fanta Cajú</h3>
-                <p class="preco-original">R$ 11,99</p>
-                <p class="preco-promocional">R$ 8,99</p>
-                <div class="quantidade-container">
-                  <button class="decrement-btn">-</button>
-                  <span class="quantity-display">0</span>
-                  <button class="increment-btn">+</button>
-                </div>
-              </div>
+          </div>
+        </div>
+        <!-- Produto 3 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/aveia.jfif" alt="Aveia" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Aveia em pó</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 20,00</span>
+              <span class="current-price">R$ 15,00</span>
             </div>
-            <div class="produto">
-              <img src="/produtos/Syco.jfif" alt="Suco" class="produto-img">
-              <div class="produto-info">
-                <h3>Suco de Laranja Vita Suco</h3>
-                <p class="preco-original">R$ 6,90</p>
-                <p class="preco-promocional">R$ 4,75</p>
-                <div class="quantidade-container">
-                  <button class="decrement-btn">-</button>
-                  <span class="quantity-display">0</span>
-                  <button class="increment-btn">+</button>
-                </div>
-                
-              </div>
-              </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 4 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/iogurte.jfif" alt="Iogurte" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Iogurte Chamyto Morango</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 5,80</span>
+              <span class="current-price">R$ 3,90</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 5 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/Wafer Bauducco.jfif" alt="Wafer" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Wafer Bauducco</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 4,90</span>
+              <span class="current-price">R$ 3,75</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 6 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/leite2.jfif" alt="Leite" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Leite Italac</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 18,00</span>
+              <span class="current-price">R$ 14,00</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="bebidas" class="container mt-5">
+      <h2 class="mb-4">Bebidas</h2>
+      <div class="responsive-grid grid-standard">
+        <!-- Produto 1 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/Cerveja.jpeg" alt="Cerveja" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Cerveja Antártica</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 3,90</span>
+              <span class="current-price">R$ 1,60</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">0</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 2 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/Energetico.jfif" alt="Energetico" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Energético Vrauu</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 7,60</span>
+              <span class="current-price">R$ 5,39</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">0</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 3 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/Espumante.jfif" alt="Espumante" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Espumante La Roche</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 17,99</span>
+              <span class="current-price">R$ 14,99</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">0</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 4 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/agua.jfif" alt="agua" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Água Mineral Ster Bom</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 1,70</span>
+              <span class="current-price">R$ 0,75</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">0</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 5 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/Refrigerante.jfif" alt="Refrigerante" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Refrigerante Fanta Cajú</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 11,99</span>
+              <span class="current-price">R$ 8,99</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">0</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 6 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/Syco.jfif" alt="Suco" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Suco de Laranja Vita Suco</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 6,90</span>
+              <span class="current-price">R$ 4,75</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">0</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   
  <!-- Carrossel de destaques da semana FIM -->
 
  <!-- promoções em destaque -->
-    <section id="higiene">
-      <a>Higiene e limpeza</a>
-      <div class="produtos-lista">
-        <!-- Produtos -->
-        <div class="produto">
-          <img src="/produtos/agua_sanitaria2.jfif" alt="agua_sanitaria2" class="produto-img">
-          <div class="produto-info">
-            <h3>Água Sanitária Brilhante</h3>
-            <p class="preco-original">R$ 9,75</p>
-            <p class="preco-promocional">R$ 7,50</p>
+    <section id="higiene" class="container mt-5">
+      <h2 class="mb-4">Higiene e Limpeza</h2>
+      <div class="responsive-grid grid-standard">
+        <!-- Produto 1 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/agua_sanitaria2.jfif" alt="agua_sanitaria2" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Água Sanitária Brilhante</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 9,75</span>
+              <span class="current-price">R$ 7,50</span>
+            </div>
             <div class="quantidade-container">
-              <button class="decrement-btn">-</button>
+              <button class="btn btn-primary decrement-btn">-</button>
               <span class="quantity-display">1</span>
-              <button class="increment-btn">+</button>
+              <button class="btn btn-primary increment-btn">+</button>
             </div>
           </div>
         </div>
-     <!-- Exemplo de produto 3 -->
-    <!-- Exemplo de produto 2 -->
-    <div class="produto">
-      <img src="/produtos/escova_eletrica.jfif" alt="escova_eletrica" class="produto-img">
-      <div class="produto-info">
-        <h3>Escova Elétrica OralB</h3>
-        <p class="preco-original">R$ 10,90</p>
-        <p class="preco-promocional">R$ 8,75</p>
-        <div class="quantidade-container">
-          <button class="decrement-btn">-</button>
-          <span class="quantity-display">1</span>
-          <button class="increment-btn">+</button>
-        </div>
-      </div>
-    </div>
-    <!-- Exemplo de produto 3 -->
-    <div class="produto">
-      <img src="/produtos/sabonte_liquido.jfif" alt="sabonte_liquido" class="produto-img">
-      <div class="produto-info">
-        <h3>Sabonete Líquido Protex</h3>
-        <p class="preco-original">R$ 15,90</p>
-        <p class="preco-promocional">R$ 12,90</p>
-        <div class="quantidade-container">
-          <button class="decrement-btn">-</button>
-          <span class="quantity-display">1</span>
-          <button class="increment-btn">+</button>
-        </div>
-      </div>
-    </div>
-    <div class="produto">
-      <img src="/produtos/fio_dental.jpg" alt="fio_dental" class="produto-img">
-      <div class="produto-info">
-        <h3>Fio Dental</h3>
-        <p class="preco-original">R$ 8,90</p>
-        <p class="preco-promocional">R$ 6,75</p>
-        <div class="quantidade-container">
-          <button class="decrement-btn">-</button>
-          <span class="quantity-display">1</span>
-          <button class="increment-btn">+</button>
-        </div>
-      </div>
-    </div>
-    <div class="produto">
-      <img src="/produtos/detergente2.jfif" alt="detergente2" class="produto-img">
-      <div class="produto-info">
-        <h3>Detergente Ypê</h3>
-        <p class="preco-original">R$ 5,90</p>
-        <p class="preco-promocional">R$ 3,95</p>
-        <div class="quantidade-container">
-          <button class="decrement-btn">-</button>
-          <span class="quantity-display">1</span>
-          <button class="increment-btn">+</button>
-        </div>
-      </div>
-    </div>
-    <div class="produto">
-      <img src="/produtos/desinfetante2.jfif" alt="desinfetante2" class="produto-img">
-      <div class="produto-info">
-        <h3>Desinfetante Minuano</h3>
-        <p class="preco-original">R$ 12,90</p>
-        <p class="preco-promocional">R$ 9,95</p>
-        <div class="quantidade-container">
-          <button class="decrement-btn">-</button>
-          <span class="quantity-display">1</span>
-          <button class="increment-btn">+</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="frios">
-  <a>Frios e Congelados</a>
-  <div class="produtos-lista">
-    <!-- Exemplo de produto 1 -->
-    <div class="produto">
-      <img src="/produtos/frango_requeijão.jfif" alt="Frango" class="produto-img">
-      <div class="produto-info">
-        <h3>Frango com Requeijão Sadia</h3>
-        <p class="preco-original">R$ 17,90</p>
-        <p class="preco-promocional">R$ 13,90</p>
-        <div class="quantidade-container">
-          <button class="decrement-btn">-</button>
-          <span class="quantity-display">1</span>
-          <button class="increment-btn">+</button>
-        </div>
-      </div>
-    </div>
-    <!-- Exemplo de produto 2 -->
-    <div class="produto">
-      <img src="/produtos/queijo.jfif" alt="qUEIJO" class="produto-img">
-      <div class="produto-info">
-        <h3>Queijo Fresco Vitória</h3>
-        <p class="preco-original">R$ 15,90</p>
-        <p class="preco-promocional">R$ 12,90</p>
-        <div class="quantidade-container">
-          <button class="decrement-btn">-</button>
-          <span class="quantity-display">1</span>
-          <button class="increment-btn">+</button>
-        </div>
-      </div>
-    </div>
-    <!-- Exemplo de produto 3 -->
-    <div class="produto">
-      <img src="/produtos/lasanha.jfif" alt="Lasanha" class="produto-img">
-      <div class="produto-info">
-        <h3>Lasanha Seara</h3>
-        <p class="preco-original">R$ 17,90</p>
-        <p class="preco-promocional">R$ 13,90</p>
-        <div class="quantidade-container">
-          <button class="decrement-btn">-</button>
-          <span class="quantity-display">1</span>
-          <button class="increment-btn">+</button>
-        </div>
-      </div>
-    </div>
-    <div class="produto">
-      <img src="/produtos/mandioca_tolete.jfif" alt="Mandioca" class="produto-img">
-      <div class="produto-info">
-        <h3>Mandioca Tolete Pratigel</h3>
-        <p class="preco-original">R$ 19,00</p>
-        <p class="preco-promocional">R$ 14,00</p>
-        <div class="quantidade-container">
-          <button class="decrement-btn">-</button>
-          <span class="quantity-display">1</span>
-          <button class="increment-btn">+</button>
-        </div>
-      </div>
-    </div>
-    <div class="produto">
-      <img src="/produtos/hotdog.jfif" alt="Hot-dog" class="produto-img">
-      <div class="produto-info">
-        <h3>Hot-dog Seara</h3>
-        <p class="preco-original">R$ 15,90</p>
-        <p class="preco-promocional">R$ 11,90</p>
-        <div class="quantidade-container">
-          <button class="decrement-btn">-</button>
-          <span class="quantity-display">1</span>
-          <button class="increment-btn">+</button>
-        </div>
-      </div>
-    </div>
-    <div class="produto">
-      <img src="/produtos/queijo parmesao.jfif" alt="parmesao" class="produto-img">
-      <div class="produto-info">
-        <h3>Queijo Parmesão Galbani</h3>
-        <p class="preco-original">R$ 13,90</p>
-        <p class="preco-promocional">R$ 10,90</p>
-        <div class="quantidade-container">
-          <button class="decrement-btn">-</button>
-          <span class="quantity-display">1</span>
-          <button class="increment-btn">+</button>
-        </div>
-        
-      </div>
-      </div>
-      <section id="frutas">
-        <a>Frutas e Verduras</a>
-        <div class="produtos-lista">
-          <!-- Exemplo de produto 1 -->
-          <div class="produto">
-            <img src="/produtos/banana.jfif" alt="banana" class="produto-img">
-            <div class="produto-info">
-              <h3>Banana fit</h3>
-              <p class="preco-original">R$ 4,90</p>
-              <p class="preco-promocional">R$ 2,90</p>
-              <div class="quantidade-container">
-                <button class="decrement-btn">-</button>
-                <span class="quantity-display">1</span>
-                <button class="increment-btn">+</button>
-              </div>
+        <!-- Produto 2 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/escova_eletrica.jfif" alt="escova_eletrica" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Escova Elétrica OralB</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 10,90</span>
+              <span class="current-price">R$ 8,75</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
             </div>
           </div>
-          <!-- Exemplo de produto 2 -->
-          <div class="produto">
-            <img src="/produtos/cenoura.jfif" alt="cenoura" class="produto-img">
-            <div class="produto-info">
-              <h3>Cenoura fit</h3>
-              <p class="preco-original">R$ 3,90</p>
-              <p class="preco-promocional">R$ 2,45</p>
-              <div class="quantidade-container">
-                <button class="decrement-btn">-</button>
-                <span class="quantity-display">1</span>
-                <button class="increment-btn">+</button>
-              </div>
+        </div>
+        <!-- Produto 3 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/sabonte_liquido.jfif" alt="sabonte_liquido" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Sabonete Líquido Protex</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 15,90</span>
+              <span class="current-price">R$ 12,90</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
             </div>
           </div>
-          <!-- Exemplo de produto 3 -->
-          <div class="produto">
-            <img src="/produtos/couve.jfif" alt="Leite" class="produto-img">
-            <div class="produto-info">
-              <h3>Couve La Vita</h3>
-              <p class="preco-original">R$ 7,90</p>
-              <p class="preco-promocional">R$ 5,90</p>
-              <div class="quantidade-container">
-                <button class="decrement-btn">-</button>
-                <span class="quantity-display">1</span>
-                <button class="increment-btn">+</button>
-              </div>
+        </div>
+        <!-- Produto 4 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/fio_dental.jpg" alt="fio_dental" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Fio Dental</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 8,90</span>
+              <span class="current-price">R$ 6,75</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
             </div>
           </div>
-          <div class="produto">
-            <img src="/produtos/uva.jfif" alt="Leite" class="produto-img">
-            <div class="produto-info">
-              <h3>Uva Vitória</h3>
-              <p class="preco-original">R$ 4,90</p>
-              <p class="preco-promocional">R$ 2,75</p>
-              <div class="quantidade-container">
-                <button class="decrement-btn">-</button>
-                <span class="quantity-display">1</span>
-                <button class="increment-btn">+</button>
-              </div>
+        </div>
+        <!-- Produto 5 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/detergente2.jfif" alt="detergente2" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Detergente Ypê</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 5,90</span>
+              <span class="current-price">R$ 3,95</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
             </div>
           </div>
-          <div class="produto">
-            <img src="/produtos/morango.jfif" alt="Leite" class="produto-img">
-            <div class="produto-info">
-              <h3>Morango De Marchi</h3>
-              <p class="preco-original">R$ 10,90</p>
-              <p class="preco-promocional">R$ 7,90</p>
-              <div class="quantidade-container">
-                <button class="decrement-btn">-</button>
-                <span class="quantity-display">1</span>
-                <button class="increment-btn">+</button>
-              </div>
+        </div>
+        <!-- Produto 6 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/desinfetante2.jfif" alt="desinfetante2" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Desinfetante Minuano</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 12,90</span>
+              <span class="current-price">R$ 9,95</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
             </div>
           </div>
-          <div class="produto">
-            <img src="/produtos/beterraba.jfif" alt="Leite" class="produto-img">
-            <div class="produto-info">
-              <h3>Beterraba fit</h3>
-              <p class="preco-original">R$ 7,60</p>
-              <p class="preco-promocional">R$ 5,75</p>
-              <div class="quantidade-container">
-                <button class="decrement-btn">-</button>
-                <span class="quantity-display">1</span>
-                <button class="increment-btn">+</button>
-              </div>
-            </div>
+        </div>
+      </div>
     </section>
+
+
+    <section id="frios" class="container mt-5">
+      <h2 class="mb-4">Frios e Congelados</h2>
+      <div class="responsive-grid grid-standard">
+        <!-- Produto 1 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/frango_requeijão.jfif" alt="Frango" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Frango com Requeijão Sadia</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 17,90</span>
+              <span class="current-price">R$ 13,90</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 2 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/queijo.jfif" alt="qUEIJO" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Queijo Fresco Vitória</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 15,90</span>
+              <span class="current-price">R$ 12,90</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 3 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/lasanha.jfif" alt="Lasanha" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Lasanha Seara</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 17,90</span>
+              <span class="current-price">R$ 13,90</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 4 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/mandioca_tolete.jfif" alt="Mandioca" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Mandioca Tolete Pratigel</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 19,00</span>
+              <span class="current-price">R$ 14,00</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 5 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/hotdog.jfif" alt="Hot-dog" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Hot-dog Seara</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 15,90</span>
+              <span class="current-price">R$ 11,90</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 6 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/queijo parmesao.jfif" alt="parmesao" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Queijo Parmesão Galbani</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 13,90</span>
+              <span class="current-price">R$ 10,90</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="frutas" class="container mt-5">
+      <h2 class="mb-4">Hortifruti</h2>
+      <div class="responsive-grid grid-standard">
+        <!-- Produto 1 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/banana.jfif" alt="banana" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Banana fit</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 4,90</span>
+              <span class="current-price">R$ 2,90</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 2 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/cenoura.jfif" alt="cenoura" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Cenoura fit</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 3,90</span>
+              <span class="current-price">R$ 2,45</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 3 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/couve.jfif" alt="Leite" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Couve La Vita</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 7,90</span>
+              <span class="current-price">R$ 5,90</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 4 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/uva.jfif" alt="Leite" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Uva Vitória</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 4,90</span>
+              <span class="current-price">R$ 2,75</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 5 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/morango.jfif" alt="Leite" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Morango De Marchi</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 10,90</span>
+              <span class="current-price">R$ 7,90</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 6 -->
+        <div class="product-card card-premium">
+          <div class="product-image-container">
+            <img src="/produtos/beterraba.jfif" alt="Leite" class="produto-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Beterraba fit</h3>
+            <div class="price-container">
+              <span class="original-price">R$ 7,60</span>
+              <span class="current-price">R$ 5,75</span>
+            </div>
+            <div class="quantidade-container">
+              <button class="btn btn-primary decrement-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="btn btn-primary increment-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
-  <footer>
-    <p>&copy; 2024 MeuCarrinho. Todos os direitos reservados</p> <br>
-    <h4>Contatos</h4> <br>
-    <i class="bi bi-facebook"></i>
-    <i class="bi bi-instagram"></i>
-    <i class="bi bi-whatsapp"></i>
+  <!-- Rodapé -->
+  <footer class="footer-premium">
+    <div class="container footer-grid">
+      <div class="footer-section footer-logo">
+        <img src="/image/logo.png" alt="Logo Meu Carrinho">
+        <p class="copyright">&copy; 2024 MeuCarrinho. Todos os direitos reservados</p>
+      </div>
+      
+      <div class="footer-section footer-links">
+        <h4>Navegação</h4>
+        <ul>
+            <li><a href="/">Início</a></li>
+            <li><a href="/#supermarkets-section">Mercados</a></li>
+            <li><a href="/listas/minhasListas">Minhas Listas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contatos</h4>
+        <div class="social-links social-icons">
+          <a href="#" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
   </footer>
-  
+
   <script src="/js/script.js"></script>
   <script src="/js/carrossel.js"></script>
   <script src="/js/botoes.js"></script>
+  <script src="/js/mobile-menu.js"></script>
 </body>
-</html>
+</html>

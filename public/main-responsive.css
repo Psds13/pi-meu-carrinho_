@@ -1,0 +1,518 @@
+/* 
+  ===== MEU CARRINHO - PREMIUM MODERN DESIGN SYSTEM =====
+  Focus: Responsividade, Mobile-First, UX Moderna
+*/
+
+:root {
+    /* Color Palette - Modern & Clean */
+    --primary: #0077ff;
+    --primary-dark: #0061d1;
+    --primary-light: #e6f1ff;
+    --secondary: #ff4d4d;
+    --accent: #00d2ff;
+    --success: #10b981;
+    --warning: #f59e0b;
+    
+    /* Neutral Colors */
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --border-light: #e2e8f0;
+    
+    /* Shadows & Effects */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --shadow-premium: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Breakpoints */
+    --max-width: 1280px;
+}
+
+/* 1. RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base for rem */
+}
+
+body {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+}
+
+ul { list-style: none; }
+
+button, input {
+    font-family: inherit;
+    outline: none;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* 2. TYPOGRAPHY - Responsive Scale */
+h1, h2, h3, h4 {
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.25rem; } /* Mobile */
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.25rem; }
+
+@media (min-width: 768px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.25rem; }
+}
+
+/* 3. HEADER & NAVIGATION - Mobile First */
+.header-premium {
+    background: var(--primary);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 0.75rem 0;
+    box-shadow: var(--shadow-md);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-link img {
+    height: 45px;
+    width: auto;
+}
+
+/* Search Bar - Stacks or stays inline? */
+.search-section {
+    flex: 1;
+    max-width: 600px;
+}
+
+.input-wrapper {
+    background: white;
+    border-radius: 50px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.search-input {
+    border: none;
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.search-icon {
+    color: var(--text-muted);
+    margin-right: 0.5rem;
+}
+
+.btn-search-premium {
+    display: none; /* Hide button text on mobile */
+}
+
+@media (min-width: 768px) {
+    .btn-search-premium {
+        display: block;
+        background: var(--text-main);
+        color: white;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    .logo-link img { height: 60px; }
+}
+
+/* Mobile Toggle */
+.mobile-menu-toggle {
+    display: block;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.actions-section {
+    position: fixed;
+    top: 75px; 
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 75px);
+    background: var(--primary);
+    flex-direction: column;
+    padding: 2rem;
+    transition: left 0.4s ease;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.actions-section.active {
+    left: 0;
+}
+
+@media (min-width: 1024px) {
+    .mobile-menu-toggle { display: none; }
+    .actions-section {
+        position: static;
+        flex-direction: row;
+        height: auto;
+        padding: 0;
+        width: auto;
+        background: transparent;
+    }
+}
+
+.nav-item {
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+@media (min-width: 1024px) {
+    .nav-item { font-size: 0.95rem; }
+    .nav-item:hover { border-bottom-color: white; }
+}
+
+/* 4. CARDS & GRIDS */
+/* Common Grid setups */
+.responsive-grid {
+    display: grid;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* 1 Column Mobile, 2 Tablet, 4 Desktop */
+.grid-standard {
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+    .grid-standard { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+    .grid-standard { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1280px) {
+    .grid-standard { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Generic Card Styles */
+.card-premium {
+    background: var(--bg-card);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-light);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-premium:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-premium);
+    border-color: var(--primary);
+}
+
+/* Supermarket Card specific */
+.supermarket-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.supermarket-logo {
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.supermarket-logo img {
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.supermarket-name {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--text-main);
+}
+
+/* Hero Section */
+.hero-intro {
+    background: linear-gradient(rgba(0, 119, 255, 0.9), rgba(0, 97, 209, 1)), url('/image/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+/* 5. FORMS - Responsive */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border: 1.5px solid var(--border-light);
+    border-radius: 0.75rem;
+    background: white;
+    color: var(--text-main);
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+}
+
+input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+/* 6. BUTTONS */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    border: none;
+    gap: 0.5rem;
+    width: 100%; /* Mobile full width */
+}
+
+@media (min-width: 640px) {
+    .btn { width: auto; }
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 119, 255, 0.3);
+}
+
+/* 7. UTILITIES & ANIMATIONS */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 0.6s forwards;
+}
+
+@keyframes slideInLeft {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.text-center { text-align: center; }
+.mb-4 { margin-bottom: 2rem; }
+
+/* 8. PRODUCT SPECIFICS */
+.product-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.discount-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--secondary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.75rem;
+}
+
+.product-image-container {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: #f1f5f9;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* 9. FOOTER */
+.footer-premium {
+    background: #1e293b;
+    color: white;
+    padding: 4rem 0 2rem;
+    margin-top: 4rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .footer-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.footer-logo img { height: 60px; margin-bottom: 1.5rem; }
+.footer-links h4 { margin-bottom: 1.5rem; color: var(--accent); }
+.social-icons { display: flex; gap: 1.5rem; font-size: 1.5rem; }
+
+/* 10. AUTH PAGES (LOGIN / REGISTER) */
+.auth-page {
+    background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-header {
+    background-color: var(--primary);
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+.auth-logo img {
+    height: 50px;
+    margin: 0 auto;
+}
+
+.auth-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.auth-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    padding: 3rem;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.auth-card h2 {
+    text-align: center;
+    background: linear-gradient(135deg, white 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.22rem;
+    margin-bottom: 0.5rem;
+}
+
+.auth-card .subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.auth-card input {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.auth-card input:focus {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.auth-card label {
+    color: var(--text-muted);
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--text-muted);
+}
+
+.auth-footer a {
+    color: var(--primary);
+    font-weight: 700;
+}
+

@@ -1,66 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro - MeuCarrinho</title>
-
-  <link rel="stylesheet" href="/login.css">
-
-  <!-- Fonte -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Meu Carrinho</title>
+    <link rel="icon" type="image/png" href="/image/logo.png">
+    <link rel="stylesheet" href="/main-responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="auth-body">
+    <div class="auth-page-container">
+        <header class="auth-header">
+            <a href="/">
+                <img src="/image/logo.png" alt="MeuCarrinho Logo" class="auth-logo">
+            </a>
+        </header>
 
-  <header>
-    <div class="conteiner_topo">
-      <div class="topo_objeto">
-        <img src="/image/logo.png" alt="MeuCarrinho Logo">
-      </div>
+        <main class="auth-card-wrapper container">
+            <div class="auth-card">
+                <div class="auth-card-header">
+                    <h2>Criar Conta</h2>
+                    <p>Preencha os dados abaixo para começar</p>
+                </div>
+
+                <form action="/criar-usuario" method="POST" class="auth-form">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="nome" placeholder="Seu nome" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" placeholder="********" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar Senha</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="********" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Já tem uma conta? <a href="/login" class="link-secondary">Entrar agora</a></p>
+                </div>
+            </div>
+        </main>
     </div>
-  </header>
 
-  <main>
-    <section class="form-container">
-
-      <h2>Criar Conta</h2>
-      <p class="subtitle">Preencha os dados abaixo</p>
-
-      <form action="/criar-usuario" method="POST">
-
-        <div class="input-group">
-          <label for="name">Nome</label>
-          <input type="text" id="name" name="nome" placeholder="Digite seu nome" required>
-        </div>
-
-        <div class="input-group">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-        </div>
-
-        <div class="input-group">
-          <label for="senha">Senha</label>
-          <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
-        </div>
-
-        <div class="input-group">
-          <label for="confirmPassword">Confirmar Senha</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme sua senha" required>
-        </div>
-
-        <button type="submit">Cadastrar</button>
-
-      </form>
-
-      <p class="login-link">
-        Já tem uma conta? <a href="/login">Entrar</a>
-      </p>
-
-    </section>
-  </main>
-
-  <script src="/js/menu.js"></script>
-
+    <script src="/js/mobile-menu.js"></script>
 </body>
-</html>
+</html>

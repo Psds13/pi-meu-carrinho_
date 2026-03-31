@@ -5,76 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minhas Listas - Meu Carrinho</title>
     <link rel="icon" type="image/png" href="/image/logo.png">
-    <link rel="stylesheet" href="/pg_mercados.css">
-    <link rel="stylesheet" href="/listas.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/main-responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
-<body style="padding-top: 0; background: #f8fafc;">
+<body class="bg-light">
+    <!-- Cabeçalho -->
     <%- include('../partials/header') %>
 
-    <main class="list-container-premium" style="padding-top: 60px;">
-        <div class="list-header-premium">
-            <div class="list-title-group">
-                <h1 style="background: linear-gradient(135deg, #1e293b 0%, #0077ff 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Minhas Listas</h1>
-                <p style="color: #64748b;">Organize suas compras e compare a economia total</p>
+    <main class="page-container container mb-5">
+        <header class="section-header d-flex justify-content-between align-items-center mb-4">
+            <div class="header-text">
+                <h1 class="gradient-text">Minhas Listas</h1>
+                <p class="text-secondary">Organize suas compras e economize</p>
             </div>
-            <a href="/" class="btn-back-premium" style="color: #1e293b; border-color: #e2e8f0;">
-                <i class="bi bi-arrow-left"></i> Voltar ao Início
+            <a href="/" class="btn btn-secondary btn-sm">
+                <i class="bi bi-arrow-left"></i> Início
             </a>
-        </div>
+        </header>
 
-        <div class="item-list-premium" style="background: white; border-color: #f1f5f9;">
+        <div class="list-cards-wrapper">
             <!-- Exemplo de Lista Ativa -->
-            <div class="item-premium" style="border-left: 5px solid #0077ff;">
-                <div class="item-content">
-                    <span class="item-title" style="color: #1e293b;">🛒 Compras do Mês - Abril</span>
-                    <div class="item-info">
-                        <span class="price-pill">Total: R$ 420,50</span>
-                        <span><i class="bi bi-calendar3"></i> Criada em: 29/03/2026</span>
-                        <span style="color: #059669;"><i class="bi bi-graph-up-arrow"></i> Economia: R$ 45,20</span>
+            <div class="list-item-card premium-shadow mb-3 p-4 bg-white rounded-3 d-flex justify-content-between align-items-center border-start border-primary border-4">
+                <div class="list-details">
+                    <h3 class="h5 mb-2 fw-bold">🛒 Compras do Mês - Abril</h3>
+                    <div class="list-meta d-flex flex-wrap gap-3 small text-secondary">
+                        <span class="badge bg-primary-soft text-primary p-2 px-3 rounded-pill fw-bold">Total: R$ 420,50</span>
+                        <span><i class="bi bi-calendar3 me-1"></i> 29/03/2026</span>
+                        <span class="text-success fw-bold"><i class="bi bi-graph-up-arrow me-1"></i> Economia: R$ 45,20</span>
                     </div>
                 </div>
-                <div class="item-actions">
-                    <a href="#" class="btn-action btn-edit"><i class="bi bi-eye"></i> Detalhes</a>
-                    <a href="#" class="btn-action btn-delete"><i class="bi bi-trash"></i></a>
+                <div class="list-actions d-flex gap-2">
+                    <a href="#" class="btn btn-light-primary btn-icon" title="Ver detalhes">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="#" class="btn btn-light-danger btn-icon" title="Excluir">
+                        <i class="bi bi-trash"></i>
+                    </a>
                 </div>
             </div>
 
             <!-- Exemplo de Lista por Mercado -->
-            <div class="item-premium" style="border-left: 5px solid #22c55e;">
-                <div class="item-content">
-                    <span class="item-title" style="color: #1e293b;">🍅 Churrasco de Domingo (Atacadão)</span>
-                    <div class="item-info">
-                        <span class="price-pill">Total: R$ 185,20</span>
-                        <span><i class="bi bi-cart-check"></i> 12 itens selecionados</span>
+            <div class="list-item-card premium-shadow mb-3 p-4 bg-white rounded-3 d-flex justify-content-between align-items-center border-start border-success border-4">
+                <div class="list-details">
+                    <h3 class="h5 mb-2 fw-bold">🍅 Churrasco de Domingo (Atacadão)</h3>
+                    <div class="list-meta d-flex flex-wrap gap-3 small text-secondary">
+                        <span class="badge bg-success-soft text-success p-2 px-3 rounded-pill fw-bold">Total: R$ 185,20</span>
+                        <span><i class="bi bi-cart-check me-1"></i> 12 itens selecionados</span>
                     </div>
                 </div>
-                <div class="item-actions">
-                    <a href="#" class="btn-action btn-edit"><i class="bi bi-eye"></i> Detalhes</a>
-                    <a href="#" class="btn-action btn-delete"><i class="bi bi-trash"></i></a>
+                <div class="list-actions d-flex gap-2">
+                    <a href="#" class="btn btn-light-primary btn-icon" title="Ver detalhes">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="#" class="btn btn-light-danger btn-icon" title="Excluir">
+                        <i class="bi bi-trash"></i>
+                    </a>
                 </div>
             </div>
 
             <!-- Seção de Criar Nova Lista -->
-            <div style="margin-top: 40px; text-align: center; padding: 40px; border: 2px dashed #e2e8f0; border-radius: 24px;">
-                <i class="bi bi-plus-circle" style="font-size: 3rem; color: #0077ff; display: block; margin-bottom: 15px;"></i>
-                <h3 style="color: #1e293b; margin-bottom: 10px;">Criar nova lista de compras</h3>
-                <p style="color: #64748b; margin-bottom: 20px;">Dê um nome para sua lista e comece a adicionar produtos de diferentes mercados para comparar.</p>
-                <form action="/listas/criar" method="POST" style="max-width: 400px; margin: 0 auto; display: flex; gap: 10px;">
-                    <input type="text" name="nome" placeholder="Ex: Mercado da Semana" required 
-                           style="flex: 1; padding: 12px 20px; border-radius: 12px; border: 1px solid #e2e8f0; outline: none;">
-                    <button type="submit" class="btn-join-premium" style="border: none; cursor: pointer;">Criar</button>
+            <section class="create-list-section mt-5 p-5 text-center bg-white rounded-4 premium-shadow border-dashed">
+                <div class="icon-circle mx-auto mb-4 bg-primary-soft text-primary">
+                    <i class="bi bi-plus-circle h1 m-0"></i>
+                </div>
+                <h3 class="fw-bold mb-2">Criar nova lista de compras</h3>
+                <p class="text-secondary mb-4 mx-auto" style="max-width: 500px;">
+                    Dê um nome para sua lista e comece a adicionar produtos de diferentes mercados para comparar e economizar.
+                </p>
+                <form action="/listas/criar" method="POST" class="d-flex flex-column flex-sm-row gap-3 justify-content-center max-width-600 mx-auto">
+                    <input type="text" name="nome" placeholder="Ex: Mercado da Semana" required class="form-control form-control-lg">
+                    <button type="submit" class="btn btn-primary btn-lg px-5">Criar Lista</button>
                 </form>
-            </div>
+            </section>
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 MeuCarrinho. Sua economia começa aqui.</p>
+    <!-- Rodapé -->
+    <footer class="footer-premium mt-5">
+        <div class="container footer-grid">
+            <div class="footer-section footer-logo">
+                <img src="/image/logo.png" alt="Logo Meu Carrinho">
+                <p class="copyright">&copy; 2024 MeuCarrinho. Todos os direitos reservados</p>
+            </div>
+            
+            <div class="footer-section footer-links">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/#supermarkets-section">Mercados</a></li>
+                    <li><a href="/listas/minhasListas">Minhas Listas</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contatos</h4>
+                <div class="social-links social-icons">
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <script src="/js/mobile-menu.js"></script>
 </body>
 </html>
+

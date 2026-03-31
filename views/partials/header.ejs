@@ -1,5 +1,5 @@
 <header id="main-header" class="header-premium">
-    <div class="header-container">
+    <div class="container header-container">
         <!-- Logo Section -->
         <div class="logo-section">
             <a href="/" class="logo-link">
@@ -13,11 +13,16 @@
                 <div class="input-wrapper">
                     <i class="bi bi-search search-icon"></i>
                     <input type="text" name="search" placeholder="O que você procura hoje?" class="search-input">
-                    <button type="submit" class="btn-search-premium">Buscar</button>
+                    <button type="submit" class="btn btn-primary btn-search-premium">Buscar</button>
                 </div>
             </form>
         </div>
         
+        <!-- Mobile Toggle Button -->
+        <button class="mobile-menu-toggle" aria-label="Abrir menu">
+            <i class="bi bi-list"></i>
+        </button>
+
         <!-- Actions Section -->
         <div class="actions-section">
             <nav class="main-nav">
@@ -29,18 +34,18 @@
             </nav>
             
             <div class="user-controls">
-                <% if (user) { %>
+                <% if (typeof user !== 'undefined' && user) { %>
                     <div class="user-greeting">
                         <img src="https://ui-avatars.com/api/?name=<%= user.nome %>&background=0077ff&color=fff" alt="User" class="avatar">
                         <div class="user-dropdown">
                             <span class="user-info">Olá, <%= user.nome.split(' ')[0] %></span>
-                            <a href="/auth/logout" class="btn-logout-premium">Sair</a>
+                            <a href="/auth/logout" class="btn btn-primary btn-logout-premium">Sair</a>
                         </div>
                     </div>
                 <% } else { %>
                     <div class="auth-flow">
-                        <a href="/login" class="btn-login-premium">Login</a>
-                        <a href="/cadastro" class="btn-join-premium">Criar Conta</a>
+                        <a href="/login" class="nav-item">Login</a>
+                        <a href="/cadastro" class="btn btn-primary btn-join-premium">Criar Conta</a>
                     </div>
                 <% } %>
             </div>
