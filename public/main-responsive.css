@@ -82,7 +82,7 @@ button, input {
 h1, h2, h3, h4 {
     font-weight: 800;
     line-height: 1.2;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem; /* Increased from 1rem */
 }
 
 h1 { font-size: 2.25rem; } /* Mobile */
@@ -289,6 +289,22 @@ h3 { font-size: 1.25rem; }
     color: var(--text-main);
 }
 
+/* 5. SECTIONS & HEADERS */
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem; /* More space before content */
+    padding: 0 1rem;
+}
+
+.section-header h2 {
+    margin-bottom: 1.25rem;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
 /* Hero Section */
 .hero-intro {
     background: linear-gradient(rgba(0, 119, 255, 0.9), rgba(0, 97, 209, 1)), url('/image/hero-bg.jpg');
@@ -296,7 +312,7 @@ h3 { font-size: 1.25rem; }
     background-position: center;
     color: white;
     text-align: center;
-    padding: 4rem 0;
+    padding: 5rem 0; /* More padding */
 }
 
 /* 5. FORMS - Responsive */
@@ -385,10 +401,88 @@ input:focus {
 .text-center { text-align: center; }
 .mb-4 { margin-bottom: 2rem; }
 
-/* 8. PRODUCT SPECIFICS */
+/* 9. CAROUSEL & HIGHLIGHTS */
+.highlights-section {
+    padding: 4rem 0;
+    background: white;
+}
+
+.carousel-container {
+    position: relative;
+    padding: 1rem 0;
+    overflow: hidden; /* Viewport for the track */
+}
+
+/* Arrows - Positioned at the extreme edges */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: 2px solid var(--primary-light);
+    color: var(--primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+    z-index: 20;
+}
+
+.left-arrow { left: 1rem; }
+.right-arrow { right: 1rem; }
+
+.carousel-arrow:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.highlights-grid {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 0 2rem;
+    width: max-content; /* Critical for translateX track */
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+}
+
+/* Ensure container hides overflow for the translateX effect */
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    overflow: hidden; /* Hide the extra cloned items */
+}
+
+/* Ensure each card has a fixed width in the carousel */
+.highlights-grid .product-card {
+    min-width: 280px;
+    max-width: 280px;
+}
+
+@media (max-width: 640px) {
+    .highlights-grid .product-card {
+        min-width: 240px;
+        max-width: 240px;
+    }
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+    }
+}
+
 .product-card {
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .discount-tag {
@@ -397,11 +491,46 @@ input:focus {
     right: 1rem;
     background: var(--secondary);
     color: white;
-    padding: 0.25rem 0.75rem;
+    padding: 0.35rem 0.85rem;
     border-radius: 50px;
     font-weight: 800;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
+    z-index: 5;
+    box-shadow: var(--shadow-sm);
 }
+
+.product-info {
+    padding-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Space between name and prices */
+}
+
+.product-name {
+    font-size: 1rem;
+    color: var(--text-main);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2; /* Standard property for compatibility */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 3rem;
+}
+
+/* Supermarket Tags */
+.supermarket-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: fit-content;
+}
+
+.supermarket-tag.mateus { background: #fee2e2; color: #b91c1c; }
+.supermarket-tag.assai { background: #dcfce7; color: #15803d; }
+.supermarket-tag.atacadao { background: #fef9c3; color: #a16207; }
 
 .product-image-container {
     height: 180px;
