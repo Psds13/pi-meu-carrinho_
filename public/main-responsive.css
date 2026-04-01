@@ -333,25 +333,54 @@ h3 { font-size: 1.25rem; }
 
 /* Hero Section */
 .hero-intro {
-    background: linear-gradient(rgba(0, 119, 255, 0.9), rgba(0, 97, 209, 1)), url('/image/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(135deg, #0077ff 0%, #0055cc 100%);
+    position: relative;
     color: white;
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
+    margin-bottom: 3.5rem; /* Space from carousel banner */
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    box-shadow: 0 10px 30px rgba(0, 119, 255, 0.2);
+    overflow: hidden;
+}
+
+/* Subtle background pattern */
+.hero-intro::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 24px 24px;
+    pointer-events: none;
 }
 
 .hero-intro h1 {
-    margin-bottom: 2.5rem; /* Increased space below H1 */
-    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.hero-intro p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+    line-height: 1.6;
 }
 
 @media (min-width: 768px) {
     .hero-intro {
-        padding: 6rem 0;
+        padding: 7rem 0;
+        margin-bottom: 5rem;
     }
     .hero-intro h1 {
-        font-size: 3.5rem;
+        font-size: 4rem;
+    }
+    .hero-intro p {
+        font-size: 1.25rem;
     }
 }
 
