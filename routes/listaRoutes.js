@@ -8,5 +8,6 @@ router.get('/:id', ListaController.verLista);
 router.post('/adicionar-item', ListaController.adicionarItem);
 router.post('/remover-item', ListaController.removerItem);
 router.post('/marcar-comprado', ListaController.marcarComprado);
+router.post('/excluir', ListaController.excluirLista);
 
 module.exports = router;

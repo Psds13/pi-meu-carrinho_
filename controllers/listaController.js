@@ -3,6 +3,7 @@ const ListaModel = require('../models/ListaModel');
 class ListaController {
   static async criarLista(req, res) {
     try {
+      if (!req.session || !req.session.user) return res.redirect('/login');
       const { nome } = req.body;
       const usuarioId = req.session.user.id;
 
@@ -20,6 +21,7 @@ class ListaController {
 
   static async minhasListas(req, res) {
     try {
+      if (!req.session || !req.session.user) return res.redirect('/login');
       const usuarioId = req.session.user.id;
       const listas = await ListaModel.listarListasUsuario(usuarioId);
 
@@ -38,6 +40,7 @@ class ListaController {
 
   static async verLista(req, res) {
     try {
+      if (!req.session || !req.session.user) return res.redirect('/login');
       const { id } = req.params;
       const usuarioId = req.session.user.id;
 
@@ -93,12 +96,30 @@ class ListaController {
     try {
       const { itemId, comprado } = req.body;
 
-      await ListaModel.marcarItemComprado(itemId, comprado === 'true');
+      await ListaModel.marcarItemComprado(itemId, comprado === true || comprado === 'true');
 
       res.json({ success: true });
     } catch (error) {
       console.error('Erro ao marcar item:', error);
       res.status(500).json({ error: 'Erro ao atualizar item' });
+    }
+  }
+
+  static async excluirLista(req, res) {
+    try {
+      if (!req.session || !req.session.user) return res.redirect('/login');
+      const { listaId } = req.body;
+      const usuarioId = req.session.user.id;
+
+      await ListaModel.excluirLista(listaId, usuarioId);
+
+      res.redirect('/listas/minhas-listas');
+    } catch (error) {
+      console.error('Erro ao excluir lista:', error);
+      res.status(500).render('error', {
+        error: 'Erro ao excluir lista',
+        user: req.session.user
+      });
     }
   }
 }

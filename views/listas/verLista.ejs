@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= lista.nome %> - Detalhes da Lista</title>
+    <link rel="icon" type="image/png" href="/image/logo.png">
+    <link rel="stylesheet" href="/main-responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        .item-row { transition: all 0.3s ease; }
+        .item-row.comprado { opacity: 0.6; background-color: #f8f9fa; }
+        .item-row.comprado .product-name { text-decoration: line-through; }
+        .check-bought { width: 25px; height: 25px; cursor: pointer; }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Cabeçalho -->
+    <%- include('../partials/header') %>
+
+    <main class="page-container container mb-5 py-4">
+        <header class="section-header d-flex justify-content-between align-items-center mb-4">
+            <div class="header-text text-start">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-2">
+                        <li class="breadcrumb-item"><a href="/listas/minhas-listas">Listas</a></li>
+                        <li class="breadcrumb-item active"><%= lista.nome %></li>
+                    </ol>
+                </nav>
+                <h1 class="gradient-text h2"><%= lista.nome %></h1>
+                <p class="text-secondary"><%= (lista.itens && lista.itens[0]?.id) ? lista.itens.length : 0 %> itens na lista</p>
+            </div>
+            <div class="header-actions">
+                <a href="/listas/minhas-listas" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Voltar
+                </a>
+            </div>
+        </header>
+
+        <div class="card premium-shadow border-0 rounded-4 overflow-hidden">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th class="ps-4 py-3" style="width: 50px;">Check</th>
+                            <th class="py-3">Produto</th>
+                            <th class="py-3">Mercado</th>
+                            <th class="py-3 text-center">Quant.</th>
+                            <th class="py-3 text-end pe-4">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (lista.itens && lista.itens[0]?.id) { %>
+                            <% lista.itens.forEach(item => { %>
+                                <tr class="item-row <%= item.comprado ? 'comprado' : '' %>" id="row-<%= item.id %>">
+                                    <td class="ps-4">
+                                        <input type="checkbox" class="check-bought form-check-input" 
+                                               data-id="<%= item.id %>" <%= item.comprado ? 'checked' : '' %>
+                                               onclick="toggleComprado('<%= item.id %>', this.checked)">
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <% if (item.imagem) { %>
+                                                <img src="<%= item.imagem %>" alt="<%= item.nome %>" class="rounded-3 me-3" style="width: 45px; height: 45px; object-fit: cover;">
+                                            <% } %>
+                                            <div>
+                                                <div class="product-name fw-bold mb-0"><%= item.nome %></div>
+                                                <small class="text-primary fw-bold">R$ <%= item.preco %></small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-light text-dark border"><%= item.mercado_nome %></span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="fw-bold"><%= item.quantidade %></span>
+                                    </td>
+                                    <td class="text-end pe-4">
+                                        <form action="/listas/remover-item" method="POST" class="d-inline">
+                                            <input type="hidden" name="itemId" value="<%= item.id %>">
+                                            <input type="hidden" name="listaId" value="<%= lista.id %>">
+                                            <button type="submit" class="btn btn-link text-danger p-0" title="Remover">
+                                                <i class="bi bi-x-circle h5"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="5" class="text-center py-5">
+                                    <p class="text-muted mb-0">Nenhum produto adicionado a esta lista ainda.</p>
+                                    <a href="/" class="btn btn-primary btn-sm mt-3">Ver Produtos</a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        async function toggleComprado(itemId, comprado) {
+            try {
+                const response = await fetch('/listas/marcar-comprado', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ itemId, comprado })
+                });
+                
+                if (response.ok) {
+                    const row = document.getElementById(`row-${itemId}`);
+                    if (comprado) {
+                        row.classList.add('comprado');
+                    } else {
+                        row.classList.remove('comprado');
+                    }
+                }
+            } catch (error) {
+                console.error('Erro ao marcar item:', error);
+            }
+        }
+    </script>
+</body>
+</html>
