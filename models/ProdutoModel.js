@@ -70,6 +70,18 @@ class ProdutoModel {
     return result.rows;
   }
 
+  static async buscarPorMercado(mercadoNome) {
+    const result = await db.query(
+      `SELECT p.id, p.nome, p.preco, p.imagem, p.categoria, m.nome as mercado_nome 
+       FROM carrinho.produtos p 
+       LEFT JOIN carrinho.mercados m ON p.mercado_id = m.id 
+       WHERE m.nome = $1 
+       ORDER BY p.nome`,
+      [mercadoNome]
+    );
+    return result.rows;
+  }
+
   static async listarCategorias() {
     const result = await db.query(
       'SELECT DISTINCT categoria FROM carrinho.produtos WHERE categoria IS NOT NULL ORDER BY categoria'

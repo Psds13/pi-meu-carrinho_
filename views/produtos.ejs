@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Busca - Meu Carrinho</title>
+    <link rel="icon" type="image/png" href="/image/logo.png">
+    <link rel="stylesheet" href="/main-responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="container mt-5">
+    <div class="search-header mb-5 text-center">
+        <h1>Resultados para: "<%= query %>"</h1>
+        <p><%= produtos.length %> produtos encontrados</p>
+    </div>
+
+    <% if (produtos.length > 0) { %>
+        <div class="responsive-grid grid-standard">
+            <% produtos.forEach(produto => { %>
+                <div class="product-card card-premium">
+                    <% if (produto.mercado_nome) { %>
+                        <span class="supermarket-tag <%= produto.mercado_nome.toLowerCase().replace('í', 'i').replace('ã', 'a') %>">
+                            <%= produto.mercado_nome %>
+                        </span>
+                    <% } %>
+                    <div class="product-image-container">
+                        <img src="<%= produto.imagem %>" alt="<%= produto.nome %>" onerror="this.src='/image/placeholder-product.png'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name"><%= produto.nome %></h3>
+                        <div class="price-container">
+                            <span class="current-price">R$ <%= parseFloat(produto.preco).toFixed(2).replace('.', ',') %></span>
+                        </div>
+                        <div class="quantidade-container">
+                            <button class="btn btn-primary decrement-btn">-</button>
+                            <span class="quantity-display">0</span>
+                            <button class="btn btn-primary increment-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <div class="empty-state text-center py-5">
+            <div class="empty-icon mb-4">
+                <i class="bi bi-search" style="font-size: 4rem; color: var(--text-muted);"></i>
+            </div>
+            <h2>Nenhum produto encontrado</h2>
+            <p>Não encontramos nenhum item correspondente a "<%= query %>" em nosso estoque no momento.</p>
+            <a href="/" class="btn btn-primary mt-4">Voltar para a Página Inicial</a>
+        </div>
+    <% } %>
+  </main>
+
+  <footer class="footer-premium">
+    <div class="container footer-grid">
+      <div class="footer-section footer-logo">
+        <img src="/image/logo.png" alt="Logo Meu Carrinho">
+        <p class="copyright">&copy; 2024 MeuCarrinho. Todos os direitos reservados</p>
+      </div>
+      
+      <div class="footer-section footer-links">
+        <h4>Navegação</h4>
+        <ul>
+            <li><a href="/">Início</a></li>
+            <li><a href="/#supermarkets-section">Mercados</a></li>
+            <li><a href="/listas/minhas-listas">Minhas Listas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contatos</h4>
+        <div class="social-links social-icons">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/script.js"></script>
+  <script src="/js/botoes.js"></script>
+  <script src="/js/mobile-menu.js"></script>
+</body>
+</html>
