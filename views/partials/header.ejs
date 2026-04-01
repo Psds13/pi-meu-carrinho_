@@ -1,13 +1,14 @@
 <header id="main-header" class="header-premium">
     <div class="container header-container">
-        <!-- Logo Section -->
+        
+        <!-- Logo -->
         <div class="logo-section">
             <a href="/" class="logo-link">
                 <img src="/image/logo.png" alt="Meu Carrinho" class="logo-img">
             </a>
         </div>
         
-        <!-- Search Section -->
+        <!-- Busca -->
         <div class="search-section">
             <form action="/produtos" method="get" class="search-bar-modern">
                 <div class="input-wrapper">
@@ -18,34 +19,43 @@
             </form>
         </div>
         
-        <!-- Mobile Toggle Button -->
+        <!-- Mobile -->
         <button class="mobile-menu-toggle" aria-label="Abrir menu">
             <i class="bi bi-list"></i>
         </button>
 
-        <!-- Actions Section -->
+        <!-- Navegação -->
         <div class="actions-section">
             <nav class="main-nav">
                 <a href="/#supermarkets-section" class="nav-item">Mercados</a>
-                <a href="../listas/minhasListas.ejs" class="nav-item cart-btn">
-                    <i class="bi bi-basket-fill"></i>
-                    <span>Minhas Listas</span>
-                </a>
+
+                <% if (typeof user !== 'undefined' && user) { %>
+                    <a href="/listas/minhasListas" class="nav-item cart-btn">
+                        <i class="bi bi-basket-fill"></i>
+                        <span>Minhas Listas</span>
+                    </a>
+                <% } else { %>
+                    <a href="/login" class="nav-item cart-btn">
+                        <i class="bi bi-basket-fill"></i>
+                        <span>Minhas Listas</span>
+                    </a>
+                <% } %>
             </nav>
             
+            <!-- Usuário -->
             <div class="user-controls">
                 <% if (typeof user !== 'undefined' && user) { %>
                     <div class="user-greeting">
-                        <img src="https://ui-avatars.com/api/?name=<%= user.nome %>&background=0077ff&color=fff" alt="User" class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=<%= user.nome %>&background=0077ff&color=fff" class="avatar">
                         <div class="user-dropdown">
-                            <span class="user-info">Olá, <%= user.nome.split(' ')[0] %></span>
-                            <a href="/auth/logout" class="btn btn-primary btn-logout-premium">Sair</a>
+                            <span>Olá, <%= user.nome.split(' ')[0] %></span>
+                            <a href="/auth/logout" class="btn btn-primary">Sair</a>
                         </div>
                     </div>
                 <% } else { %>
                     <div class="auth-flow">
                         <a href="/login" class="nav-item">Login</a>
-                        <a href="/cadastro" class="btn btn-primary btn-join-premium">Criar Conta</a>
+                        <a href="/cadastro" class="btn btn-primary">Criar Conta</a>
                     </div>
                 <% } %>
             </div>
