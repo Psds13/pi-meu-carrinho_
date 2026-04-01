@@ -312,8 +312,19 @@ h3 { font-size: 1.25rem; }
     background-position: center;
     color: white;
     text-align: center;
-    padding: 5rem 0; /* More padding */
+    padding: 3rem 1rem; /* Reduced for mobile */
 }
+
+@media (min-width: 768px) {
+    .hero-intro {
+        padding: 5rem 0;
+    }
+}
+
+/* Supermarket Themes */
+.theme-atacadao { background: linear-gradient(rgba(224, 30, 30, 0.9), rgba(180, 0, 0, 1)), url('/image/atacadao-bg.jpg'); }
+.theme-assai { background: linear-gradient(rgba(0, 102, 204, 0.9), rgba(0, 51, 153, 1)), url('/image/assai-bg.jpg'); }
+.theme-mateus { background: linear-gradient(rgba(240, 140, 0, 0.9), rgba(200, 100, 0, 1)), url('/image/mateus-bg.jpg'); }
 
 /* 5. FORMS - Responsive */
 .form-group {
@@ -359,11 +370,19 @@ input:focus {
     transition: var(--transition-smooth);
     border: none;
     gap: 0.5rem;
-    width: 100%; /* Mobile full width */
+    width: auto; /* Changed from 100% to allow auto-width in navs */
 }
 
-@media (min-width: 640px) {
-    .btn { width: auto; }
+/* Use this for full-width buttons on mobile */
+.btn-block {
+    width: 100%;
+}
+
+@media (max-width: 640px) {
+    /* Only auto-apply block to specific contexts if needed, or leave it to the user */
+    .form-group .btn, .product-card .btn {
+        width: 100%;
+    }
 }
 
 .btn-primary {
@@ -564,6 +583,50 @@ input:focus {
 .footer-logo img { height: 60px; margin-bottom: 1.5rem; }
 .footer-links h4 { margin-bottom: 1.5rem; color: var(--accent); }
 .social-icons { display: flex; gap: 1.5rem; font-size: 1.5rem; }
+
+/* 9. MARKET SPECIFIC COMPONENTS */
+.category-nav-wrapper {
+    background: white;
+    position: sticky;
+    top: 75px; /* Sits below the main header */
+    z-index: 900;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border-light);
+}
+
+@media (max-width: 1023px) {
+    .category-nav-wrapper { top: 61px; } /* Adjust for mobile header height */
+}
+
+.category-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.cat-link {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem !important;
+    border-radius: 50px !important;
+    white-space: nowrap;
+    opacity: 0.85;
+}
+
+.cat-link:hover {
+    opacity: 1;
+}
+
+.market-link img {
+    padding: 10px;
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    transition: var(--transition-smooth);
+}
+
+.market-link:hover img {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+}
 
 /* 10. AUTH PAGES (LOGIN / REGISTER) */
 .auth-page {
