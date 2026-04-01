@@ -3,9 +3,9 @@ const ListaModel = require('../models/ListaModel');
 class ListaController {
   static async criarLista(req, res) {
     try {
-      // Removida a trava rígida para fins de teste
+      if (!req.session || !req.session.user) return res.redirect('/login');
       const { nome } = req.body;
-      const usuarioId = (req.session && req.session.user) ? req.session.user.id : 1;
+      const usuarioId = req.session.user.id;
 
       const lista = await ListaModel.criarLista(usuarioId, nome);
 
@@ -21,47 +21,47 @@ class ListaController {
 
   static async minhasListas(req, res) {
     try {
-      // Removida a trava rígida para fins de teste
-      const usuarioId = (req.session && req.session.user) ? req.session.user.id : 1;
+      if (!req.session || !req.session.user) return res.redirect('/login');
+      const usuarioId = req.session.user.id;
       const listas = await ListaModel.listarListasUsuario(usuarioId);
 
       res.render('listas/minhasListas', {
         listas,
-        user: (req.session && req.session.user) ? req.session.user : { nome: 'Visitante (Teste)' }
+        user: req.session.user
       });
     } catch (error) {
       console.error('Erro ao carregar listas:', error);
       res.status(500).render('error', {
         error: 'Erro ao carregar listas',
-        user: (req.session && req.session.user) ? req.session.user : { nome: 'Visitante (Teste)' }
+        user: req.session.user
       });
     }
   }
 
   static async verLista(req, res) {
     try {
-      // Removida a trava rígida para fins de teste
+      if (!req.session || !req.session.user) return res.redirect('/login');
       const { id } = req.params;
-      const usuarioId = (req.session && req.session.user) ? req.session.user.id : 1;
+      const usuarioId = req.session.user.id;
 
       const lista = await ListaModel.buscarListaPorId(id, usuarioId);
 
       if (!lista) {
         return res.status(404).render('error', {
           error: 'Lista não encontrada',
-          user: (req.session && req.session.user) ? req.session.user : { nome: 'Visitante (Teste)' }
+          user: req.session.user
         });
       }
 
       res.render('listas/verLista', {
         lista,
-        user: (req.session && req.session.user) ? req.session.user : { nome: 'Visitante (Teste)' }
+        user: req.session.user
       });
     } catch (error) {
       console.error('Erro ao carregar lista:', error);
       res.status(500).render('error', {
         error: 'Erro ao carregar lista',
-        user: (req.session && req.session.user) ? req.session.user : { nome: 'Visitante (Teste)' }
+        user: req.session.user
       });
     }
   }
@@ -107,9 +107,9 @@ class ListaController {
 
   static async excluirLista(req, res) {
     try {
-      // Removida a trava rígida para fins de teste
+      if (!req.session || !req.session.user) return res.redirect('/login');
       const { listaId } = req.body;
-      const usuarioId = (req.session && req.session.user) ? req.session.user.id : 1;
+      const usuarioId = req.session.user.id;
 
       await ListaModel.excluirLista(listaId, usuarioId);
 
