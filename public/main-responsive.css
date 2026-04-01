@@ -338,12 +338,20 @@ h3 { font-size: 1.25rem; }
     background-position: center;
     color: white;
     text-align: center;
-    padding: 3rem 1rem; /* Reduced for mobile */
+    padding: 3rem 1rem;
+}
+
+.hero-intro h1 {
+    margin-bottom: 2.5rem; /* Increased space below H1 */
+    font-size: 2.5rem;
 }
 
 @media (min-width: 768px) {
     .hero-intro {
-        padding: 5rem 0;
+        padding: 6rem 0;
+    }
+    .hero-intro h1 {
+        font-size: 3.5rem;
     }
 }
 
@@ -466,8 +474,8 @@ input:focus {
     background: white;
     border: 2px solid var(--primary-light);
     color: var(--primary);
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -475,11 +483,11 @@ input:focus {
     cursor: pointer;
     box-shadow: var(--shadow-md);
     transition: var(--transition-smooth);
-    z-index: 20;
+    z-index: 100;
 }
 
-.left-arrow { left: 1rem; }
-.right-arrow { right: 1rem; }
+.left-arrow { left: 0.5rem; }
+.right-arrow { right: 0.5rem; }
 
 .carousel-arrow:hover {
     background: var(--primary);
@@ -487,7 +495,7 @@ input:focus {
     transform: translateY(-50%) scale(1.1);
 }
 
-.highlights-grid {
+.highlights-grid, .promocoes-grid {
     display: flex;
     gap: 1.5rem;
     padding: 1rem 0 2rem;
@@ -499,11 +507,10 @@ input:focus {
 /* Ensure container hides overflow for the translateX effect */
 .carousel-container {
     position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    overflow: hidden; /* Hide the extra cloned items */
+    padding: 1.5rem 0; /* More padding and centered */
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100%;
 }
 
 /* Ensure each card has a fixed width in the carousel */
