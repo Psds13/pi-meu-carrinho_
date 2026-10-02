@@ -53,3 +53,6 @@ build/
 
 package-lock.json
 yarn.lock
+
+# n8n
+n8n/
