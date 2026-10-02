@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supermercados - Meu Carrinho</title>
+  <meta name="description" content="Conheça os supermercados parceiros comparados no Meu Carrinho: Atacadão, Assaí e Mateus.">
+  <link rel="icon" type="image/png" href="/image/logo.png">
+  <link rel="stylesheet" href="/main-responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="container py-5">
+    <div class="mb-5 text-center" style="max-width: 650px; margin: 0 auto;">
+      <span class="badge-tag bg-primary-light text-primary mb-2"><i class="bi bi-shop"></i> Rede de Parceiros</span>
+      <h1>Supermercados Comparados</h1>
+      <p class="text-muted">Monitoramos diariamente os encartes e preços das maiores redes da sua região para garantir o menor preço para o seu carrinho.</p>
+    </div>
+
+    <div class="supermarkets-grid">
+      <!-- Card Atacadão -->
+      <div class="supermarket-card">
+        <div class="market-card-top">
+          <div class="market-logo-wrapper">
+            <img src="/image/atacadao-logo2.webp" alt="Atacadão">
+          </div>
+          <span class="badge-tag atacadao">Atacado & Varejo</span>
+        </div>
+        <h3 class="market-name-title">Atacadão</h3>
+        <p class="text-muted small mb-3">Líder no segmento de atacarejo no Brasil, oferecendo preços imbatíveis para compras em grandes volumes.</p>
+        <ul class="market-meta-list">
+          <li><i class="bi bi-check-circle-fill text-success"></i> <strong>24+ Ofertas Ativas</strong> hoje</li>
+          <li><i class="bi bi-currency-dollar"></i> Preços a partir de <strong>R$ 2,99</strong></li>
+          <li><i class="bi bi-geo-alt-fill text-danger"></i> Lojas em São Luís, Imperatriz e região</li>
+        </ul>
+        <div class="market-card-footer mt-4">
+          <a href="/atacadao" class="btn btn-primary w-100">Ver Ofertas do Atacadão</a>
+        </div>
+      </div>
+
+      <!-- Card Assaí -->
+      <div class="supermarket-card">
+        <div class="market-card-top">
+          <div class="market-logo-wrapper">
+            <img src="/image/assaí-logo.png" alt="Assaí Atacadista">
+          </div>
+          <span class="badge-tag assai">Atacado & Varejo</span>
+        </div>
+        <h3 class="market-name-title">Assaí Atacadista</h3>
+        <p class="text-muted small mb-3">Excelente opção para famílias e comerciantes com descontos progressivos por quantidade de itens.</p>
+        <ul class="market-meta-list">
+          <li><i class="bi bi-check-circle-fill text-success"></i> <strong>26+ Ofertas Ativas</strong> hoje</li>
+          <li><i class="bi bi-currency-dollar"></i> Preços a partir de <strong>R$ 1,99</strong></li>
+          <li><i class="bi bi-geo-alt-fill text-danger"></i> Lojas em São Luís e Região Metropolitana</li>
+        </ul>
+        <div class="market-card-footer mt-4">
+          <a href="/assai" class="btn btn-primary w-100">Ver Ofertas do Assaí</a>
+        </div>
+      </div>
+
+      <!-- Card Mateus -->
+      <div class="supermarket-card">
+        <div class="market-card-top">
+          <div class="market-logo-wrapper">
+            <img src="/image/grupo-mateus-logo.png" alt="Grupo Mateus">
+          </div>
+          <span class="badge-tag mateus">Supermercado</span>
+        </div>
+        <h3 class="market-name-title">Grupo Mateus</h3>
+        <p class="text-muted small mb-3">Maior rede de supermercados do Norte e Nordeste, conhecida pela alta qualidade em hortifruti e açougue.</p>
+        <ul class="market-meta-list">
+          <li><i class="bi bi-check-circle-fill text-success"></i> <strong>30+ Ofertas Ativas</strong> hoje</li>
+          <li><i class="bi bi-currency-dollar"></i> Preços a partir de <strong>R$ 1,99</strong></li>
+          <li><i class="bi bi-geo-alt-fill text-danger"></i> Cobertura completa no estado do Maranhão</li>
+        </ul>
+        <div class="market-card-footer mt-4">
+          <a href="/mateus" class="btn btn-primary w-100">Ver Ofertas do Mateus</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include('partials/modals') %>
+  <%- include('partials/footer') %>
+
+  <script src="/js/app-main.js"></script>
+</body>
+</html>

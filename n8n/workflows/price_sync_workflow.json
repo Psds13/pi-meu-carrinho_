@@ -1,0 +1,119 @@
+{
+  "name": "Meu Carrinho - Sincronização e Histórico de Preços (n8n)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 6
+            }
+          ]
+        }
+      },
+      "name": "Schedule Trigger (A cada 6 horas)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "source_market",
+              "value": "Atacadão"
+            }
+          ]
+        }
+      },
+      "name": "Simulação de Coleta de Dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        460,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Workflow JS Node: Normalização e Validação dos Dados\nconst rawItems = [\n  { product_id: 1, nome: \"Arroz Agulhinha Tipo 1\", supermercado: \"Atacadão\", novo_preco: 4.99 },\n  { product_id: 2, nome: \"Café União Tradicional\", supermercado: \"Assaí\", novo_preco: 8.49 },\n  { product_id: 6, nome: \"Guaraná Antarctica Original Lata\", supermercado: \"Assaí\", novo_preco: 1.89 }\n];\n\nreturn rawItems.map(item => ({ json: item }));"
+      },
+      "name": "Tratamento & Normalização dos Preços",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        680,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:3000/api/webhooks/prices",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-n8n-api-key",
+              "value": "meucarrinho-n8n-secret-2024"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"price_updates\": [\n    {\n      \"product_id\": $json.product_id,\n      \"nome\": \"{{$json.nome}}\",\n      \"supermercado\": \"{{$json.supermercado}}\",\n      \"novo_preco\": {{$json.novo_preco}}\n    }\n  ]\n}"
+      },
+      "name": "Enviar para Webhook Express",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        900,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger (A cada 6 horas)": {
+      "main": [
+        [
+          {
+            "node": "Simulação de Coleta de Dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simulação de Coleta de Dados": {
+      "main": [
+        [
+          {
+            "node": "Tratamento & Normalização dos Preços",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tratamento & Normalização dos Preços": {
+      "main": [
+        [
+          {
+            "node": "Enviar para Webhook Express",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

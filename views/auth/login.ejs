@@ -1,48 +1,311 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - MeuCarrinho</title>
+  <title>Login — Meu Carrinho</title>
+  <meta name="description" content="Entre na sua conta para acompanhar ofertas e comparar preços nos supermercados.">
+  <link rel="icon" type="image/png" href="/image/logo.png">
   <link rel="stylesheet" href="/main-responsive.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    html, body { height: 100%; margin: 0; padding: 0; }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: var(--bg-main);
+      font-family: 'Inter', 'Poppins', sans-serif;
+      padding: 2rem 1rem;
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 420px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-premium);
+      padding: 2.5rem 2rem;
+    }
+
+    .auth-card-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .auth-card-logo {
+      height: 48px;
+      margin: 0 auto 1.1rem;
+      display: block;
+    }
+
+    .auth-card-header h1 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .auth-card-header p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .auth-field { margin-bottom: 1.2rem; }
+
+    .auth-label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.45rem;
+    }
+
+    .auth-input-wrapper { position: relative; }
+
+    .auth-input-icon {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+
+    .auth-input {
+      width: 100%;
+      padding: 0.8rem 1rem 0.8rem 2.75rem;
+      background: var(--bg-input);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 0.925rem;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      -webkit-text-fill-color: var(--text-primary);
+      box-sizing: border-box;
+    }
+
+    .auth-input::placeholder {
+      color: var(--text-muted);
+      -webkit-text-fill-color: var(--text-muted);
+      opacity: 1;
+    }
+
+    .auth-input:-webkit-autofill,
+    .auth-input:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 1000px var(--bg-input) inset !important;
+      -webkit-text-fill-color: var(--text-primary) !important;
+    }
+
+    .auth-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: var(--bg-card);
+      box-shadow: 0 0 0 4px var(--primary-light);
+      -webkit-text-fill-color: var(--text-primary);
+    }
+
+    .auth-input.has-toggle { padding-right: 3rem; }
+
+    .toggle-password {
+      position: absolute;
+      right: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      padding: 0;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .toggle-password:hover { color: var(--primary); }
+
+    .auth-submit-btn {
+      width: 100%;
+      padding: 0.875rem;
+      background: linear-gradient(135deg, var(--primary), #1d4ed8);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.35);
+      letter-spacing: 0.01em;
+    }
+
+    .auth-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37,99,235,0.45);
+    }
+
+    .auth-submit-btn:active { transform: translateY(0); }
+
+    .auth-alert {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1rem;
+      background: var(--danger-light);
+      border: 1px solid rgba(239,68,68,0.25);
+      border-radius: var(--radius-sm);
+      color: var(--danger);
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+
+    .auth-footer { text-align: center; margin-top: 1.25rem; }
+
+    .auth-footer p { color: var(--text-muted); font-size: 0.875rem; }
+
+    .auth-footer a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .auth-footer a:hover { text-decoration: underline; }
+
+    .auth-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      text-decoration: none;
+      margin-top: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .auth-back-link:hover { color: var(--primary); }
+
+    /* Theme toggle */
+    .auth-theme-btn {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      box-shadow: var(--shadow-md);
+      z-index: 999;
+      transition: all 0.2s;
+    }
+
+    .auth-theme-btn:hover { color: var(--primary); border-color: var(--primary); }
+    .auth-theme-btn .light-icon { display: none; }
+    [data-theme="dark"] .auth-theme-btn .dark-icon { display: none; }
+    [data-theme="dark"] .auth-theme-btn .light-icon { display: block; }
+  </style>
 </head>
+<body>
 
-<body class="auth-page">
+  <button class="auth-theme-btn" id="authThemeBtn" aria-label="Alternar tema">
+    <i class="bi bi-moon-stars-fill dark-icon"></i>
+    <i class="bi bi-sun-fill light-icon"></i>
+  </button>
 
-  <header class="auth-header">
-    <div class="container">
-      <div class="auth-logo">
-        <a href="/"><img src="/image/logo.png" alt="Logo Meu Carrinho"></a>
-      </div>
+  <div class="auth-card">
+
+    <div class="auth-card-header">
+      <a href="/"><img src="/image/logo.png" alt="Meu Carrinho" class="auth-card-logo"></a>
+      <h1>Bem-vindo de volta!</h1>
+      <p>Entre na sua conta e continue economizando.</p>
     </div>
-  </header>
 
-  <main class="auth-main">
-    <section class="auth-card fade-in">
-      <h2>Bem-vindo</h2>
-      <p class="subtitle">Entre na sua conta para comparar ofertas</p>
-
-      <form action="/login" method="POST">
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="nome@exemplo.com" required>
-        </div>
-
-        <div class="form-group">
-          <label for="senha">Senha</label>
-          <input type="password" id="senha" name="senha" placeholder="Sua senha segura" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Entrar</button>
-      </form>
-
-      <div class="auth-footer">
-        Não tem uma conta? <a href="/cadastro">Cadastre-se agora</a>
+    <% if (typeof erro !== 'undefined' && erro) { %>
+      <div class="auth-alert">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <%= erro %>
       </div>
-    </section>
-  </main>
+    <% } %>
 
-  <script src="/js/mobile-menu.js"></script>
+    <form action="/login" method="POST" id="loginForm">
+
+      <div class="auth-field">
+        <label for="email" class="auth-label">E-mail</label>
+        <div class="auth-input-wrapper">
+          <i class="bi bi-envelope auth-input-icon"></i>
+          <input type="email" id="email" name="email" class="auth-input"
+            placeholder="seuemail@exemplo.com" required autocomplete="email">
+        </div>
+      </div>
+
+      <div class="auth-field">
+        <label for="senha" class="auth-label">Senha</label>
+        <div class="auth-input-wrapper">
+          <i class="bi bi-lock auth-input-icon"></i>
+          <input type="password" id="senha" name="senha" class="auth-input has-toggle"
+            placeholder="Sua senha" required autocomplete="current-password">
+          <button type="button" class="toggle-password" id="toggleSenha" aria-label="Mostrar senha">
+            <i class="bi bi-eye" id="toggleSenhaIcon"></i>
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="auth-submit-btn" id="loginSubmitBtn">
+        <i class="bi bi-box-arrow-in-right"></i>
+        Entrar na minha conta
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <p>Não tem uma conta? <a href="/cadastro">Criar conta grátis</a></p>
+      <a href="/" class="auth-back-link"><i class="bi bi-arrow-left"></i> Voltar para o início</a>
+    </div>
+
+  </div>
+
+  <script>
+    const authThemeBtn = document.getElementById('authThemeBtn');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    authThemeBtn?.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    document.getElementById('toggleSenha')?.addEventListener('click', () => {
+      const input = document.getElementById('senha');
+      const icon = document.getElementById('toggleSenhaIcon');
+      input.type = input.type === 'password' ? 'text' : 'password';
+      icon.className = input.type === 'password' ? 'bi bi-eye' : 'bi bi-eye-slash';
+    });
+
+    document.getElementById('loginForm')?.addEventListener('submit', () => {
+      const btn = document.getElementById('loginSubmitBtn');
+      btn.innerHTML = '<span style="width:16px;height:16px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;display:inline-block;animation:spin 0.6s linear infinite;margin-right:6px"></span> Entrando...';
+      btn.disabled = true;
+    });
+  </script>
+  <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
 </body>
-</html>
+</html>

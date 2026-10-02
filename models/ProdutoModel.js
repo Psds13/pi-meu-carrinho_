@@ -1,92 +1,110 @@
 const db = require('../config/database');
+const staticProdutos = require('../data/produtosData');
 
 class ProdutoModel {
   static async listarTodos() {
-    const result = await db.query(`
-      SELECT p.*, m.nome as mercado_nome 
-      FROM carrinho.produtos p 
-      LEFT JOIN carrinho.mercados m ON p.mercado_id = m.id
-      ORDER BY p.nome
-    `);
-    return result.rows;
+    try {
+      const result = await db.query(`
+        SELECT p.*, m.nome as mercado_nome 
+        FROM carrinho.produtos p 
+        LEFT JOIN carrinho.mercados m ON p.mercado_id = m.id
+        ORDER BY p.nome
+      `);
+      if (result && result.rows && result.rows.length > 0) {
+        return result.rows;
+      }
+    } catch (err) {
+      console.warn('DB Query fallback to static dataset (listarTodos):', err.message);
+    }
+    return staticProdutos;
   }
 
-  static async listarPorMercado(mercadoId) {
-    const result = await db.query(
-      `SELECT p.*, m.nome as mercado_nome 
-       FROM carrinho.produtos p 
-       LEFT JOIN carrinho.mercados m ON p.mercado_id = m.id 
-       WHERE p.mercado_id = $1 
-       ORDER BY p.nome`,
-      [mercadoId]
+  static async listarPorMercado(mercadoNome) {
+    try {
+      const result = await db.query(
+        `SELECT p.*, m.nome as mercado_nome 
+         FROM carrinho.produtos p 
+         LEFT JOIN carrinho.mercados m ON p.mercado_id = m.id 
+         WHERE m.nome ILIKE $1 
+         ORDER BY p.nome`,
+        [`%${mercadoNome}%`]
+      );
+      if (result && result.rows && result.rows.length > 0) {
+        return result.rows;
+      }
+    } catch (err) {
+      console.warn('DB Query fallback to static dataset (listarPorMercado):', err.message);
+    }
+    return staticProdutos.filter(p => 
+      p.mercado_principal.toLowerCase().includes(mercadoNome.toLowerCase()) ||
+      (p.precos_mercados && p.precos_mercados[mercadoNome])
     );
-    return result.rows;
   }
 
   static async buscarPorId(id) {
-    const result = await db.query(
-      `SELECT p.*, m.nome as mercado_nome 
-       FROM carrinho.produtos p 
-       LEFT JOIN carrinho.mercados m ON p.mercado_id = m.id 
-       WHERE p.id = $1`,
-      [id]
-    );
-    return result.rows[0];
+    try {
+      const result = await db.query(
+        `SELECT p.*, m.nome as mercado_nome 
+         FROM carrinho.produtos p 
+         LEFT JOIN carrinho.mercados m ON p.mercado_id = m.id 
+         WHERE p.id = $1`,
+        [id]
+      );
+      if (result && result.rows && result.rows[0]) {
+        return result.rows[0];
+      }
+    } catch (err) {
+      console.warn('DB Query fallback to static dataset (buscarPorId):', err.message);
+    }
+    return staticProdutos.find(p => p.id == id) || staticProdutos[0];
   }
 
-  static async criar(produto) {
-    const result = await db.query(
-      'INSERT INTO carrinho.produtos (nome, preco, imagem, mercado_id, categoria) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-      [produto.nome, produto.preco, produto.imagem, produto.mercado_id, produto.categoria]
+  static async buscarPorNome(queryStr) {
+    try {
+      const result = await db.query(
+        `SELECT p.*, m.nome as mercado_nome 
+         FROM carrinho.produtos p 
+         LEFT JOIN carrinho.mercados m ON p.mercado_id = m.id 
+         WHERE p.nome ILIKE $1 
+         ORDER BY p.preco`,
+        [`%${queryStr}%`]
+      );
+      if (result && result.rows && result.rows.length > 0) {
+        return result.rows;
+      }
+    } catch (err) {
+      console.warn('DB Query fallback to static dataset (buscarPorNome):', err.message);
+    }
+    
+    if (!queryStr) return staticProdutos;
+    const term = queryStr.toLowerCase();
+    return staticProdutos.filter(p => 
+      p.nome.toLowerCase().includes(term) ||
+      (p.marca && p.marca.toLowerCase().includes(term)) ||
+      (p.categoria && p.categoria.toLowerCase().includes(term)) ||
+      (p.mercado_principal && p.mercado_principal.toLowerCase().includes(term))
     );
-    return result.rows[0];
   }
 
-  static async atualizar(id, produto) {
-    const result = await db.query(
-      'UPDATE carrinho.produtos SET nome = $1, preco = $2, imagem = $3, categoria = $4 WHERE id = $5 RETURNING *',
-      [produto.nome, produto.preco, produto.imagem, produto.categoria, id]
-    );
-    return result.rows[0];
-  }
-
-  static async excluir(id) {
-    const result = await db.query(
-      'DELETE FROM carrinho.produtos WHERE id = $1',
-      [id]
-    );
-    return result.rowCount;
-  }
-
-  static async buscarPorNome(nome) {
-    const result = await db.query(
-      `SELECT p.*, m.nome as mercado_nome 
-       FROM carrinho.produtos p 
-       LEFT JOIN carrinho.mercados m ON p.mercado_id = m.id 
-       WHERE p.nome ILIKE $1 
-       ORDER BY p.preco`,
-      [`%${nome}%`]
-    );
-    return result.rows;
-  }
-
-  static async buscarPorMercado(mercadoNome) {
-    const result = await db.query(
-      `SELECT p.id, p.nome, p.preco, p.imagem, p.categoria, m.nome as mercado_nome 
-       FROM carrinho.produtos p 
-       LEFT JOIN carrinho.mercados m ON p.mercado_id = m.id 
-       WHERE m.nome = $1 
-       ORDER BY p.nome`,
-      [mercadoNome]
-    );
-    return result.rows;
+  static async buscarPorCategoria(catNome) {
+    const list = await this.listarTodos();
+    if (!catNome || catNome.toLowerCase() === 'todos') return list;
+    return list.filter(p => p.categoria && p.categoria.toLowerCase().includes(catNome.toLowerCase()));
   }
 
   static async listarCategorias() {
-    const result = await db.query(
-      'SELECT DISTINCT categoria FROM carrinho.produtos WHERE categoria IS NOT NULL ORDER BY categoria'
-    );
-    return result.rows;
+    return [
+      "Todos",
+      "Alimentos",
+      "Bebidas",
+      "Carnes",
+      "Hortifruti",
+      "Laticínios",
+      "Limpeza",
+      "Higiene",
+      "Mercearia",
+      "Congelados"
+    ];
   }
 }
 

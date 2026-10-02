@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ofertas de Hoje - Meu Carrinho</title>
+  <meta name="description" content="Confira as melhores ofertas do dia nos supermercados Atacadão, Assaí e Mateus com descontos de até 50%.">
+  <link rel="icon" type="image/png" href="/image/logo.png">
+  <link rel="stylesheet" href="/main-responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="container py-5">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <span class="badge-tag bg-danger-light text-danger mb-2"><i class="bi bi-fire"></i> Promoções Imperdíveis</span>
+        <h1>Ofertas de Hoje</h1>
+        <p class="text-muted">Produtos com os maiores descontos verificados na sua região.</p>
+      </div>
+    </div>
+
+    <!-- Filtros de Ofertas -->
+    <div class="card p-3 mb-4" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+      <div class="row align-items-center g-3" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 200px;">
+          <label class="form-label font-weight-bold small text-muted">Ordenar Por:</label>
+          <select id="sortOffersSelect" class="form-select" style="width: 100%; padding: 0.6rem; border-radius: 8px; background: var(--bg-input); border: 1px solid var(--border-color); color: var(--text-primary);">
+            <option value="maior-desconto">Maior Desconto (%)</option>
+            <option value="menor-preco">Menor Preço (R$)</option>
+          </select>
+        </div>
+
+        <div style="flex: 1; min-width: 200px;">
+          <label class="form-label font-weight-bold small text-muted">Supermercado:</label>
+          <select id="marketOffersSelect" class="form-select" style="width: 100%; padding: 0.6rem; border-radius: 8px; background: var(--bg-input); border: 1px solid var(--border-color); color: var(--text-primary);">
+            <option value="todos">Todos os Supermercados</option>
+            <option value="Atacadão">Atacadão</option>
+            <option value="Assaí">Assaí</option>
+            <option value="Mateus">Mateus</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-responsive-grid" id="offersGrid">
+      <% if (typeof produtos !== 'undefined' && produtos.length > 0) { %>
+        <% produtos.forEach(p => { %>
+          <div class="product-card-modern" data-category="<%= p.categoria %>" data-market="<%= p.mercado_principal %>" data-discount="<%= p.desconto %>" data-price="<%= p.preco_atual %>">
+            <div class="product-card-top">
+              <span class="discount-tag-badge">-<%= p.desconto %>% OFF</span>
+              <button class="btn-favorite-heart" data-id="<%= p.id %>">
+                <i class="bi bi-heart"></i>
+              </button>
+            </div>
+
+            <div class="product-image-box">
+              <img src="<%= p.imagem %>" alt="<%= p.nome %>" loading="lazy">
+            </div>
+
+            <div class="product-meta-store">
+              <span class="badge-tag <%= p.mercado_principal.toLowerCase().replace('í','i').replace('ã','a') %>"><%= p.mercado_principal %></span>
+            </div>
+
+            <h3 class="product-name-title"><%= p.nome %></h3>
+            <p class="product-weight-label"><%= p.marca || '' %> • <%= p.quantidade_peso || '' %></p>
+
+            <div class="product-prices-box">
+              <% if (p.preco_anterior && p.preco_anterior > p.preco_atual) { %>
+                <span class="price-previous">R$ <%= parseFloat(p.preco_anterior).toFixed(2).replace('.',',') %></span>
+              <% } %>
+              <span class="price-current">R$ <%= parseFloat(p.preco_atual).toFixed(2).replace('.',',') %></span>
+              
+              <% if (p.valor_economizado && p.valor_economizado > 0) { %>
+                <div>
+                  <span class="savings-label-badge"><i class="bi bi-check-circle-fill"></i> Economize R$ <%= parseFloat(p.valor_economizado).toFixed(2).replace('.',',') %></span>
+                </div>
+              <% } %>
+            </div>
+
+            <div class="product-actions-box">
+              <button class="btn btn-add-cart-full" 
+                data-id="<%= p.id %>"
+                data-nome="<%= p.nome %>"
+                data-preco="<%= p.preco_atual %>"
+                data-imagem="<%= p.imagem %>"
+                data-mercado="<%= p.mercado_principal %>">
+                <i class="bi bi-cart-plus-fill"></i> Adicionar à Lista
+              </button>
+
+              <button class="btn btn-outline-nav btn-sm btn-buy-official-store" 
+                data-mercado="<%= p.mercado_principal %>"
+                data-nome="<%= p.nome %>"
+                data-url="<%= p.url_oficial || '' %>">
+                <i class="bi bi-box-arrow-up-right"></i> Comprar no <%= p.mercado_principal %>
+              </button>
+
+              <button class="btn-compare-product" data-id="<%= p.id %>">
+                <i class="bi bi-arrow-left-right"></i> Compare este produto
+              </button>
+            </div>
+          </div>
+        <% }) %>
+      <% } %>
+    </div>
+  </main>
+
+  <%- include('partials/modals') %>
+  <%- include('partials/footer') %>
+
+  <script src="/js/app-main.js"></script>
+  <script>
+    const sortSelect = document.getElementById('sortOffersSelect');
+    const marketSelect = document.getElementById('marketOffersSelect');
+    const offersGrid = document.getElementById('offersGrid');
+
+    function filterOffers() {
+      const sortVal = sortSelect.value;
+      const marketVal = marketSelect.value;
+
+      const cards = Array.from(offersGrid.querySelectorAll('.product-card-modern'));
+
+      cards.forEach(card => {
+        const m = card.getAttribute('data-market');
+        if (marketVal === 'todos' || m.toLowerCase() === marketVal.toLowerCase()) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      cards.sort((a, b) => {
+        if (sortVal === 'maior-desconto') {
+          return parseFloat(b.getAttribute('data-discount')) - parseFloat(a.getAttribute('data-discount'));
+        } else {
+          return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+        }
+      });
+
+      cards.forEach(card => offersGrid.appendChild(card));
+    }
+
+    sortSelect?.addEventListener('change', filterOffers);
+    marketSelect?.addEventListener('change', filterOffers);
+  </script>
+</body>
+</html>

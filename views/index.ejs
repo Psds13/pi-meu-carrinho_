@@ -3,671 +3,309 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Carrinho - Compare Preços de Supermercados</title>
+  <title>Meu Carrinho - Compare Preços de Supermercados e Economize</title>
+  <meta name="description" content="Compare preços nos supermercados Atacadão, Assaí e Mateus. Monte sua lista de compras e compre nos canais oficiais.">
   <link rel="icon" type="image/png" href="/image/logo.png">
   <link rel="stylesheet" href="/main-responsive.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Header Top Navigation -->
   <%- include('partials/header') %>
 
-  <!-- Hero Intro -->
-  <section class="hero-intro">
-    <div class="container">
-      <h1>Economize de verdade</h1>
-      <p>O Meu Carrinho compara preços nos maiores supermercados da região para você encher o carrinho pagando muito menos.</p>
-    </div>
-  </section>
+  <main>
+    <!-- HERO PRINCIPAL REFORMULADO -->
+    <section class="hero-intro-section">
+      <div class="container hero-layout">
+        <div class="hero-content-left">
+          <div class="hero-badge-tag">
+            <i class="bi bi-piggy-bank-fill"></i> Plataforma #1 de Economia em Supermercados
+          </div>
+          <h1 class="hero-headline">
+            Compare preços. <br>
+            Monte sua lista. <br>
+            <span>Economize de verdade.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Encontre os melhores preços nos supermercados da sua região e descubra exatamente onde sua compra inteira fica mais barata.
+          </p>
 
-  <!-- Banner Principal -->
-  <section class="hero-banner">
-    <div class="slideshow-container">
-      <div class="mySlides fade">
-        <img src="/image/slide01.png" alt="Promoção 1">
-      </div>
-      
-      <div class="mySlides fade">
-        <img src="/image/slide02.png" alt="Promoção 2">
-      </div>
-      
-      <div class="mySlides fade">
-        <img src="/image/slide03.png" alt="Promoção 3">
-      </div>
-      
-      <!-- Indicadores do slide -->
-      <div class="slide-indicators">
-        <span class="dot" onclick="currentSlide(1)"></span> 
-        <span class="dot" onclick="currentSlide(2)"></span> 
-        <span class="dot" onclick="currentSlide(3)"></span> 
-      </div>
-    </div>
-  </section>
+          <!-- Campo de Pesquisa Grande Hero -->
+          <form action="/produtos" method="get" class="hero-search-box">
+            <input type="text" name="search" placeholder="Pesquise por produto" class="hero-search-input" required>
+            <button type="submit" class="btn btn-primary hero-search-btn">
+              <i class="bi bi-search"></i> Buscar Preços
+            </button>
+          </form>
 
-  <!-- Conteúdo Principal -->
-  <main class="main-content">
-    
-    <!-- Seção de Supermercados -->
-    <section id="supermarkets-section" class="supermarkets-section fade-in">
-      <div class="container">
-        <div class="section-header">
-          <h2>Escolha seu Supermercado</h2>
-          <p>Compare preços entre os melhores mercados da região</p>
+          <div class="hero-shortcuts">
+            <span>Atalho rápido:</span>
+            <a href="/minha-lista" class="btn-shortcut-list">
+              <i class="bi bi-cart-plus-fill"></i> Montar minha lista de compras <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Indicadores de Impacto -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon"><i class="bi bi-box-seam-fill"></i></div>
+              <div class="stat-info">
+                <strong>100+</strong>
+                <span>Produtos Cadastrados</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="bi bi-shop-window"></i></div>
+              <div class="stat-info">
+                <strong>3 Grandes</strong>
+                <span>Supermercados Comparados</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="bi bi-graph-down-arrow"></i></div>
+              <div class="stat-info">
+                <strong>Até 50%</strong>
+                <span>De Economia Real</span>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div class="responsive-grid grid-standard">
-          <a href="/atacadao" class="supermarket-card card-premium">
-            <div class="supermarket-logo">
-              <img src="/image/atacadao-logo2.webp" alt="Atacadão"/>
+
+        <!-- Banner Slider Slideshow Integrado -->
+        <div class="hero-content-right">
+          <div class="banner-slider-box">
+            <div class="banner-slides-wrapper">
+              <div class="banner-slide active">
+                <img src="/image/slide01.png" alt="Super Oferta 1">
+              </div>
+              <div class="banner-slide">
+                <img src="/image/slide02.png" alt="Super Oferta 2">
+              </div>
+              <div class="banner-slide">
+                <img src="/image/slide03.png" alt="Super Oferta 3">
+              </div>
             </div>
-            <span class="supermarket-name">Atacadão</span>
-          </a>
-          
-          <a href="/assai" class="supermarket-card card-premium">
-            <div class="supermarket-logo">
-              <img src="/image/assaí-logo.png" alt="Assaí Atacadista"/>
+            <div class="banner-dots">
+              <span class="banner-dot active" onclick="setSlide(0)"></span>
+              <span class="banner-dot" onclick="setSlide(1)"></span>
+              <span class="banner-dot" onclick="setSlide(2)"></span>
             </div>
-            <span class="supermarket-name">Assaí</span>
-          </a>
-          
-          <a href="/mateus" class="supermarket-card card-premium">
-            <div class="supermarket-logo">
-              <img src="/image/grupo-mateus-logo.png" alt="Grupo Mateus"/>
-            </div>
-            <span class="supermarket-name">Mateus</span>
-          </a>
+          </div>
         </div>
       </div>
     </section>
 
-    
-    <!-- Destaques da Semana -->
-    <section class="highlights-section">
+    <!-- SELEÇÃO DE SUPERMERCADOS COM MULTI-SELEÇÃO -->
+    <section id="supermarkets-section" class="supermarkets-section container">
       <div class="section-header">
-        <h2>Destaques da Semana</h2>
-        <p>As melhores ofertas para você economizar</p>
+        <div class="section-header-title">
+          <h2>Supermercados da Sua Região</h2>
+          <p>Selecione um ou mais supermercados para comparar preços lado a lado</p>
+        </div>
+        <a href="/mercados" class="btn btn-outline-nav btn-sm">Ver todos os detalhes <i class="bi bi-arrow-right"></i></a>
       </div>
-      
-      <div class="container carousel-container">
-        <button class="carousel-arrow left-arrow" aria-label="Produtos anteriores">
-          <i class="fa fa-chevron-left"></i>
-        </button>
-        
-        <div class="highlights-grid">
-          <!-- Produto 1 -->
-          <div class="product-card card-premium">
-            <div class="discount-tag">-5%</div>
-            <div class="product-image-container">
-              <img src="/produtos/coxadefrangoFriato.webp" alt="Coxa de Frango Friato 1kg"/>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Coxa de Frango Friato 1kg</h3>
-              <div class="price-container">
-                <span class="original-price">R$ 20,00</span>
-                <span class="current-price">R$ 18,99</span>
-              </div>
-              <div class="supermarket-tag mateus">
-                <a href="/mateus">Mateus</a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Produto 2 -->
-          <div class="product-card card-premium">
-            <div class="discount-tag">-10%</div>
-            <div class="product-image-container">
-              <img src="/produtos/cafe-uniao-tradicional-250g.jpg" alt="Café União Tradicional 250g"/>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Café União Tradicional 250g</h3>
-              <div class="price-container">
-                <span class="original-price">R$ 9,99</span>
-                <span class="current-price">R$ 8,99</span>
-              </div>
-              <div class="supermarket-tag assai">
-                <a href="/assai">Assaí</a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Produto 3 -->
-          <div class="product-card card-premium">
-            <div class="discount-tag">-38%</div>
-            <div class="product-image-container">
-              <img src="/produtos/feijão.jfif" alt="Feijão preto"/>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Feijão preto</h3>
-              <div class="price-container">
-                <span class="original-price">R$ 8,00</span>
-                <span class="current-price">R$ 5,00</span>
-              </div>
-              <div class="supermarket-tag atacadao">
-                <a href="/atacadao">Atacadão</a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Produto 4 -->
-          <div class="product-card card-premium">
-            <div class="discount-tag">-23%</div>
-            <div class="product-image-container">
-              <img src="/produtos/leite-int-betania-1L.webp" alt="Leite Longa Vida Integral Betânia 1L"/>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Leite Longa Vida Integral Betânia 1L</h3>
-              <div class="price-container">
-                <span class="original-price">R$ 6,39</span>
-                <span class="current-price">R$ 4,95</span>
-              </div>
-              <div class="supermarket-tag assai">
-                <a href="/assai">Assaí</a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Produto 5 -->
-          <div class="product-card card-premium">
-            <div class="discount-tag">-21%</div>
-            <div class="product-image-container">
-              <img src="/produtos/sucosaborfrutascitricas.webp" alt="Suco Sabor Frutas Cítricas 450ml"/>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Suco Sabor Frutas Cítricas 450ml</h3>
-              <div class="price-container">
-                <span class="original-price">R$ 3,55</span>
-                <span class="current-price">R$ 2,79</span>
-              </div>
-              <div class="supermarket-tag mateus">
-                <a href="/mateus">Mateus</a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Produto 6 -->
-          <div class="product-card card-premium">
-            <div class="discount-tag">-46%</div>
-            <div class="product-image-container">
-              <img src="/produtos/BGuarana.png" alt="Guaraná Antarctica Original Lata 350ML"/>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Guaraná Antarctica Original Lata 350ML</h3>
-              <div class="price-container">
-                <span class="original-price">R$ 3,69</span>
-                <span class="current-price">R$ 1,99</span>
-              </div>
-              <div class="supermarket-tag assai">
-                <a href="/assai">Assaí</a>
-              </div>
-            </div>
-          </div>
 
-          <!-- Produto 7 -->
-          <div class="product-card card-premium">
-            <div class="discount-tag">-15%</div>
-            <div class="product-image-container">
-              <img src="/produtos/potenutella650g.webp" alt="Creme de Avelã Nutella 650g"/>
+      <div class="supermarkets-grid">
+        <!-- Card Atacadão -->
+        <div class="supermarket-card" id="card-atacadao">
+          <div class="market-card-top">
+            <div class="market-logo-wrapper">
+              <img src="/image/atacadao-logo2.webp" alt="Atacadão">
             </div>
-            <div class="product-info">
-              <h3 class="product-name">Creme de Avelã Nutella 650g</h3>
-              <div class="price-container">
-                <span class="original-price">R$ 45,00</span>
-                <span class="current-price">R$ 38,25</span>
-              </div>
-              <div class="supermarket-tag mateus">
-                <a href="/mateus">Mateus</a>
-              </div>
-            </div>
+            <label class="market-checkbox-wrapper">
+              <input type="checkbox" class="market-select-checkbox" value="Atacadão">
+              <span>Comparar</span>
+            </label>
           </div>
-
-          <!-- Produto 8 -->
-          <div class="product-card card-premium">
-            <div class="discount-tag">-20%</div>
-            <div class="product-image-container">
-              <img src="/produtos/nescau-caixa.webp" alt="Achocolatado Nescau 1L"/>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Achocolatado Nescau 1L</h3>
-              <div class="price-container">
-                <span class="original-price">R$ 11,20</span>
-                <span class="current-price">R$ 8,96</span>
-              </div>
-              <div class="supermarket-tag atacadao">
-                <a href="/atacadao">Atacadão</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Produto 9 -->
-          <div class="product-card card-premium">
-            <div class="discount-tag">-12%</div>
-            <div class="product-image-container">
-              <img src="/produtos/BROCOLIS-CONGELADO-SEARA-300G.webp" alt="Brócolis Congelado Seara 300g"/>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Brócolis Congelado Seara 300g</h3>
-              <div class="price-container">
-                <span class="original-price">R$ 15,90</span>
-                <span class="current-price">R$ 13,99</span>
-              </div>
-              <div class="supermarket-tag assai">
-                <a href="/assai">Assaí</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Produto 10 -->
-          <div class="product-card card-premium">
-            <div class="discount-tag">-18%</div>
-            <div class="product-image-container">
-              <img src="/produtos/Pao-de-Queijo-Congelado-JEITO-DE-MINAS-Tradicional-Pacote-400g.webp" alt="Pão de Queijo Jeito de Minas 400g"/>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Pão de Queijo Jeito de Minas 400g</h3>
-              <div class="price-container">
-                <span class="original-price">R$ 12,80</span>
-                <span class="current-price">R$ 10,49</span>
-              </div>
-              <div class="supermarket-tag mateus">
-                <a href="/mateus">Mateus</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Produto 11 -->
-          <div class="product-card card-premium">
-            <div class="discount-tag">-30%</div>
-            <div class="product-image-container">
-              <img src="/produtos/abacate.webp" alt="Abacate por quilo"/>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Abacate por quilo</h3>
-              <div class="price-container">
-                <span class="original-price">R$ 9,50</span>
-                <span class="current-price">R$ 6,65</span>
-              </div>
-              <div class="supermarket-tag atacadao">
-                <a href="/atacadao">Atacadão</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Produto 12 -->
-          <div class="product-card card-premium">
-            <div class="discount-tag">-25%</div>
-            <div class="product-image-container">
-              <img src="/produtos/Batata-Doce-Rosada-kg.webp" alt="Batata Doce Rosada kg"/>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Batata Doce Rosada kg</h3>
-              <div class="price-container">
-                <span class="original-price">R$ 4,99</span>
-                <span class="current-price">R$ 3,74</span>
-              </div>
-              <div class="supermarket-tag assai">
-                <a href="/assai">Assaí</a>
-              </div>
-            </div>
+          <h3 class="market-name-title">Atacadão</h3>
+          <ul class="market-meta-list">
+            <li><i class="bi bi-tag-fill"></i> <strong>24+ Ofertas Ativas</strong></li>
+            <li><i class="bi bi-currency-dollar"></i> Preços a partir de <strong>R$ 2,99</strong></li>
+            <li><i class="bi bi-shield-check text-success"></i> Canal Oficial Verificado</li>
+          </ul>
+          <div class="market-card-footer d-flex gap-2">
+            <a href="/atacadao" class="btn btn-secondary w-50">Ver Ofertas</a>
+            <button class="btn btn-outline-nav btn-sm w-50 btn-buy-official-store" data-mercado="Atacadão" data-url="https://www.atacadao.com.br/">
+              Ir ao Site <i class="bi bi-box-arrow-up-right"></i>
+            </button>
           </div>
         </div>
-        
-        <button class="carousel-arrow right-arrow" aria-label="Próximos produtos">
-          <i class="fa fa-chevron-right"></i>
-        </button>
-      </div>
 
+        <!-- Card Assaí -->
+        <div class="supermarket-card" id="card-assai">
+          <div class="market-card-top">
+            <div class="market-logo-wrapper">
+              <img src="/image/assaí-logo.png" alt="Assaí Atacadista">
+            </div>
+            <label class="market-checkbox-wrapper">
+              <input type="checkbox" class="market-select-checkbox" value="Assaí">
+              <span>Comparar</span>
+            </label>
+          </div>
+          <h3 class="market-name-title">Assaí Atacadista</h3>
+          <ul class="market-meta-list">
+            <li><i class="bi bi-tag-fill"></i> <strong>26+ Ofertas Ativas</strong></li>
+            <li><i class="bi bi-currency-dollar"></i> Preços a partir de <strong>R$ 1,99</strong></li>
+            <li><i class="bi bi-shield-check text-success"></i> Canal Oficial Verificado</li>
+          </ul>
+          <div class="market-card-footer d-flex gap-2">
+            <a href="/assai" class="btn btn-secondary w-50">Ver Ofertas</a>
+            <button class="btn btn-outline-nav btn-sm w-50 btn-buy-official-store" data-mercado="Assaí" data-url="https://www.assai.com.br/">
+              Ir ao Site <i class="bi bi-box-arrow-up-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card Mateus -->
+        <div class="supermarket-card" id="card-mateus">
+          <div class="market-card-top">
+            <div class="market-logo-wrapper">
+              <img src="/image/grupo-mateus-logo.png" alt="Grupo Mateus">
+            </div>
+            <label class="market-checkbox-wrapper">
+              <input type="checkbox" class="market-select-checkbox" value="Mateus">
+              <span>Comparar</span>
+            </label>
+          </div>
+          <h3 class="market-name-title">Grupo Mateus</h3>
+          <ul class="market-meta-list">
+            <li><i class="bi bi-tag-fill"></i> <strong>30+ Ofertas Ativas</strong></li>
+            <li><i class="bi bi-currency-dollar"></i> Preços a partir de <strong>R$ 1,99</strong></li>
+            <li><i class="bi bi-shield-check text-success"></i> Canal Oficial Verificado</li>
+          </ul>
+          <div class="market-card-footer d-flex gap-2">
+            <a href="/mateus" class="btn btn-secondary w-50">Ver Ofertas</a>
+            <button class="btn btn-outline-nav btn-sm w-50 btn-buy-official-store" data-mercado="Mateus" data-url="https://www.mateusmais.com.br/">
+              Ir ao Site <i class="bi bi-box-arrow-up-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Ofertas por Supermercado -->
-    <section class="offers-section">
-      <!-- Ofertas Mateus -->
-      <div class="container supermarket-offers">
-        <div class="offers-header">
-          <h2>Ofertas em Destaque - Mateus</h2>
-          <a href="/mateus" class="view-all-link">
-            <span>Ver tudo</span>
-            <i class="fa fa-arrow-right"></i>
-          </a>
-        </div>
-        
-        <div class="responsive-grid grid-standard">
-          <!-- Produto 1 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/leite.jfif" alt="Leite Integral Piracanjuba 1L"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Leite Integral Piracanjuba 1L</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 6,00</span>
-                <span class="current-price">R$ 4,99</span>
-              </div>
-              <span class="economy-badge">Economize R$ 1,01</span>
-            </div>
-          </div>
-          
-          <!-- Produto 2 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/ovo1.webp" alt="Ovos Vermelhos Grande Tijuca 30x1"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Ovos Vermelhos Grande Tijuca 30x1</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 21,10</span>
-                <span class="current-price">R$ 18,89</span>
-              </div>
-              <span class="economy-badge">Economize R$ 2,21</span>
-            </div>
-          </div>
-          
-          <!-- Produto 3 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/pao-de-queijo.webp" alt="Pão de Queijo Tradicional 400g"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Pão de Queijo Tradicional 400g</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 10,19</span>
-                <span class="current-price">R$ 5,89</span>
-              </div>
-              <span class="economy-badge">Economize R$ 4,30</span>
-            </div>
-          </div>
-          
-          <!-- Produto 4 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/cenoura.webp" alt="Cenoura"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Cenoura - Quilo</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 2,75</span>
-                <span class="current-price">R$ 1,99</span>
-              </div>
-              <span class="economy-badge">Economize R$ 0,76</span>
-            </div>
-          </div>
-          
-          <!-- Produto 5 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/oleo1.webp" alt="Óleo de Soja Refinado Coamo 900ml"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Óleo de Soja Refinado Coamo 900ml</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 8,99</span>
-                <span class="current-price">R$ 6,99</span>
-              </div>
-              <span class="economy-badge">Economize R$ 2,00</span>
-            </div>
-          </div>
-          
-          <!-- Produto 6 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/papel_higienico2.jfif" alt="Papel Higiênico Neve"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Papel Higiênico Neve</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 9,99</span>
-                <span class="current-price">R$ 8,45</span>
-              </div>
-              <span class="economy-badge">Economize R$ 1,54</span>
-            </div>
-          </div>
-        </div>
+    <!-- SEÇÃO HORIZONTAL DE CATEGORIAS -->
+    <section class="categories-section container">
+      <div class="section-header mb-3">
+        <h2>Filtrar por Categoria</h2>
       </div>
 
-      
-      <div class="container supermarket-offers">
-        <div class="offers-header">
-          <h2>Ofertas em Destaque - Assaí</h2>
-          <a href="/assai" class="view-all-link">
-            <span>Ver tudo</span>
-            <i class="fa fa-arrow-right"></i>
-          </a>
-        </div>
-        
-        <div class="responsive-grid grid-standard">
-          <!-- Produto 1 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/cebola-nacional.png" alt="Cebola Nacional"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Cebola Nacional</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 6,79</span>
-                <span class="current-price">R$ 5,99/kg</span>
-              </div>
-              <span class="economy-badge">Por quilo</span>
-            </div>
-          </div>
-          
-          <!-- Produto 2 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/banana-prata.jpeg" alt="Banana Prata"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Banana Prata</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 3,50</span>
-                <span class="current-price">R$ 2,99/kg</span>
-              </div>
-              <span class="economy-badge">Por quilo</span>
-            </div>
-          </div>
-          
-          <!-- Produto 3 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/fileee-de-peito-frango1kg.webp" alt="Filé de Peito de Frango Aurora"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Filé de Peito de Frango Aurora</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 20,00</span>
-                <span class="current-price">R$ 18,90</span>
-              </div>
-              <span class="economy-badge">Economize R$ 1,10</span>
-            </div>
-          </div>
-          
-          <!-- Produto 4 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/achocolatado-caixinha-mococa200ml.webp" alt="Bebida Láctea Chocolate 200ML"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Bebida Láctea Chocolate 200ML</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 1,39</span>
-                <span class="current-price">R$ 0,69</span>
-              </div>
-              <span class="economy-badge">-50%</span>
-            </div>
-          </div>
-          
-          <!-- Produto 5 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/linguiça-defumada-perdigao215g.webp" alt="Linguiça Fininha Defumada Perdigão 215g"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Linguiça Fininha Defumada Perdigão 215g</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 6,99</span>
-                <span class="current-price">R$ 14,89</span>
-              </div>
-              <span class="economy-badge">+113%</span>
-            </div>
-          </div>
-          
-          <!-- Produto 6 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/monster-lata473ml.webp" alt="Bebida Energética Monster 473ML"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Bebida Energética Monster 473ML</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 9,79</span>
-                <span class="current-price">R$ 8,49</span>
-              </div>
-              <span class="economy-badge">Economize R$ 1,30</span>
-            </div>
-          </div>
-        </div>
+      <div class="categories-pills-wrapper">
+        <button class="cat-pill active" data-category="Todos"><i class="bi bi-grid-fill"></i> Todos os Produtos</button>
+        <button class="cat-pill" data-category="Alimentos"><i class="bi bi-egg-fill"></i> Alimentos</button>
+        <button class="cat-pill" data-category="Bebidas"><i class="bi bi-cup-straw"></i> Bebidas</button>
+        <button class="cat-pill" data-category="Carnes"><i class="bi bi-tag-fill"></i> Carnes</button>
+        <button class="cat-pill" data-category="Hortifruti"><i class="bi bi-apple"></i> Hortifruti</button>
+        <button class="cat-pill" data-category="Laticínios"><i class="bi bi-cup-hot-fill"></i> Laticínios</button>
+        <button class="cat-pill" data-category="Limpeza"><i class="bi bi-sparkles"></i> Limpeza</button>
+        <button class="cat-pill" data-category="Higiene"><i class="bi bi-shield-plus"></i> Higiene</button>
+        <button class="cat-pill" data-category="Mercearia"><i class="bi bi-basket-fill"></i> Mercearia</button>
+        <button class="cat-pill" data-category="Congelados"><i class="bi bi-snow"></i> Congelados</button>
       </div>
-      
-      <div class="container supermarket-offers">
-        <div class="offers-header">
-          <h2>Ofertas em Destaque - Atacadão</h2>
-          <a href="/atacadao" class="view-all-link">
-            <span>Ver tudo</span>
-            <i class="fa fa-arrow-right"></i>
-          </a>
-        </div>
-        
-        <div class="responsive-grid grid-standard">
-          <!-- Produto 1 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/arroz.jfif" alt="Arroz"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Arroz</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 20,00</span>
-                <span class="current-price">R$ 15,00</span>
+    </section>
+
+    <!-- CATALOGO DE PRODUTOS DESTACADOS -->
+    <section class="products-grid-section container">
+      <div class="section-header">
+        <h2>Produtos e Comparativo de Preços</h2>
+        <p>Clique em "Compare este produto" ou "Comprar no site oficial" para concluir sua compra</p>
+      </div>
+
+      <div class="products-responsive-grid" id="mainProductsGrid">
+        <% if (typeof produtos !== 'undefined' && produtos.length > 0) { %>
+          <% produtos.forEach(p => { %>
+            <div class="product-card-modern" data-category="<%= p.categoria %>" data-market="<%= p.mercado_principal %>">
+              <div class="product-card-top">
+                <% if (p.desconto && p.desconto > 0) { %>
+                  <span class="discount-tag-badge">-<%= p.desconto %>%</span>
+                <% } else { %>
+                  <span></span>
+                <% } %>
+                <button class="btn-favorite-heart" data-id="<%= p.id %>" title="Favoritar Produto">
+                  <i class="bi bi-heart"></i>
+                </button>
               </div>
-              <span class="economy-badge">-25%</span>
-            </div>
-          </div>
-          
-          <!-- Produto 2 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/feijão.jfif" alt="Feijão"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Feijão</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 20,00</span>
-                <span class="current-price">R$ 15,00</span>
+
+              <div class="product-image-box">
+                <img src="<%= p.imagem %>" alt="<%= p.nome %>" loading="lazy">
               </div>
-              <span class="economy-badge">-25%</span>
-            </div>
-          </div>
-          
-          <!-- Produto 3 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/arroz-tipo-1-butu-1kg-0-7896079450111.webp" alt="Arroz Butu Tipo 1 1kg"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Arroz Butu Tipo 1 1kg</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 6,50</span>
-                <span class="current-price">R$ 5,29</span>
+
+              <div class="product-meta-store">
+                <span class="badge-tag <%= p.mercado_principal.toLowerCase().replace('í','i').replace('ã','a') %>"><%= p.mercado_principal %></span>
               </div>
-              <span class="economy-badge">Economize R$ 1,21</span>
-            </div>
-          </div>
-          
-          <!-- Produto 4 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/petra-puro-malte.webp" alt="Cerveja Petra Puro Malte 350ml"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Cerveja Petra Puro Malte 350ml</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 3,89</span>
-                <span class="current-price">R$ 2,99</span>
+
+              <h3 class="product-name-title"><%= p.nome %></h3>
+              <p class="product-weight-label"><%= p.marca || '' %> • <%= p.quantidade_peso || '' %></p>
+
+              <div class="product-prices-box">
+                <% if (p.preco_anterior && p.preco_anterior > p.preco_atual) { %>
+                  <span class="price-previous">R$ <%= parseFloat(p.preco_anterior).toFixed(2).replace('.',',') %></span>
+                <% } %>
+                <span class="price-current">R$ <%= parseFloat(p.preco_atual).toFixed(2).replace('.',',') %></span>
+                
+                <% if (p.valor_economizado && p.valor_economizado > 0) { %>
+                  <div>
+                    <span class="savings-label-badge"><i class="bi bi-check-circle-fill"></i> Economiza R$ <%= parseFloat(p.valor_economizado).toFixed(2).replace('.',',') %></span>
+                  </div>
+                <% } %>
               </div>
-              <span class="economy-badge">Oferta imperdível</span>
-            </div>
-          </div>
-          
-          <!-- Produto 5 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/Macarrao-Com-Semola-Brandini-Espaguete-500g.webp" alt="Macarrão Espaguete Brandini 500g"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Macarrão Espaguete Brandini 500g</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 4,50</span>
-                <span class="current-price">R$ 3,49</span>
+
+              <div class="product-actions-box">
+                <button class="btn btn-add-cart-full" 
+                  data-id="<%= p.id %>"
+                  data-nome="<%= p.nome %>"
+                  data-preco="<%= p.preco_atual %>"
+                  data-imagem="<%= p.imagem %>"
+                  data-mercado="<%= p.mercado_principal %>"
+                  data-peso="<%= p.quantidade_peso %>">
+                  <i class="bi bi-cart-plus-fill"></i> Adicionar à Lista
+                </button>
+
+                <button class="btn btn-outline-nav btn-sm btn-buy-official-store" 
+                  data-mercado="<%= p.mercado_principal %>"
+                  data-nome="<%= p.nome %>"
+                  data-url="<%= p.url_oficial || '' %>">
+                  <i class="bi bi-box-arrow-up-right"></i> Comprar no <%= p.mercado_principal %>
+                </button>
+
+                <button class="btn-compare-product" data-id="<%= p.id %>">
+                  <i class="bi bi-arrow-left-right"></i> Compare este produto
+                </button>
               </div>
-              <span class="economy-badge">Economize R$ 1,01</span>
             </div>
-          </div>
-          
-          <!-- Produto 6 -->
-          <div class="offer-card card-premium">
-            <div class="offer-image">
-              <img src="/produtos/iogurte-polpa-de-morango-danone-bandeja-510g.webp" alt="Iogurte Danone Morango 510g"/>
-            </div>
-            <div class="offer-info">
-              <h3 class="offer-name">Iogurte Danone Morango 510g</h3>
-              <div class="offer-prices">
-                <span class="original-price">R$ 8,90</span>
-                <span class="current-price">R$ 6,99</span>
-              </div>
-              <span class="economy-badge">Preço baixo</span>
-            </div>
-          </div>
-        </div>
+          <% }) %>
+        <% } %>
       </div>
     </section>
   </main>
 
-  <!-- Rodapé -->
-  <footer class="footer-premium">
-    <div class="container footer-grid">
-      <div class="footer-section footer-logo">
-        <img src="/image/logo.png" alt="Logo Meu Carrinho">
-        <p class="copyright">&copy; 2024 MeuCarrinho. Todos os direitos reservados</p>
-      </div>
-      
-      <div class="footer-section footer-links">
-        <h4>Navegação</h4>
-        <ul>
-            <li><a href="/">Início</a></li>
-            <li><a href="/#supermarkets-section">Mercados</a></li>
-                    <li><a href="/listas/minhas-listas">Minhas Listas</a></li>
-        </ul>
-      </div>
+  <!-- Modals Incluídos -->
+  <%- include('partials/modals') %>
 
-      <div class="footer-section">
-        <h4>Contatos</h4>
-        <div class="social-links social-icons">
-          <a href="#" aria-label="Facebook">
-            <i class="bi bi-facebook"></i>
-          </a>
-          <a href="#" aria-label="Instagram">
-            <i class="bi bi-instagram"></i>
-          </a>
-          <a href="#" aria-label="WhatsApp">
-            <i class="bi bi-whatsapp"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- Footer Incluído -->
+  <%- include('partials/footer') %>
 
-  <script src="/js/script.js"></script>
-  <script src="/js/carrossel.js"></script>
-  <script src="/js/botoes.js"></script>
-  <script src="/js/mobile-menu.js"></script>
+  <script src="/js/app-main.js"></script>
+  <script>
+    // Simple Slider Logic for Hero Banner
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.banner-slide');
+    const dots = document.querySelectorAll('.banner-dot');
+
+    function setSlide(index) {
+      if (!slides.length) return;
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      currentSlideIndex = index;
+      slides[currentSlideIndex].classList.add('active');
+      dots[currentSlideIndex].classList.add('active');
+    }
+
+    setInterval(() => {
+      if (slides.length > 0) {
+        let next = (currentSlideIndex + 1) % slides.length;
+        setSlide(next);
+      }
+    }, 4500);
+  </script>
 </body>
-</html>
+</html>

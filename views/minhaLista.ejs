@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Lista de Compras - Meu Carrinho</title>
+  <meta name="description" content="Organize sua lista de compras e compare em tempo real onde sua compra total fica mais barata.">
+  <link rel="icon" type="image/png" href="/image/logo.png">
+  <link rel="stylesheet" href="/main-responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="shopping-list-page container">
+    <!-- Top Header Banner -->
+    <div class="list-hero-banner mb-4">
+      <div class="list-hero-info">
+        <span class="list-badge-pill">
+          <i class="bi bi-stars"></i> Sua Lista Inteligente
+        </span>
+        <h1 class="list-hero-title">Minha Lista de Compras</h1>
+        <p class="list-hero-subtitle">Monitore preços em tempo real, veja qual supermercado é mais barato e economize em cada compra.</p>
+      </div>
+
+      <div class="list-hero-actions">
+        <a href="/produtos" class="btn btn-outline-nav btn-sm px-3 py-2">
+          <i class="bi bi-plus-circle-fill"></i> Adicionar Produtos
+        </a>
+        <button class="btn btn-outline-danger-soft btn-sm px-3 py-2" onclick="window.clearShoppingList()">
+          <i class="bi bi-trash3-fill"></i> Limpar Lista
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Stats Metric Grid -->
+    <div class="list-stats-grid mb-4">
+      <div class="list-stat-card">
+        <div class="stat-card-icon text-primary">
+          <i class="bi bi-basket-fill"></i>
+        </div>
+        <div class="stat-card-info">
+          <span class="stat-card-label">Total de Itens</span>
+          <strong class="stat-card-value" id="statsItemCount">0 itens</strong>
+        </div>
+      </div>
+
+      <div class="list-stat-card">
+        <div class="stat-card-icon text-primary">
+          <i class="bi bi-wallet2"></i>
+        </div>
+        <div class="stat-card-info">
+          <span class="stat-card-label">Subtotal da Lista</span>
+          <strong class="stat-card-value" id="statsSubtotal">R$ 0,00</strong>
+        </div>
+      </div>
+
+      <div class="list-stat-card highlight-stat">
+        <div class="stat-card-icon text-success">
+          <i class="bi bi-piggy-bank-fill"></i>
+        </div>
+        <div class="stat-card-info">
+          <span class="stat-card-label">Economia Estimada</span>
+          <strong class="stat-card-value text-success" id="statsSavings">R$ 0,00</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layout Principal -->
+    <div class="list-container-grid">
+      <!-- Painel Esquerdo: Lista de Itens -->
+      <div class="list-items-card">
+        <div class="list-items-card-header">
+          <h3 class="list-card-title">
+            <i class="bi bi-cart-check-fill text-primary"></i> Produtos Adicionados
+          </h3>
+          <span class="badge-tag bg-primary-light text-primary font-weight-bold" id="itemCountBadge">0 itens</span>
+        </div>
+
+        <div id="shoppingListItemsContainer">
+          <!-- Populated dynamically via app-main.js -->
+        </div>
+      </div>
+
+      <!-- Painel Direito: Resumo & Otimizador de Combinação -->
+      <div class="list-summary-card">
+        <div class="summary-card-header">
+          <h3 class="summary-title">Resumo do Carrinho</h3>
+          <span class="summary-badge"><i class="bi bi-shield-check"></i> Ao Vivo</span>
+        </div>
+
+        <div class="summary-savings-banner mb-3">
+          <div class="savings-icon-box">
+            <i class="bi bi-graph-down-arrow"></i>
+          </div>
+          <div>
+            <span class="savings-banner-label">Economia Estimada</span>
+            <strong id="listSavingsVal" class="savings-banner-value">R$ 0,00</strong>
+          </div>
+        </div>
+
+        <div class="summary-details">
+          <div class="summary-row">
+            <span class="text-muted">Subtotal dos produtos</span>
+            <strong id="listSubtotalVal">R$ 0,00</strong>
+          </div>
+
+          <div class="summary-row total-row">
+            <span>Total da Lista</span>
+            <strong id="listTotalVal" class="text-primary-gradient">R$ 0,00</strong>
+          </div>
+        </div>
+
+        <!-- BOTÃO DESTAQUE PRINCIPAL -->
+        <button class="btn btn-primary w-100 btn-calc-smart-hero" id="calcCombinationBtn">
+          <i class="bi bi-lightning-charge-fill"></i>
+          <span>Onde minha lista fica mais barata?</span>
+        </button>
+
+        <div class="summary-trust-footer">
+          <i class="bi bi-check-circle-fill text-success"></i>
+          <span>Comparação independente entre <strong>Atacadão</strong>, <strong>Assaí</strong> e <strong>Mateus</strong>.</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include('partials/modals') %>
+  <%- include('partials/footer') %>
+
+  <script src="/js/app-main.js"></script>
+</body>
+</html>

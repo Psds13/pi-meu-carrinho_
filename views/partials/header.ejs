@@ -1,64 +1,166 @@
 <header id="main-header" class="header-premium">
-    <div class="container header-container">
-        
-        <!-- Logo -->
-        <div class="logo-section">
-            <a href="/" class="logo-link">
-                <img src="/image/logo.png" alt="Meu Carrinho" class="logo-img">
-            </a>
-        </div>
-        
-        <!-- Busca -->
-        <div class="search-section">
-            <form action="/produtos" method="get" class="search-bar-modern">
-                <div class="input-wrapper">
-                    <i class="bi bi-search search-icon"></i>
-                    <input type="text" name="search" placeholder="O que você procura hoje?" class="search-input">
-                    <button type="submit" class="btn btn-primary btn-search-premium">Buscar</button>
-                </div>
-            </form>
-        </div>
-        
-        <!-- Mobile -->
-        <button class="mobile-menu-toggle" aria-label="Abrir menu">
-            <i class="bi bi-list"></i>
-        </button>
-
-        <!-- Navegação -->
-        <div class="actions-section">
-            <nav class="main-nav">
-                <a href="/#supermarkets-section" class="nav-item">Mercados</a>
-
-                <% if (typeof user !== 'undefined' && user) { %>
-                    <a href="/listas/minhas-listas" class="nav-item cart-btn">
-                        <i class="bi bi-basket-fill"></i>
-                        <span>Minhas Listas</span>
-                    </a>
-                <% } else { %>
-                    <a href="/login" class="nav-item cart-btn">
-                        <i class="bi bi-basket-fill"></i>
-                        <span>Minhas Listas</span>
-                    </a>
-                <% } %>
-            </nav>
-            
-            <!-- Usuário -->
-            <div class="user-controls">
-                <% if (typeof user !== 'undefined' && user) { %>
-                    <div class="user-greeting">
-                        <img src="https://ui-avatars.com/api/?name=<%= user.nome %>&background=0077ff&color=fff" class="avatar">
-                        <div class="user-dropdown">
-                            <span>Olá, <%= user.nome.split(' ')[0] %></span>
-                            <a href="/auth/logout" class="btn btn-primary">Sair</a>
-                        </div>
-                    </div>
-                <% } else { %>
-                    <div class="auth-flow">
-                        <a href="/login" class="nav-item">Login</a>
-                        <a href="/cadastro" class="btn btn-primary">Criar Conta</a>
-                    </div>
-                <% } %>
-            </div>
-        </div>
+  <div class="container header-container">
+    
+    <!-- Logo & Localização -->
+    <div class="logo-section">
+      <a href="/" class="logo-link" title="Meu Carrinho - Página Inicial">
+        <img src="/image/logo.png" alt="Meu Carrinho" class="logo-img">
+      </a>
+      
+      <button class="location-picker-btn" id="locationPickerBtn" title="Alterar sua localização">
+        <i class="bi bi-geo-alt-fill location-icon"></i>
+        <span class="location-text" id="currentLocationText">São Luís, MA</span>
+        <i class="bi bi-chevron-down location-arrow"></i>
+      </button>
     </div>
+    
+    <!-- Caixa de Busca Ultra Limpa e Organizada -->
+    <div class="search-section">
+      <form action="/produtos" method="get" class="search-bar-modern" id="headerSearchForm" autocomplete="off">
+        <div class="input-wrapper">
+          <i class="bi bi-search search-icon"></i>
+          <input type="text" name="search" id="searchInput" placeholder="Pesquise por produto" class="search-input" value="<%= typeof query !== 'undefined' ? query : '' %>">
+          <button type="submit" class="btn btn-primary btn-search-premium">
+            <span>Buscar</span>
+          </button>
+        </div>
+        
+        <!-- Dropdown de Autocomplete -->
+        <div class="search-autocomplete-dropdown" id="searchAutocomplete"></div>
+      </form>
+    </div>
+    
+    <!-- Ações e Navegação Desktop -->
+    <div class="actions-section">
+      <nav class="main-nav">
+        <a href="/#supermarkets-section" class="nav-item">
+          <i class="bi bi-shop"></i> Mercados
+        </a>
+
+        <a href="/ofertas" class="nav-item">
+          <i class="bi bi-percent"></i> Ofertas
+        </a>
+
+        <a href="/favoritos" class="nav-item fav-btn-nav" title="Meus Favoritos">
+          <i class="bi bi-heart-fill"></i>
+          <span class="nav-label">Favoritos</span>
+          <span class="badge-count fav-count-badge" id="favCountBadge">0</span>
+        </a>
+
+        <a href="/minha-lista" class="nav-item cart-btn-nav" title="Minha Lista de Compras">
+          <i class="bi bi-cart3"></i>
+          <span class="nav-label">Lista</span>
+          <span class="badge-count cart-count-badge" id="cartCountBadge">0</span>
+        </a>
+      </nav>
+
+      <!-- Botão Modo Escuro -->
+      <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Alternar modo escuro" title="Alternar tema Claro/Escuro">
+        <i class="bi bi-moon-stars-fill dark-icon"></i>
+        <i class="bi bi-sun-fill light-icon"></i>
+      </button>
+      
+      <!-- Controle de Usuário -->
+      <div class="user-controls">
+        <% if (typeof user !== 'undefined' && user) { %>
+          <div class="user-profile-menu" id="userProfileMenu">
+            <button class="user-avatar-btn" id="userAvatarBtn">
+              <img src="https://ui-avatars.com/api/?name=<%= encodeURIComponent(user.nome) %>&background=2563eb&color=fff&bold=true" alt="<%= user.nome %>" class="avatar-img">
+              <span class="user-name-label"><%= user.nome.split(' ')[0] %></span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="user-dropdown-card" id="userDropdown">
+              <div class="dropdown-header">
+                <strong><%= user.nome %></strong>
+                <small><%= user.email %></small>
+              </div>
+              <hr class="dropdown-divider">
+              <a href="/perfil" class="dropdown-item"><i class="bi bi-person-circle"></i> Meu Perfil</a>
+              <a href="/minha-lista" class="dropdown-item"><i class="bi bi-card-checklist"></i> Minhas Listas</a>
+              <a href="/favoritos" class="dropdown-item"><i class="bi bi-heart"></i> Meus Favoritos</a>
+              <a href="/perfil#preferencias" class="dropdown-item"><i class="bi bi-gear"></i> Preferências</a>
+              <hr class="dropdown-divider">
+              <a href="/logout" class="dropdown-item text-danger"><i class="bi bi-box-arrow-right"></i> Sair</a>
+            </div>
+          </div>
+        <% } else { %>
+          <div class="auth-flow">
+            <a href="/login" class="btn btn-outline-nav">Login</a>
+            <a href="/cadastro" class="btn btn-primary btn-signup-nav">Criar Conta</a>
+          </div>
+        <% } %>
+      </div>
+
+      <!-- Toggle Menu Mobile -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menu mobile">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay">
+    <div class="mobile-drawer">
+      <div class="drawer-header">
+        <img src="/image/logo.png" alt="Meu Carrinho" class="drawer-logo">
+        <button class="drawer-close-btn" id="drawerCloseBtn"><i class="bi bi-x-lg"></i></button>
+      </div>
+
+      <div class="drawer-location py-2 px-3 mb-3" style="background: var(--bg-input); border-radius: 8px;">
+        <i class="bi bi-geo-alt-fill text-primary me-1"></i>
+        <span>Localização: <strong id="mobileLocationText">São Luís, MA</strong></span>
+      </div>
+
+      <ul class="drawer-links">
+        <li><a href="/"><i class="bi bi-house-door-fill"></i> Início</a></li>
+        <li><a href="/#supermarkets-section"><i class="bi bi-shop"></i> Mercados</a></li>
+        <li><a href="/ofertas"><i class="bi bi-percent"></i> Ofertas de Hoje</a></li>
+        <li><a href="/minha-lista"><i class="bi bi-cart3"></i> Minha Lista (<span class="mobile-cart-count">0</span>)</a></li>
+        <li><a href="/favoritos"><i class="bi bi-heart-fill"></i> Favoritos (<span class="mobile-fav-count">0</span>)</a></li>
+        <% if (typeof user !== 'undefined' && user) { %>
+          <li><a href="/perfil"><i class="bi bi-person-circle"></i> Perfil (<%= user.nome.split(' ')[0] %>)</a></li>
+          <li><a href="/logout" class="text-danger"><i class="bi bi-box-arrow-right"></i> Sair</a></li>
+        <% } else { %>
+          <li><a href="/login"><i class="bi bi-box-arrow-in-right"></i> Fazer Login</a></li>
+          <li><a href="/cadastro"><i class="bi bi-person-plus-fill"></i> Criar Conta</a></li>
+        <% } %>
+      </ul>
+
+      <div class="drawer-footer">
+        <button class="theme-toggle-btn-mobile" id="themeToggleMobile">
+          <i class="bi bi-sun-fill me-2"></i> Alternar Tema (Claro/Escuro)
+        </button>
+      </div>
+    </div>
+  </div>
 </header>
+
+<!-- Mobile Bottom Navigation Bar -->
+<nav class="mobile-bottom-nav">
+  <a href="/" class="bottom-nav-item active" id="bottomNavHome">
+    <i class="bi bi-house-door-fill"></i>
+    <span>Início</span>
+  </a>
+  <a href="/produtos" class="bottom-nav-item" id="bottomNavSearch">
+    <i class="bi bi-search"></i>
+    <span>Buscar</span>
+  </a>
+  <a href="/minha-lista" class="bottom-nav-item" id="bottomNavCart">
+    <div class="nav-icon-wrapper">
+      <i class="bi bi-cart3"></i>
+      <span class="badge-count bottom-cart-count" id="bottomCartCount">0</span>
+    </div>
+    <span>Lista</span>
+  </a>
+  <a href="/favoritos" class="bottom-nav-item" id="bottomNavFav">
+    <div class="nav-icon-wrapper">
+      <i class="bi bi-heart-fill"></i>
+      <span class="badge-count bottom-fav-count" id="bottomFavCount">0</span>
+    </div>
+    <span>Favoritos</span>
+  </a>
+  <a href="<%= (typeof user !== 'undefined' && user) ? '/perfil' : '/login' %>" class="bottom-nav-item" id="bottomNavProfile">
+    <i class="bi bi-person-fill"></i>
+    <span>Perfil</span>
+  </a>
+</nav>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ops! Algo deu errado - Meu Carrinho</title>
+  <link rel="icon" type="image/png" href="/image/logo.png">
+  <link rel="stylesheet" href="/main-responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="container text-center py-5 my-5">
+    <div style="max-width: 500px; margin: 0 auto; background: var(--bg-card); padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-premium);">
+      <div style="font-size: 4rem; color: var(--primary); margin-bottom: 1rem;">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+      </div>
+      <h2><%= typeof error !== 'undefined' ? error : 'Página ou recurso não encontrado' %></h2>
+      <p style="color: var(--text-muted); margin: 1.5rem 0 2rem;">Não se preocupe, você pode voltar para a página inicial e continuar comparando seus produtos.</p>
+      <a href="/" class="btn btn-primary" style="padding: 0.8rem 2rem; border-radius: 50px;">
+        <i class="bi bi-house-door-fill"></i> Voltar ao Início
+      </a>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

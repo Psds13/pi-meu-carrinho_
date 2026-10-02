@@ -1,0 +1,149 @@
+<!-- Modal 1: Comparação de Preços ("Compare este produto") -->
+<div class="modal-backdrop" id="compareModalBackdrop">
+  <div class="modal-card modal-lg">
+    <div class="modal-header">
+      <div class="modal-title-box">
+        <span class="badge-tag bg-primary-light text-primary"><i class="bi bi-arrow-left-right"></i> Comparador de Preços</span>
+        <h3 id="compareModalProductName">Nome do Produto</h3>
+        <p class="text-muted" id="compareModalProductMeta">Marca • Peso</p>
+      </div>
+      <button class="modal-close-btn" id="closeCompareModal"><i class="bi bi-x-lg"></i></button>
+    </div>
+    
+    <div class="modal-body">
+      <div class="compare-grid-layout">
+        <!-- Visual do Produto -->
+        <div class="compare-product-preview">
+          <img id="compareModalImage" src="/image/logo.png" alt="Produto">
+          <div class="compare-best-deal-alert" id="compareBestDealAlert">
+            <i class="bi bi-trophy-fill text-warning"></i>
+            <div>
+              <small>Maior economia no</small>
+              <strong id="compareBestStoreName">Atacadão</strong>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tabela Comparativa dos Mercados -->
+        <div class="compare-prices-list">
+          <h4 class="mb-3">Preços nos Supermercados</h4>
+          <div id="comparePricesContainer">
+            <!-- Populated via JS -->
+          </div>
+
+          <div class="compare-diff-box mt-3" id="compareDiffBox">
+            <i class="bi bi-calculator-fill me-2"></i>
+            <span>Diferença para o maior preço: <strong id="compareDiffValue">R$ 0,00</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gráfico de Histórico de Preços -->
+      <div class="history-chart-section mt-4">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h4><i class="bi bi-graph-up-arrow text-primary"></i> Histórico de Preço (Últimos 6 meses)</h4>
+          <span class="badge-pill bg-light text-muted" id="compareHistoryStats">Menor: R$ 0,00 | Maior: R$ 0,00</span>
+        </div>
+        
+        <div class="chart-canvas-wrapper" id="historyChartWrapper">
+          <!-- Canvas / SVG chart rendered via JS -->
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-secondary" id="cancelCompareBtn">Fechar</button>
+      <button class="btn btn-primary" id="addLowestCompareBtn"><i class="bi bi-cart-plus-fill"></i> Adicionar da Loja Mais Barata</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2: Melhor Combinação de Mercados ("Onde minha lista fica mais barata?") -->
+<div class="modal-backdrop" id="combinationModalBackdrop">
+  <div class="modal-card modal-lg">
+    <div class="modal-header">
+      <div class="modal-title-box">
+        <span class="badge-tag bg-primary-light text-primary"><i class="bi bi-pie-chart-fill"></i> Otimizador de Compras</span>
+        <h3>Onde sua lista fica mais barata?</h3>
+        <p class="text-muted">Analisamos todos os itens da sua lista nos supermercados da sua região.</p>
+      </div>
+      <button class="modal-close-btn" id="closeCombinationModal"><i class="bi bi-x-lg"></i></button>
+    </div>
+    
+    <div class="modal-body">
+      <div id="combinationResultsContainer">
+        <!-- Dynamic content rendered by JS engine -->
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-secondary" id="closeCombinationFooterBtn">Entendi</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 3: Alterar Localização -->
+<div class="modal-backdrop" id="locationModalBackdrop">
+  <div class="modal-card modal-sm">
+    <div class="modal-header">
+      <h3><i class="bi bi-geo-alt-fill text-primary"></i> Selecionar Sua Região</h3>
+      <button class="modal-close-btn" id="closeLocationModal"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="modal-body">
+      <p class="text-muted mb-3">Escolha sua cidade para visualizar as ofertas e supermercados mais próximos:</p>
+      <div class="form-group mb-3">
+        <label for="citySelect" class="form-label">Cidade / Estado</label>
+        <select id="citySelect" class="form-select">
+          <option value="São Luís, MA" selected>São Luís, MA</option>
+          <option value="Imperatriz, MA">Imperatriz, MA</option>
+          <option value="Caxias, MA">Caxias, MA</option>
+          <option value="Teresina, PI">Teresina, PI</option>
+          <option value="Belém, PA">Belém, PA</option>
+          <option value="Fortaleza, CE">Fortaleza, CE</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cepInput" class="form-label">Digite seu CEP (Opcional)</label>
+        <input type="text" id="cepInput" class="form-control" placeholder="65000-000">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary w-100" id="saveLocationBtn">Confirmar Localização</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 4: Redirecionamento para Compra no Canal Oficial (Sem Checkout Interno) -->
+<div class="modal-backdrop" id="redirectModalBackdrop">
+  <div class="modal-card modal-sm">
+    <div class="modal-header">
+      <div class="modal-title-box">
+        <span class="badge-tag bg-primary-light text-primary"><i class="bi bi-box-arrow-up-right"></i> Redirecionamento Seguro</span>
+        <h3>Você está saindo do Meu Carrinho</h3>
+      </div>
+      <button class="modal-close-btn" id="closeRedirectModal"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="modal-body text-center py-3">
+      <div class="mb-3">
+        <img id="redirectStoreLogo" src="/image/logo.png" style="height: 50px; width: auto; object-fit: contain; margin: 0 auto 1rem;">
+      </div>
+      <p class="text-secondary mb-3" id="redirectMessageText">
+        Você será direcionado ao canal oficial de compras do <strong>Supermercado</strong> para concluir sua compra no ambiente seguro deles.
+      </p>
+      <div class="p-3 mb-3 text-start small text-muted" style="background: var(--bg-main); border-radius: 10px; border: 1px solid var(--border-color);">
+        <i class="bi bi-shield-check text-success me-1"></i>
+        <span>Link oficial verificado: <strong id="redirectDomainText">dominio.com.br</strong></span>
+      </div>
+      <p class="small text-muted">O Meu Carrinho não processa pagamentos nem vende produtos diretamente.</p>
+    </div>
+    <div class="modal-footer d-flex gap-2">
+      <button class="btn btn-secondary w-50" id="cancelRedirectBtn">Cancelar</button>
+      <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-50" id="confirmRedirectBtn">
+        <i class="bi bi-box-arrow-up-right"></i> Ir para o Site Oficial
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Container de Notificações -->
+<div class="toast-container" id="toastContainer"></div>

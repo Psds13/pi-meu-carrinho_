@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Perfil - Meu Carrinho</title>
+  <meta name="description" content="Gerencie seu perfil, listas salvas, produtos favoritos e configurações de conta.">
+  <link rel="icon" type="image/png" href="/image/logo.png">
+  <link rel="stylesheet" href="/main-responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="profile-page-wrapper container">
+    <% if (typeof user !== 'undefined' && user) { %>
+      <!-- Perfil Header Card -->
+      <div class="profile-card-header">
+        <img src="https://ui-avatars.com/api/?name=<%= encodeURIComponent(user.nome) %>&background=2563eb&color=fff&bold=true" class="profile-avatar-large" alt="<%= user.nome %>">
+        <div>
+          <h2><%= user.nome %></h2>
+          <p class="text-muted"><%= user.email %> • Membro desde 2024</p>
+          <span class="badge-tag bg-success-light text-success mt-2"><i class="bi bi-patch-check-fill"></i> Conta Ativa</span>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="profile-tabs-nav">
+        <button class="profile-tab-btn active" data-tab="dados"><i class="bi bi-person-fill"></i> Meus Dados</button>
+        <button class="profile-tab-btn" data-tab="listas"><i class="bi bi-card-checklist"></i> Minhas Listas</button>
+        <button class="profile-tab-btn" data-tab="historico"><i class="bi bi-clock-history"></i> Histórico de Pesquisas</button>
+        <button class="profile-tab-btn" data-tab="preferencias"><i class="bi bi-gear-fill"></i> Preferências</button>
+      </div>
+
+      <!-- Tab Content 1: Meus Dados -->
+      <div class="profile-tab-content active" id="tab-dados">
+        <div class="card p-4" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); max-width: 600px;">
+          <h3 class="mb-3">Informações Pessoais</h3>
+          <div class="form-group mb-3">
+            <label class="form-label font-weight-bold">Nome Completo</label>
+            <input type="text" class="form-control p-2" value="<%= user.nome %>" readonly style="width:100%; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-input); color: var(--text-primary);">
+          </div>
+          <div class="form-group mb-4">
+            <label class="form-label font-weight-bold">E-mail Cadastrado</label>
+            <input type="email" class="form-control p-2" value="<%= user.email %>" readonly style="width:100%; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-input); color: var(--text-primary);">
+          </div>
+          <a href="/logout" class="btn btn-secondary text-danger"><i class="bi bi-box-arrow-right"></i> Sair da Conta</a>
+        </div>
+      </div>
+
+      <!-- Tab Content 2: Minhas Listas -->
+      <div class="profile-tab-content" id="tab-listas" style="display: none;">
+        <div class="card p-4" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg);">
+          <h3>Suas Listas de Compras</h3>
+          <p class="text-muted mb-4">Gerencie todas as suas listas de supermercado criadas.</p>
+          <a href="/minha-lista" class="btn btn-primary"><i class="bi bi-cart3"></i> Acessar Minha Lista Atual</a>
+        </div>
+      </div>
+
+      <!-- Tab Content 3: Histórico -->
+      <div class="profile-tab-content" id="tab-historico" style="display: none;">
+        <div class="card p-4" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg);">
+          <h3>Histórico Recente de Buscas</h3>
+          <ul class="list-group mt-3" style="list-style: none;">
+            <li class="py-2 border-bottom"><i class="bi bi-search text-muted me-2"></i> Arroz Tipo 1</li>
+            <li class="py-2 border-bottom"><i class="bi bi-search text-muted me-2"></i> Leite Integral</li>
+            <li class="py-2 border-bottom"><i class="bi bi-search text-muted me-2"></i> Café União 250g</li>
+            <li class="py-2"><i class="bi bi-search text-muted me-2"></i> Feijão Preto</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab Content 4: Preferências -->
+      <div class="profile-tab-content" id="tab-preferencias" style="display: none;">
+        <div class="card p-4" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); max-width: 600px;">
+          <h3>Preferências do Aplicativo</h3>
+          <div class="d-flex align-items-center justify-content-between py-3 border-bottom">
+            <div>
+              <strong>Notificações de Ofertas</strong>
+              <p class="text-muted small">Receber alertas de queda de preço</p>
+            </div>
+            <input type="checkbox" checked style="width:20px; height:20px; accent-color: var(--primary);">
+          </div>
+          <div class="d-flex align-items-center justify-content-between py-3">
+            <div>
+              <strong>Supermercado Favorito Principal</strong>
+              <p class="text-muted small">Definir supermercado de referência</p>
+            </div>
+            <select class="form-select p-2" style="border-radius: 8px; background: var(--bg-input); color: var(--text-primary); border: 1px solid var(--border-color);">
+              <option value="Atacadão">Atacadão</option>
+              <option value="Assaí">Assaí</option>
+              <option value="Mateus">Mateus</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    <% } else { %>
+      <!-- Unauthenticated State -->
+      <div class="text-center py-5">
+        <i class="bi bi-person-circle" style="font-size: 4rem; color: var(--text-muted);"></i>
+        <h2 class="mt-3">Você não está logado</h2>
+        <p class="text-muted mb-4">Entre com sua conta ou cadastre-se para acessar seu perfil e salvar suas listas.</p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="/login" class="btn btn-outline-nav">Fazer Login</a>
+          <a href="/cadastro" class="btn btn-primary">Criar Nova Conta</a>
+        </div>
+      </div>
+    <% } %>
+  </main>
+
+  <%- include('partials/modals') %>
+  <%- include('partials/footer') %>
+
+  <script src="/js/app-main.js"></script>
+  <script>
+    const tabBtns = document.querySelectorAll('.profile-tab-btn');
+    const tabContents = document.querySelectorAll('.profile-tab-content');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.style.display = 'none');
+
+        btn.classList.add('active');
+        const targetId = `tab-${btn.getAttribute('data-tab')}`;
+        document.getElementById(targetId).style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>
